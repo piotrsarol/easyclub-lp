@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, MouseEvent, useEffect, useState } from "react";
 
 const features = [
   ["01", "Harmonogram", "Tygodniowy i miesięczny widok zajęć, lokalizacji i trenerów — bez konfliktów w kalendarzu."],
@@ -16,6 +16,13 @@ const people = [
   ["Administrator", "Spokojny obraz całej organizacji, finansów i zespołu.", "01"],
   ["Trener", "Harmonogram, grupy i obecności bez papierów.", "02"],
   ["Rodzic", "Zajęcia dzieci, płatności, wiadomości i lokalizacje w jednym miejscu.", "03"],
+];
+
+const dashboardNotifications = [
+  ["✓", "Trener Marek oznaczył obecność — U-12", "teraz", "notification-green"],
+  ["◒", "Wpłata otrzymana: Jan Kowalski — 180 zł", "2 min", "notification-lime"],
+  ["!", "Trening U-10 przesunięty na 17:00", "5 min", "notification-amber"],
+  ["♧", "Nowy zawodnik dołączył do grupy U-12", "8 min", "notification-lime"],
 ];
 
 export default function Home() {
@@ -149,5 +156,23 @@ export default function Home() {
 }
 
 function DashboardMockup() {
-  return <div className="dashboard-wrap"><div className="dashboard-glow" /><div className="dashboard"><div className="dashboard-bar"><span className="window-dots">● ● ●</span><span>easyclub / harmonogram</span><span>•••</span></div><div className="dashboard-body"><aside><div className="side-logo"><span className="logo-mark">e</span> easyclub</div>{["Przegląd", "Harmonogram", "Zawodnicy", "Płatności", "Wiadomości"].map((item, i) => <div className={i === 1 ? "side-item selected" : "side-item"} key={item}><span>{["◈", "▦", "♧", "◒", "◌"][i]}</span>{item}</div>)}<div className="side-bottom">⚙ Ustawienia</div></aside><div className="dash-main"><div className="dash-heading"><div><small>WTOREK, 13 SIERPNIA</small><h3>Dobry dzień, Ania.</h3></div><span className="avatar">AK</span></div><div className="dash-stats"><div><small>ZAJĘCIA DZISIAJ</small><strong>08</strong><span>↗ +2 vs. wczoraj</span></div><div><small>OBECNOŚĆ</small><strong>94<span>%</span></strong><span>↗ +6% w tym tygodniu</span></div><div><small>DO OPŁACENIA</small><strong>12</strong><span className="warn">● wymaga uwagi</span></div></div><div className="dash-schedule"><div className="schedule-head"><strong>Dzisiejszy harmonogram</strong><span>Zobacz wszystko →</span></div>{[["16:00", "Grupa U10", "Boisko 2", "18 / 20"], ["17:30", "Grupa U12", "Hala główna", "16 / 18"], ["19:00", "Trening motoryczny", "Sala A", "12 / 12"]].map(([time, title, place, count], i) => <div className="dash-session" key={title}><strong>{time}</strong><div className={i === 1 ? "session-icon green" : "session-icon"}>✣</div><div><b>{title}</b><small>{place}</small></div><span className="attendees">{count}</span><i>•••</i></div>)}</div></div></div></div></div>;
+  const [notificationIndex, setNotificationIndex] = useState(0);
+  const [tilt, setTilt] = useState({ x: -5, y: 2 });
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setNotificationIndex((index) => (index + 1) % dashboardNotifications.length);
+    }, 2800);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  function handleMouseMove(event: MouseEvent<HTMLDivElement>) {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 10;
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * -7;
+    setTilt({ x: -5 + x, y: 2 + y });
+  }
+
+  return <div className="dashboard-wrap" onMouseMove={handleMouseMove} onMouseLeave={() => setTilt({ x: -5, y: 2 })} style={{ transform: `perspective(1100px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)` }}><div className="dashboard-glow" /><div className="dashboard dashboard-reveal"><div className="dashboard-bar"><span className="window-dots">● ● ●</span><span>easyclub / harmonogram</span><span className="dashboard-live"><i /> na żywo</span></div><div className="dashboard-body"><aside><div className="side-logo"><span className="logo-mark">e</span> easyclub</div>{["Przegląd", "Harmonogram", "Zawodnicy", "Płatności", "Wiadomości"].map((item, i) => <div className={i === 1 ? "side-item selected" : "side-item"} key={item}><span>{["◈", "▦", "♧", "◒", "◌"][i]}</span>{item}</div>)}<div className="side-bottom">⚙ Ustawienia</div></aside><div className="dash-main"><div className="dash-heading"><div><small>WTOREK, 13 SIERPNIA</small><h3>Dobry dzień, Ania.</h3></div><span className="avatar">AK</span></div><div className="dash-stats"><div className="stat-card-animated"><small>ZAJĘCIA DZISIAJ</small><strong>08</strong><span>↗ +2 vs. wczoraj</span></div><div className="stat-card-animated"><small>OBECNOŚĆ</small><strong>94<span>%</span></strong><span>↗ +6% w tym tygodniu</span></div><div className="stat-card-animated"><small>DO OPŁACENIA</small><strong>12</strong><span className="warn">● wymaga uwagi</span></div></div><div className="dash-schedule"><div className="schedule-head"><strong>Dzisiejszy harmonogram</strong><span>Zobacz wszystko →</span></div>{[["16:00", "Grupa U10", "Boisko 2", "18 / 20"], ["17:30", "Grupa U12", "Hala główna", "16 / 18"], ["19:00", "Trening motoryczny", "Sala A", "12 / 12"]].map(([time, title, place, count], i) => <div className="dash-session" key={title}><strong>{time}</strong><div className={i === 1 ? "session-icon green" : "session-icon"}>✣</div><div><b>{title}</b><small>{place}</small></div><span className="attendees">{count}</span><i>•••</i></div>)}</div></div></div></div><div className={`dashboard-notification ${dashboardNotifications[notificationIndex][3]}`} key={notificationIndex} aria-live="polite"><span className="notification-icon">{dashboardNotifications[notificationIndex][0]}</span><span><b>{dashboardNotifications[notificationIndex][1]}</b><small>{dashboardNotifications[notificationIndex][2]}</small></span></div></div>;
 }
