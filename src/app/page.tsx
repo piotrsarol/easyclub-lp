@@ -12,6 +12,16 @@ const features = [
   ["07", "PWA / mobile", "EasyClub działa na telefonie i można go zainstalować jak aplikację."],
 ];
 
+const featurePreviews = [
+  ["Widok administratora", "Dobry tydzień zaczyna się od dobrego planu.", "KALENDARZ"],
+  ["Widok trenera", "Obecność całej grupy w kilka sekund.", "OBECNOŚĆ"],
+  ["Baza zawodników", "Każdy zawodnik ma swoje miejsce.", "ZAWODNICY"],
+  ["Centrum finansów", "Płatności bez ręcznego szukania.", "PŁATNOŚCI"],
+  ["Wiadomości", "Ważne informacje docierają na czas.", "KOMUNIKACJA"],
+  ["Role i dostęp", "Każdy widzi dokładnie to, czego potrzebuje.", "DOSTĘP"],
+  ["EasyClub w telefonie", "Klub zawsze pod ręką.", "MOBILE"],
+] as const;
+
 const people = [
   ["Administrator", "Spokojny obraz całej organizacji, finansów i zespołu.", "01"],
   ["Trener", "Harmonogram, grupy i obecności bez papierów.", "02"],
@@ -27,6 +37,7 @@ const dashboardNotifications = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeFeature, setActiveFeature] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -133,8 +144,8 @@ export default function Home() {
       <section className="features-section section-shell" id="features">
         <div className="section-intro feature-heading"><div><div className="eyebrow">02 / Spokojne centrum dowodzenia</div><h2>Wszystko, czego<br />potrzebuje <em>klub.</em></h2></div><p>Proste narzędzia, które pracują razem. Bez przeklikiwania się przez pięć różnych systemów.</p></div>
         <div className="features-layout">
-          <div className="feature-list">{features.map(([number, title, description], index) => <div className={index === 0 ? "feature-item active" : "feature-item"} key={title}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div><b>↗</b></div>)}</div>
-          <div className="feature-preview"><div className="preview-top"><span>Widok administratora</span><span className="live-dot">● Na żywo</span></div><h3>Dobry tydzień zaczyna się<br />od dobrego planu.</h3><div className="mini-calendar">{["PON 12", "WT 13", "ŚR 14", "CZW 15"].map((day, i) => <div key={day}><small>{day}</small><strong>{["14", "15", "16", "17"][i]}:00</strong><span className={i === 1 ? "session lime" : "session"}>{["Grupa U10", "Trening motoryczny", "Grupa U12", "Mecz domowy"][i]}</span><span className="session faint">{["Sala A", "Boisko 2", "Hala główna", "Boisko 1"][i]}</span></div>)}</div></div>
+          <div className="feature-list">{features.map(([number, title, description], index) => <button type="button" className={index === activeFeature ? "feature-item active" : "feature-item"} key={title} onClick={() => setActiveFeature(index)} aria-pressed={index === activeFeature}><span>{number}</span><span className="feature-copy"><h3>{title}</h3><p>{description}</p></span><b>↗</b></button>)}</div>
+          <FeaturePreview activeFeature={activeFeature} />
         </div>
       </section>
 
@@ -175,4 +186,10 @@ function DashboardMockup() {
   }
 
   return <div className="dashboard-wrap" onMouseMove={handleMouseMove} onMouseLeave={() => setTilt({ x: -5, y: 2 })} style={{ transform: `perspective(1100px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)` }}><div className="dashboard-glow" /><div className="dashboard dashboard-reveal"><div className="dashboard-bar"><span className="window-dots">● ● ●</span><span>easyclub / harmonogram</span><span className="dashboard-live"><i /> na żywo</span></div><div className="dashboard-body"><aside><div className="side-logo"><span className="logo-mark">e</span> easyclub</div>{["Przegląd", "Harmonogram", "Zawodnicy", "Płatności", "Wiadomości"].map((item, i) => <div className={i === 1 ? "side-item selected" : "side-item"} key={item}><span>{["◈", "▦", "♧", "◒", "◌"][i]}</span>{item}</div>)}<div className="side-bottom">⚙ Ustawienia</div></aside><div className="dash-main"><div className="dash-heading"><div><small>WTOREK, 13 SIERPNIA</small><h3>Dobry dzień, Ania.</h3></div><span className="avatar">AK</span></div><div className="dash-stats"><div className="stat-card-animated"><small>ZAJĘCIA DZISIAJ</small><strong>08</strong><span>↗ +2 vs. wczoraj</span></div><div className="stat-card-animated"><small>OBECNOŚĆ</small><strong>94<span>%</span></strong><span>↗ +6% w tym tygodniu</span></div><div className="stat-card-animated"><small>DO OPŁACENIA</small><strong>12</strong><span className="warn">● wymaga uwagi</span></div></div><div className="dash-schedule"><div className="schedule-head"><strong>Dzisiejszy harmonogram</strong><span>Zobacz wszystko →</span></div>{[["16:00", "Grupa U10", "Boisko 2", "18 / 20"], ["17:30", "Grupa U12", "Hala główna", "16 / 18"], ["19:00", "Trening motoryczny", "Sala A", "12 / 12"]].map(([time, title, place, count], i) => <div className="dash-session" key={title}><strong>{time}</strong><div className={i === 1 ? "session-icon green" : "session-icon"}>✣</div><div><b>{title}</b><small>{place}</small></div><span className="attendees">{count}</span><i>•••</i></div>)}</div></div></div></div><div className={`dashboard-notification ${dashboardNotifications[notificationIndex][3]}`} key={notificationIndex} aria-live="polite"><span className="notification-icon">{dashboardNotifications[notificationIndex][0]}</span><span><b>{dashboardNotifications[notificationIndex][1]}</b><small>{dashboardNotifications[notificationIndex][2]}</small></span></div></div>;
+}
+
+function FeaturePreview({ activeFeature }: { activeFeature: number }) {
+  const [label, headline, kind] = featurePreviews[activeFeature];
+
+  return <div className="feature-preview" key={activeFeature}><div className="preview-top"><span>{label}</span><span className="live-dot">● Na żywo</span></div><h3>{headline}</h3><div className="preview-content">{kind === "KALENDARZ" && <div className="mini-calendar">{["PON 12", "WT 13", "ŚR 14", "CZW 15"].map((day, i) => <div key={day}><small>{day}</small><strong>{["14", "15", "16", "17"][i]}:00</strong><span className={i === 1 ? "session lime" : "session"}>{["Grupa U10", "Trening motoryczny", "Grupa U12", "Mecz domowy"][i]}</span><span className="session faint">{["Sala A", "Boisko 2", "Hala główna", "Boisko 1"][i]}</span></div>)}</div>}{kind === "OBECNOŚĆ" && <div className="preview-rows">{[["Jan Kowalski", "obecny"], ["Kacper Wójcik", "obecny"], ["Bartosz Lewandowski", "nieobecny"], ["Olek Nowak", "obecny"]].map(([name, status]) => <div className="preview-row" key={name}><span className="preview-avatar">{name[0]}</span><b>{name}</b><span className={status === "obecny" ? "status-present" : "status-absent"}>{status === "obecny" ? "✓ obecny" : "× nieobecny"}</span></div>)}</div>}{kind === "ZAWODNICY" && <div className="athlete-preview"><div className="athlete-card"><span className="large-avatar">JK</span><div><small>PROFIL ZAWODNIKA</small><b>Jan Kowalski</b><span>Grupa U-12 · napastnik</span></div></div><div className="athlete-meta"><span><small>OBECNOŚĆ</small><b>96%</b></span><span><small>GRUPA</small><b>U-12</b></span><span><small>DOŁĄCZYŁ</small><b>2023</b></span></div></div>}{kind === "PŁATNOŚCI" && <div className="preview-rows">{[["Karnet — Jan Kowalski", "180 zł", "Opłacone"], ["Składka — U-12", "240 zł", "Oczekuje"], ["Obóz letni", "850 zł", "Opłacone"], ["Karnet — Maja Wiśniewska", "180 zł", "Opłacone"]].map(([name, amount, status]) => <div className="preview-row payment-row" key={name}><span><b>{name}</b><small>{amount}</small></span><span className={status === "Opłacone" ? "status-present" : "status-pending"}>{status}</span></div>)}</div>}{kind === "KOMUNIKACJA" && <div className="message-preview"><div className="message-head"><span className="preview-avatar">AK</span><span><b>Anna Kowalska</b><small>Administrator · 2 min temu</small></span></div><p>Przypominamy o sobotnim turnieju. Zbiórka o 8:30 przy wejściu głównym.</p><div className="message-replies"><span>U-12 · 24 odbiorców</span><b>Wyślij wiadomość ↗</b></div></div>}{kind === "DOSTĘP" && <div className="role-preview">{[["Administrator", "Pełny dostęp", "role-admin"], ["Trener", "Grupy i obecności", "role-coach"], ["Rodzic", "Dzieci i płatności", "role-parent"]].map(([role, access, className]) => <div className="role-row" key={role}><span className={`role-icon ${className}`}>{role[0]}</span><span><b>{role}</b><small>{access}</small></span><i>✓</i></div>)}</div>}{kind === "MOBILE" && <div className="mobile-preview"><div className="phone-shell"><div className="phone-notch" /><small>easyclub · dziś</small><b>Dobry dzień, Ania.</b><div className="phone-card"><small>NAJBLIŻSZE ZAJĘCIA</small><strong>Grupa U-12</strong><span>17:30 · Hala główna</span></div><div className="phone-card light"><small>OBECNOŚĆ</small><strong>22 / 24</strong><span>Wszystko gotowe</span></div></div></div>}</div></div>;
 }
