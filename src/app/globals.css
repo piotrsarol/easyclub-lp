@@ -34,3 +34,6 @@
 .phone-attendance{justify-content:space-between;background:rgba(200,241,105,.13)}.phone-attendance>span{gap:4px}.phone-attendance strong{font-size:17px}.phone-attendance strong em{font-size:9px;color:#829180;font-style:normal}.phone-attendance>b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(200,241,105,.22);color:var(--lime);font-size:12px}
 .phone-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin:17px -2px -3px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);text-align:center}.phone-nav span{display:grid;gap:3px;color:#6f7d6e;font:7px "DM Mono",monospace}.phone-nav i{font-size:13px;font-style:normal}.phone-nav .active{color:var(--lime)}
 @media (max-width:760px){.phone-shell{width:190px;min-height:350px}.phone-greeting strong{font-size:15px}.phone-card em{max-width:115px}}
+
+.hero-benefits{width:max-content;max-width:100%}.trust-strip .strip-line{opacity:.45}
+@media (max-width:620px){.hero-benefits{width:100%}}
