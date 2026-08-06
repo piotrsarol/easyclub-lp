@@ -46,7 +46,8 @@ export default function Home() {
     event.preventDefault();
     setLoading(true);
     setError("");
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const value = (name: string) => String(form.get(name) ?? "");
     const payload = {
       clubName: value("clubName"),
@@ -69,7 +70,7 @@ export default function Home() {
       const data = (await response.json()) as { error?: string };
       if (!response.ok) throw new Error(data.error || "Coś poszło nie tak.");
       setSubmitted(true);
-      event.currentTarget.reset();
+      formElement.reset();
     } catch (submissionError) {
       setError(submissionError instanceof Error ? submissionError.message : "Spróbuj ponownie.");
     } finally {
