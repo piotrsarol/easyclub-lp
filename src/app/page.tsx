@@ -237,7 +237,7 @@ export default function Home() {
               </select>
             </Field>
           </div>
-          <Field label="Wiadomość (opcjonalnie)" name="message" error={fieldErrors.message}>
+          <Field label={<>Wiadomość <span className="optional">opcjonalnie</span></>} name="message" error={fieldErrors.message}>
             <textarea name="message" rows={3} placeholder="Napisz kilka słów o swoim klubie..." aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? "message-error" : undefined} />
           </Field>
           <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" />
