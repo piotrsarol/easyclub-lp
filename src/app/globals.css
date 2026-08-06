@@ -45,4 +45,4 @@
 @media (max-width:620px){.feature-item p{font-size:13px}.trust-strip{font-size:10px}.nav-links{font-size:14px}}
 .eyebrow{font-size:13px}.nav-links{font-size:15px}.hero-benefits{font-size:13px}.dashboard-bar{font-size:11px}.dash-heading small,.dash-stats small{font-size:10px}.dash-stats span{font-size:10px}.schedule-head{font-size:12px}.schedule-head span{font-size:10px}.feature-item p{font-size:15px}.person-card p{font-size:15px}.model-copy p{font-size:15px}.pilot-copy>p{font-size:15px}.site-footer{font-size:14px}.trust-strip{font-size:12px}
 @media (max-width:620px){.hero-benefits{font-size:12px}.feature-item p{font-size:14px}.person-card p{font-size:14px}.model-copy p,.pilot-copy>p{font-size:14px}.trust-strip{font-size:11px}}
-.pilot-section h2 em{color:#5a7d0c}
+.pilot-section h2 em{color:var(--lime)}
