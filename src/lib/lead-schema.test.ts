@@ -6,6 +6,7 @@ const validLead = {
   contactName: "Jan Kowalski",
   email: "jan@orlik.pl",
   organizationType: "Akademia" as const,
+  clubSize: "51–150 zawodników" as const,
   consent: true as const,
   website: "",
 };
@@ -17,6 +18,7 @@ describe("leadSchema", () => {
 
   it("rejects incomplete or invalid contact details", () => {
     expect(leadSchema.safeParse({ ...validLead, email: "nie-email" }).success).toBe(false);
+    expect(leadSchema.safeParse({ ...validLead, clubSize: "" }).success).toBe(false);
     expect(leadSchema.safeParse({ ...validLead, consent: false }).success).toBe(false);
   });
 });
