@@ -47,8 +47,18 @@ export default function Home() {
     setLoading(true);
     setError("");
     const form = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(form.entries());
-    payload.consent = form.get("consent") === "on" ? "true" : "false";
+    const value = (name: string) => String(form.get(name) ?? "");
+    const payload = {
+      clubName: value("clubName"),
+      contactName: value("contactName"),
+      email: value("email"),
+      phone: value("phone"),
+      clubSize: value("clubSize"),
+      organizationType: value("organizationType"),
+      message: value("message"),
+      consent: form.get("consent") === "on",
+      website: value("website"),
+    };
 
     try {
       const response = await fetch("/api/leads", {
