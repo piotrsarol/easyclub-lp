@@ -13,38 +13,49 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const leadsTable = process.env.SUPABASE_LEADS_TABLE ?? "pilot_leads";
+  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+  const webhookSecret = process.env.GOOGLE_SHEETS_WEBHOOK_SECRET;
 
-  if (!supabaseUrl || !supabaseKey) {
+  if (!webhookUrl || !webhookSecret) {
     return NextResponse.json(
       { error: "Formularz nie jest jeszcze podłączony. Napisz do nas bezpośrednio: hello@easyclub.pl." },
       { status: 503 },
     );
   }
 
-  const response = await fetch(`${supabaseUrl}/rest/v1/${leadsTable}`, {
-    method: "POST",
-    headers: {
-      apikey: supabaseKey,
-      Authorization: `Bearer ${supabaseKey}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
-    },
-    body: JSON.stringify({
-      club_name: result.data.clubName,
-      contact_name: result.data.contactName,
-      email: result.data.email,
-      phone: result.data.phone || null,
-      club_size: result.data.clubSize || null,
-      organization_type: result.data.organizationType,
-      message: result.data.message || null,
-      consent: result.data.consent,
-    }),
-  });
+  let response: Response;
 
-  if (!response.ok) {
+  try {
+    response = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: webhookSecret,
+        submittedAt: new Date().toISOString(),
+        clubName: result.data.clubName,
+        contactName: result.data.contactName,
+        email: result.data.email,
+        phone: result.data.phone || "",
+        clubSize: result.data.clubSize || "",
+        organizationType: result.data.organizationType,
+        message: result.data.message || "",
+        consent: result.data.consent,
+      }),
+    });
+  } catch {
+    return NextResponse.json({ error: "Nie udało się zapisać zgłoszenia. Spróbuj ponownie." }, { status: 502 });
+  }
+
+  const webhookBody = await response.text();
+  let webhookResult: { ok?: boolean } | null = null;
+
+  try {
+    webhookResult = JSON.parse(webhookBody) as { ok?: boolean };
+  } catch {
+    webhookResult = null;
+  }
+
+  if (!response.ok || webhookResult?.ok === false) {
     return NextResponse.json({ error: "Nie udało się zapisać zgłoszenia. Spróbuj ponownie." }, { status: 502 });
   }
 
