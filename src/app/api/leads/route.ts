@@ -6,7 +6,17 @@ export async function POST(request: Request) {
   const result = leadSchema.safeParse(body);
 
   if (!result.success) {
-    return NextResponse.json({ error: "Sprawdź zaznaczone pola i spróbuj ponownie." }, { status: 400 });
+    const fieldErrors: Record<string, string> = {};
+
+    for (const issue of result.error.issues) {
+      const field = String(issue.path[0] ?? "form");
+      fieldErrors[field] ??= issue.message;
+    }
+
+    return NextResponse.json(
+      { error: "Sprawdź zaznaczone pola i spróbuj ponownie.", fieldErrors },
+      { status: 400 },
+    );
   }
 
   if (result.data.website) {

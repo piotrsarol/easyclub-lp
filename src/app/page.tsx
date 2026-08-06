@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, MouseEvent, useEffect, useState } from "react";
+import { clubSizeOptions, leadSchema } from "@/lib/lead-schema";
 
 const features = [
   ["01", "Harmonogram", "Tygodniowy i miesięczny widok zajęć, lokalizacji i trenerów — bez konfliktów w kalendarzu."],
@@ -41,11 +42,13 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
     setError("");
+    setFieldErrors({});
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     const value = (name: string) => String(form.get(name) ?? "");
@@ -60,6 +63,29 @@ export default function Home() {
       consent: form.get("consent") === "on",
       website: value("website"),
     };
+    const validation = leadSchema.safeParse(payload);
+
+    if (!validation.success) {
+      const nextErrors: Record<string, string> = {};
+
+      for (const issue of validation.error.issues) {
+        const field = String(issue.path[0] ?? "form");
+        nextErrors[field] ??= issue.message;
+      }
+
+      setFieldErrors(nextErrors);
+      setError("Sprawdź zaznaczone pola i popraw wskazane wartości.");
+      setLoading(false);
+
+      const firstInvalidField = Object.keys(nextErrors).find((field) => field !== "form");
+      if (firstInvalidField) {
+        requestAnimationFrame(() => {
+          formElement.querySelector<HTMLElement>(`[name="${firstInvalidField}"]`)?.focus();
+        });
+      }
+
+      return;
+    }
 
     try {
       const response = await fetch("/api/leads", {
@@ -67,7 +93,16 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = (await response.json()) as { error?: string };
+      const data = (await response.json()) as { error?: string; fieldErrors?: Record<string, string> };
+      if (data.fieldErrors) {
+        setFieldErrors(data.fieldErrors);
+        const firstInvalidField = Object.keys(data.fieldErrors).find((field) => field !== "form");
+        if (firstInvalidField) {
+          requestAnimationFrame(() => {
+            formElement.querySelector<HTMLElement>(`[name="${firstInvalidField}"]`)?.focus();
+          });
+        }
+      }
       if (!response.ok) throw new Error(data.error || "Coś poszło nie tak.");
       setSubmitted(true);
       formElement.reset();
@@ -169,11 +204,75 @@ export default function Home() {
 
       <section className="pilot-section section-shell" id="pilot">
         <div className="pilot-copy"><div className="eyebrow"><span className="pulse-dot" /> Program pilotażowy</div><h2>Zobacz EasyClub<br /><em>w swoim klubie.</em></h2><p>Dołącz do klubów, które pomagają nam zbudować najlepsze narzędzie do codziennej pracy.</p><div className="pilot-note"><span>→</span><div><strong>Bez zobowiązań na start.</strong><br />Porozmawiamy, pokażemy produkt i wspólnie ocenimy, czy to dobry moment.</div></div></div>
-        <form className="lead-form" onSubmit={handleSubmit}><div className="form-row"><label>Nazwa klubu <input name="clubName" required placeholder="np. Akademia Orlik" /></label><label>Imię i nazwisko <input name="contactName" required placeholder="Jan Kowalski" /></label></div><div className="form-row"><label>E-mail <input type="email" name="email" required placeholder="jan@klub.pl" /></label><label>Telefon <span className="optional">opcjonalnie</span><input name="phone" placeholder="+48 000 000 000" /></label></div><div className="form-row"><label>Typ organizacji <select name="organizationType" defaultValue="Klub sportowy"><option>Klub sportowy</option><option>Akademia</option><option>Szkółka</option><option>Inny</option></select></label><label>Rozmiar klubu <span className="optional">opcjonalnie</span><input name="clubSize" placeholder="np. 120 zawodników" /></label></div><label>Wiadomość <textarea name="message" rows={3} placeholder="Napisz kilka słów o swoim klubie..." /></label><input className="honeypot" name="website" tabIndex={-1} autoComplete="off" /><label className="consent"><input type="checkbox" name="consent" required /> <span>Wyrażam zgodę na kontakt w sprawie programu pilotażowego EasyClub.</span></label>{error && <p className="form-message error">{error}</p>}{submitted ? <p className="form-message success">Dziękujemy — zgłoszenie dotarło. Odezwiemy się wkrótce.</p> : <button className="button form-button" disabled={loading}>{loading ? "Wysyłamy..." : "Zgłoś klub do pilotażu"} <span>↗</span></button>}</form>
+        <form className="lead-form" onSubmit={handleSubmit} noValidate>
+          <div className="form-row">
+            <Field label="Nazwa klubu" name="clubName" error={fieldErrors.clubName}>
+              <input name="clubName" placeholder="np. Akademia Orlik" aria-invalid={Boolean(fieldErrors.clubName)} aria-describedby={fieldErrors.clubName ? "clubName-error" : undefined} />
+            </Field>
+            <Field label="Imię i nazwisko" name="contactName" error={fieldErrors.contactName}>
+              <input name="contactName" placeholder="Jan Kowalski" aria-invalid={Boolean(fieldErrors.contactName)} aria-describedby={fieldErrors.contactName ? "contactName-error" : undefined} />
+            </Field>
+          </div>
+          <div className="form-row">
+            <Field label="E-mail" name="email" error={fieldErrors.email}>
+              <input type="email" name="email" placeholder="jan@klub.pl" aria-invalid={Boolean(fieldErrors.email)} aria-describedby={fieldErrors.email ? "email-error" : undefined} />
+            </Field>
+            <Field label={<>Telefon <span className="optional">opcjonalnie</span></>} name="phone" error={fieldErrors.phone}>
+              <input name="phone" placeholder="+48 000 000 000" aria-invalid={Boolean(fieldErrors.phone)} aria-describedby={fieldErrors.phone ? "phone-error" : undefined} />
+            </Field>
+          </div>
+          <div className="form-row">
+            <Field label="Typ organizacji" name="organizationType" error={fieldErrors.organizationType}>
+              <select name="organizationType" defaultValue="Klub sportowy" aria-invalid={Boolean(fieldErrors.organizationType)} aria-describedby={fieldErrors.organizationType ? "organizationType-error" : undefined}>
+                <option>Klub sportowy</option>
+                <option>Akademia</option>
+                <option>Szkółka</option>
+                <option>Inny</option>
+              </select>
+            </Field>
+            <Field label="Rozmiar klubu" name="clubSize" error={fieldErrors.clubSize}>
+              <select name="clubSize" defaultValue="" aria-invalid={Boolean(fieldErrors.clubSize)} aria-describedby={fieldErrors.clubSize ? "clubSize-error" : undefined}>
+                <option value="" disabled>Wybierz rozmiar klubu…</option>
+                {clubSizeOptions.map((option) => <option key={option}>{option}</option>)}
+              </select>
+            </Field>
+          </div>
+          <Field label="Wiadomość" name="message" error={fieldErrors.message}>
+            <textarea name="message" rows={3} placeholder="Napisz kilka słów o swoim klubie..." aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? "message-error" : undefined} />
+          </Field>
+          <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" />
+          <label className="consent">
+            <input type="checkbox" name="consent" aria-invalid={Boolean(fieldErrors.consent)} aria-describedby={fieldErrors.consent ? "consent-error" : undefined} />
+            <span>Wyrażam zgodę na kontakt w sprawie programu pilotażowego EasyClub.</span>
+          </label>
+          {fieldErrors.consent && <span id="consent-error" className="field-error">{fieldErrors.consent}</span>}
+          {error && <p className="form-message error" role="alert">{error}</p>}
+          {submitted ? <p className="form-message success">Dziękujemy — zgłoszenie dotarło. Odezwiemy się wkrótce.</p> : <button className="button form-button" disabled={loading}>{loading ? "Wysyłamy..." : "Zgłoś klub do pilotażu"} <span>↗</span></button>}
+        </form>
       </section>
 
       <footer className="site-footer section-shell"><a className="logo" href="#top"><span className="logo-mark">e</span> easy<span>club</span></a><p>Jedno miejsce do zarządzania klubem sportowym.</p><div className="footer-links"><a href="mailto:hello@easyclub.pl">Kontakt</a><a href="#pilot">Polityka prywatności</a><a href="#pilot">Regulamin</a></div><small>© 2025 EasyClub</small></footer>
     </main>
+  );
+}
+
+function Field({
+  label,
+  name,
+  error,
+  children,
+}: {
+  label: React.ReactNode;
+  name: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label>
+      {label}
+      {children}
+      {error && <span id={`${name}-error`} className="field-error">{error}</span>}
+    </label>
   );
 }
 
