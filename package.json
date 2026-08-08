@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "blog:draft": "node scripts/generate-blog-draft.mjs"
+    "blog:draft": "node scripts/generate-blog-draft.mjs",
+    "blog:publish": "node scripts/generate-and-publish-blog.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

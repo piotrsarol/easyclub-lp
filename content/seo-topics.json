@@ -1,0 +1,114 @@
+[
+  {
+    "id": "cennik-skladek",
+    "topic": "Cennik składek w klubie sportowym — jak ustalić opłaty?",
+    "category": "Finanse klubu",
+    "primaryKeyword": "cennik składek w klubie sportowym",
+    "secondaryKeywords": [
+      "ile wynosi składka w klubie sportowym",
+      "jak ustalić składkę członkowską",
+      "opłaty za treningi dzieci"
+    ],
+    "intent": "informacyjno-komercyjna",
+    "priority": 1,
+    "brief": "Praktyczny materiał dla małych klubów i akademii. Wyjaśnij, jakie koszty uwzględnić, jak komunikować podwyżkę i jak unikać zaniżania ceny. Nie podawaj niezweryfikowanych stawek rynkowych."
+  },
+  {
+    "id": "zalegle-skladki",
+    "topic": "Jak pilnować składek i zaległych płatności w klubie sportowym?",
+    "category": "Finanse klubu",
+    "primaryKeyword": "zaległe składki w klubie sportowym",
+    "secondaryKeywords": [
+      "jak przypominać o składkach",
+      "płatności w klubie sportowym",
+      "składki za treningi dzieci"
+    ],
+    "intent": "problemowa",
+    "priority": 2,
+    "brief": "Pokaż prosty proces: terminy, rejestr wpłat, neutralne przypomnienia i obsługa wyjątków. Skup się na ograniczeniu ręcznej pracy, bez obietnic automatycznego odzyskiwania pieniędzy."
+  },
+  {
+    "id": "excel-czy-system",
+    "topic": "Excel czy system do zarządzania klubem sportowym?",
+    "category": "Organizacja klubu",
+    "primaryKeyword": "program do zarządzania klubem sportowym",
+    "secondaryKeywords": [
+      "zarządzanie klubem sportowym Excel",
+      "system dla klubu sportowego",
+      "program dla akademii sportowej"
+    ],
+    "intent": "porównawcza",
+    "priority": 3,
+    "brief": "Uczciwe porównanie dla małych organizacji: kiedy arkusz wystarcza, gdzie pojawiają się koszty chaosu i jak ocenić gotowy system. Nie twórz tabeli funkcji, których EasyClub nie ma."
+  },
+  {
+    "id": "grafik-treningow",
+    "topic": "Jak uporządkować grafik treningów i zastępstwa trenerów?",
+    "category": "Organizacja klubu",
+    "primaryKeyword": "grafik treningów w klubie sportowym",
+    "secondaryKeywords": [
+      "harmonogram treningów klubu",
+      "zastępstwo trenera",
+      "organizacja zajęć sportowych"
+    ],
+    "intent": "praktyczna",
+    "priority": 4,
+    "brief": "Zaproponuj proces tworzenia grafiku, komunikowania zmian i pilnowania konfliktów. Materiał ma być przydatny niezależnie od narzędzia."
+  },
+  {
+    "id": "frekwencja-treningow",
+    "topic": "Lista obecności na treningach — jak mierzyć frekwencję?",
+    "category": "Praca trenera",
+    "primaryKeyword": "lista obecności na treningach",
+    "secondaryKeywords": [
+      "frekwencja zawodników",
+      "obecności na treningach",
+      "lista obecności klub sportowy"
+    ],
+    "intent": "problemowa",
+    "priority": 5,
+    "brief": "Wyjaśnij, jakie statusy obecności warto stosować, kto powinien uzupełniać listę i jak używać danych do poprawy organizacji. Nie obiecuj diagnozowania formy sportowej."
+  },
+  {
+    "id": "komunikacja-z-rodzicami",
+    "topic": "Zasady komunikacji z rodzicami w akademii sportowej",
+    "category": "Komunikacja",
+    "primaryKeyword": "komunikacja z rodzicami w klubie sportowym",
+    "secondaryKeywords": [
+      "rodzice i trenerzy komunikacja",
+      "zasady komunikacji akademia sportowa",
+      "wiadomości do rodziców zawodników"
+    ],
+    "intent": "praktyczna",
+    "priority": 6,
+    "brief": "Przedstaw zasady kanałów, pilnych komunikatów, pytań i granic kontaktu. Ton spokojny, bez obwiniania rodziców ani trenerów."
+  },
+  {
+    "id": "rozliczanie-trenerow",
+    "topic": "Jak rozliczać wynagrodzenia trenerów w klubie sportowym?",
+    "category": "Finanse klubu",
+    "primaryKeyword": "wynagrodzenie trenera w klubie sportowym",
+    "secondaryKeywords": [
+      "rozliczanie trenerów",
+      "stawka trenera za trening",
+      "umowa z trenerem sportowym"
+    ],
+    "intent": "informacyjna",
+    "priority": 7,
+    "brief": "Omów ewidencję zajęć, zastępstw i dodatkowych wydarzeń oraz potrzebę uzgodnienia modelu rozliczeń. Zastrzeż, że kwestie prawne i podatkowe wymagają księgowego."
+  },
+  {
+    "id": "zalozenie-akademii",
+    "topic": "Jak założyć akademię sportową? Koszty i organizacja",
+    "category": "Rozwój klubu",
+    "primaryKeyword": "jak założyć akademię sportową",
+    "secondaryKeywords": [
+      "jak założyć szkółkę sportową",
+      "akademia piłkarska koszty",
+      "formalności klub sportowy"
+    ],
+    "intent": "informacyjna",
+    "priority": 8,
+    "brief": "Materiał startowy o modelu działania, obiekcie, trenerach, zapisach i administracji. Nie podawaj konkretnych kosztów ani wymogów prawnych bez aktualnego źródła."
+  }
+]

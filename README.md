@@ -72,13 +72,13 @@ The lead route sends data server-side, so the webhook URL and secret are not inc
 
 The landing includes `@vercel/analytics`. After a production deployment, enable Web Analytics in the Vercel project dashboard to see privacy-focused visitor, page-view, and bounce-rate metrics. It does not add Google Analytics, Meta Pixel, or advertising trackers.
 
-## Blog draft workflow
+## Blog draft and publishing workflow
 
-The repository includes an optional, free-tier Gemini workflow for preparing article drafts. It never publishes content automatically.
+The repository includes two free-tier Gemini workflows:
 
 1. Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey).
 2. Add it to GitHub as an Actions secret named `GEMINI_API_KEY`.
-3. In GitHub, open **Actions → Generate blog draft → Run workflow** and provide the topic, category and optional keywords.
+3. For a manual draft, open **Actions → Generate blog draft → Run workflow** and provide the topic, category and optional keywords.
 4. Download the `blog-draft` artifact, review the Polish copy and SEO fields, then manually add the approved article to `src/lib/blog.ts`.
 
 For local generation:
@@ -88,3 +88,9 @@ GEMINI_API_KEY=... npm run blog:draft -- "Jak uporządkować grafik treningów?"
 ```
 
 The free Gemini API tier has rate limits and Google may use free-tier prompts and responses to improve its products. The workflow currently uses `gemini-3.6-flash`; override `GEMINI_MODEL` if Google AI Studio assigns a different free model to your project. Do not send private club, parent or athlete data in prompts.
+
+### Automatic publication
+
+`Generate and publish blog article` runs once a week on Monday or can be started manually. It selects the highest-priority unpublished topic from `content/seo-topics.json`, generates the article, validates the SEO limits and article structure, runs the full quality checks, commits the article to `main`, and lets Vercel deploy it.
+
+The workflow is intentionally limited to one article per run. Topics are selected from the committed backlog until Google Search Console data is supplied. After adding a Search Console export, update the backlog briefs rather than sending private club or member data to Gemini. Automatic publication does not include a human editorial review, so keep only evergreen, non-legal topics in the automatic backlog.
