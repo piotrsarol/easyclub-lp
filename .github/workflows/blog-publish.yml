@@ -1,0 +1,47 @@
+name: Generate and publish blog article
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Generate and publish article
+        run: npm run blog:publish
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-3.6-flash
+      - name: Verify published site
+        run: |
+          npm run lint
+          npm run typecheck
+          npm test
+          npm run build
+      - name: Commit and push article
+        run: |
+          git config user.name "easyclub-blog-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/seo-topics.json src/lib/blog.ts
+          git diff --cached --quiet && { echo "Brak zmian do publikacji."; exit 0; }
+          git commit -m "content: publish automated blog article"
+          git push origin main
