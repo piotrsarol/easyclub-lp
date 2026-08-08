@@ -71,3 +71,20 @@ The lead route sends data server-side, so the webhook URL and secret are not inc
 ## Vercel Web Analytics
 
 The landing includes `@vercel/analytics`. After a production deployment, enable Web Analytics in the Vercel project dashboard to see privacy-focused visitor, page-view, and bounce-rate metrics. It does not add Google Analytics, Meta Pixel, or advertising trackers.
+
+## Blog draft workflow
+
+The repository includes an optional, free-tier Gemini workflow for preparing article drafts. It never publishes content automatically.
+
+1. Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey).
+2. Add it to GitHub as an Actions secret named `GEMINI_API_KEY`.
+3. In GitHub, open **Actions → Generate blog draft → Run workflow** and provide the topic, category and optional keywords.
+4. Download the `blog-draft` artifact, review the Polish copy and SEO fields, then manually add the approved article to `src/lib/blog.ts`.
+
+For local generation:
+
+```bash
+GEMINI_API_KEY=... npm run blog:draft -- "Jak uporządkować grafik treningów?"
+```
+
+The free Gemini API tier has rate limits and Google may use free-tier prompts and responses to improve its products. Do not send private club, parent or athlete data in prompts.

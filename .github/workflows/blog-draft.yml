@@ -1,0 +1,43 @@
+name: Generate blog draft
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Temat artykułu"
+        required: true
+        type: string
+      category:
+        description: "Kategoria"
+        required: true
+        default: "Organizacja klubu"
+        type: string
+      keywords:
+        description: "Słowa kluczowe lub intencja wyszukiwania"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate draft
+        run: node scripts/generate-blog-draft.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
+          TOPIC: ${{ inputs.topic }}
+          CATEGORY: ${{ inputs.category }}
+          KEYWORDS: ${{ inputs.keywords }}
+      - name: Upload draft artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-draft
+          path: content/blog-drafts/*.json
