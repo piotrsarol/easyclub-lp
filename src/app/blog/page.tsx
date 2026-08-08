@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { blogPosts } from "@/lib/blog";
 import { BlogFooter, BlogHeader } from "./blog-chrome";
 
@@ -25,7 +26,7 @@ export default function BlogPage() {
         <div className="blog-grid">
           {blogPosts.map((post, index) => (
             <Link className={`blog-card blog-card-${post.accent}`} href={`/blog/${post.slug}`} key={post.slug}>
-              <div className="blog-card-art"><span>0{index + 1}</span><i>{post.category}</i><strong>easyclub</strong></div>
+              <div className="blog-card-art"><span>0{index + 1}</span><i>{post.category}</i><Image src="/brand/logo-horizontal.svg" alt="" width={272} height={64} /></div>
               <div className="blog-card-body">
                 <div className="blog-meta"><span>{post.date}</span><span>{post.readTime}</span></div>
                 <h2>{post.title}</h2>

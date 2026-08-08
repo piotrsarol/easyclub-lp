@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { BlogFooter, BlogHeader } from "../blog-chrome";
 import { blogPosts, getBlogPost } from "@/lib/blog";
@@ -27,7 +28,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         <div className="article-kicker"><span>{post.category}</span><span>{post.date} · {post.readTime}</span></div>
         <h1>{post.title}</h1>
         <p className="article-lead">{post.excerpt}</p>
-        <div className={`article-art article-art-${post.accent}`}><span>easyclub</span><b>01</b></div>
+        <div className={`article-art article-art-${post.accent}`}><Image src="/brand/logo-horizontal.svg" alt="" width={272} height={64} /><b>01</b></div>
         <div className="article-content">
           {post.sections.map((section) => (
             <section key={section.heading}>

@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     description: "Jedno miejsce do zarządzania klubem sportowym.",
     type: "website",
     locale: "pl_PL",
+    images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "EasyClub" }],
+  },
+  icons: {
+    icon: "/brand/favicon.svg",
+    apple: "/brand/apple-touch-icon.svg",
   },
 };
 
