@@ -12,7 +12,15 @@ export const metadata: Metadata = {
     description: "Jedno miejsce do zarządzania klubem sportowym.",
     type: "website",
     locale: "pl_PL",
+    url: "https://easyclub.pl/",
     images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "EasyClub" }],
+  },
+  alternates: { canonical: "/" },
+  twitter: {
+    card: "summary_large_image",
+    title: "EasyClub — mniej administracji, więcej sportu",
+    description: "Jedno miejsce do zarządzania klubem sportowym.",
+    images: ["/brand/og-image.png"],
   },
   icons: {
     icon: "/brand/favicon.svg",
@@ -24,6 +32,28 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pl">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "EasyClub",
+                url: "https://easyclub.pl",
+                logo: "https://easyclub.pl/brand/logo-horizontal-onDark.svg",
+                email: "hello@easyclub.pl",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "EasyClub",
+                url: "https://easyclub.pl",
+                inLanguage: "pl-PL",
+              },
+            ]),
+          }}
+        />
         {children}
         <Analytics />
       </body>
