@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, MouseEvent, useEffect, useState } from "react";
+import Link from "next/link";
 import { clubSizeOptions, leadSchema } from "@/lib/lead-schema";
 
 const features = [
@@ -128,6 +129,7 @@ export default function Home() {
           <a href="#why" onClick={() => setMenuOpen(false)}>Dlaczego EasyClub</a>
           <a href="#features" onClick={() => setMenuOpen(false)}>Funkcje</a>
           <a href="#for-whom" onClick={() => setMenuOpen(false)}>Dla kogo</a>
+          <Link href="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
           <a href="#pilot" onClick={() => setMenuOpen(false)}>Pilotaż</a>
         </nav>
         <a className="button button-small header-cta" href="#pilot">Zgłoś klub <span>↗</span></a>
@@ -251,7 +253,7 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="site-footer section-shell"><a className="logo" href="#top"><span className="logo-mark">e</span> easy<span>club</span></a><p>Jedno miejsce do zarządzania klubem sportowym.</p><div className="footer-links"><a href="mailto:hello@easyclub.pl">Kontakt</a><a href="#pilot">Polityka prywatności</a><a href="#pilot">Regulamin</a></div><small>© 2025 EasyClub</small></footer>
+      <footer className="site-footer section-shell"><a className="logo" href="#top"><span className="logo-mark">e</span> easy<span>club</span></a><p>Jedno miejsce do zarządzania klubem sportowym.</p><div className="footer-links"><a href="mailto:hello@easyclub.pl">Kontakt</a><Link href="/blog">Blog</Link><a href="#pilot">Polityka prywatności</a><a href="#pilot">Regulamin</a></div><small>© 2025 EasyClub</small></footer>
     </main>
   );
 }
