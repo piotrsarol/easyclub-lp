@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BlogFooter, BlogHeader } from "@/app/blog/page";
+import { BlogFooter, BlogHeader } from "../blog-chrome";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 
 export function generateStaticParams() {
