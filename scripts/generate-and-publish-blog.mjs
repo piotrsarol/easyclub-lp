@@ -169,7 +169,5 @@ function escapeForSearch(value) {
 }
 
 function serialize(value, indent = 2) {
-  return JSON.stringify(value, null, indent)
-    .replace(/"([^"]+)":/g, "$1:")
-    .replace(/"([^"]+)"/g, (_, text) => `"${text.replaceAll('"', '\\"')}"`);
+  return JSON.stringify(value, null, indent);
 }
