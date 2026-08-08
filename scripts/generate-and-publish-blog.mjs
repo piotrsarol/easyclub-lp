@@ -103,9 +103,9 @@ const post = {
 };
 
 const insertion = `  ${serialize(post)},\n`;
-const marker = "\n];\n\nexport function getBlogPost";
-const markerIndex = blogSource.indexOf(marker);
-if (markerIndex === -1) {
+const arrayStart = blogSource.indexOf("export const blogPosts: BlogPost[] = [");
+const markerIndex = arrayStart === -1 ? -1 : blogSource.indexOf("];", arrayStart);
+if (arrayStart === -1 || markerIndex === -1) {
   throw new Error("Nie znaleziono bezpiecznego miejsca do publikacji w src/lib/blog.ts.");
 }
 
