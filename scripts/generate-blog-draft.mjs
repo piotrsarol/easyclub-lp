@@ -5,7 +5,7 @@ const topic = process.env.TOPIC || process.argv[2];
 const category = process.env.CATEGORY || process.argv[3] || "Organizacja klubu";
 const keywords = process.env.KEYWORDS || process.argv[4] || "";
 const apiKey = process.env.GEMINI_API_KEY;
-const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+const model = process.env.GEMINI_MODEL || "gemini-3.6-flash";
 
 if (!topic) {
   throw new Error('Podaj temat: npm run blog:draft -- "Temat artykułu"');

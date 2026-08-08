@@ -87,4 +87,4 @@ For local generation:
 GEMINI_API_KEY=... npm run blog:draft -- "Jak uporządkować grafik treningów?"
 ```
 
-The free Gemini API tier has rate limits and Google may use free-tier prompts and responses to improve its products. Do not send private club, parent or athlete data in prompts.
+The free Gemini API tier has rate limits and Google may use free-tier prompts and responses to improve its products. The workflow currently uses `gemini-3.6-flash`; override `GEMINI_MODEL` if Google AI Studio assigns a different free model to your project. Do not send private club, parent or athlete data in prompts.
