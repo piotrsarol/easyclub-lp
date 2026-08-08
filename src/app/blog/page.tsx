@@ -32,7 +32,7 @@ export default function BlogPage() {
           <p>Bez branżowego żargonu. Tylko rzeczy, które można zastosować w codziennej pracy.</p>
         </div>
         <div className="blog-grid">
-          {blogPosts.map((post, index) => (
+          {blogPosts.length > 0 ? blogPosts.map((post, index) => (
             <Link className={`blog-card blog-card-${post.accent}`} href={`/blog/${post.slug}`} key={post.slug}>
               <div className="blog-card-art"><span>0{index + 1}</span><i>{post.category}</i><Image src="/brand/logo-horizontal.svg" alt="" width={272} height={64} /></div>
               <div className="blog-card-body">
@@ -42,7 +42,12 @@ export default function BlogPage() {
                 <span className="blog-read">Czytaj artykuł <b>↗</b></span>
               </div>
             </Link>
-          ))}
+          )) : (
+            <div className="blog-empty">
+              <h2>Pierwsze praktyczne materiały już wkrótce.</h2>
+              <p>Pracujemy nad poradnikami opartymi na realnych problemach osób prowadzących kluby sportowe.</p>
+            </div>
+          )}
         </div>
       </section>
       <section className="blog-cta section-shell">
