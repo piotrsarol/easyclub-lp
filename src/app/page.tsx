@@ -127,6 +127,7 @@ export default function Home() {
           <a href="#why" onClick={() => setMenuOpen(false)}>Dlaczego EasyClub</a>
           <a href="#features" onClick={() => setMenuOpen(false)}>Funkcje</a>
           <a href="#for-whom" onClick={() => setMenuOpen(false)}>Dla kogo</a>
+          <Link href="/cennik" onClick={() => setMenuOpen(false)}>Cennik</Link>
           <Link href="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
           <a href="#pilot" onClick={() => setMenuOpen(false)}>Pilotaż</a>
         </nav>
@@ -251,7 +252,7 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="site-footer section-shell"><BrandLogo href="#top" /><p>Jedno miejsce do zarządzania klubem sportowym.</p><div className="footer-links"><a href="mailto:hello@easyclub.pl">Kontakt</a><Link href="/blog">Blog</Link><a href="#pilot">Polityka prywatności</a><a href="#pilot">Regulamin</a></div><small>© 2025 EasyClub</small></footer>
+      <footer className="site-footer section-shell"><BrandLogo href="#top" /><p>Jedno miejsce do zarządzania klubem sportowym.</p><div className="footer-links"><a href="mailto:hello@easyclub.pl">Kontakt</a><Link href="/cennik">Cennik</Link><Link href="/blog">Blog</Link><a href="#pilot">Polityka prywatności</a><a href="#pilot">Regulamin</a></div><small>© 2025 EasyClub</small></footer>
     </main>
   );
 }
