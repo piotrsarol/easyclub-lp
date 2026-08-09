@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://easyclub.pl/sitemap.xml",
+    sitemap: "https://www.easyclub.pl/sitemap.xml",
   };
 }

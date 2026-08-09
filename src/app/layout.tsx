@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://easyclub.pl"),
+  metadataBase: new URL("https://www.easyclub.pl"),
   title: "EasyClub — mniej administracji, więcej sportu",
   description:
     "EasyClub łączy harmonogram, obecności, składki, zawodników i komunikację z rodzicami w jednym spokojnym systemie.",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: "Jedno miejsce do zarządzania klubem sportowym.",
     type: "website",
     locale: "pl_PL",
-    url: "https://easyclub.pl/",
+    url: "https://www.easyclub.pl/",
     images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "EasyClub" }],
   },
   alternates: { canonical: "/" },
@@ -40,15 +40,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 name: "EasyClub",
-                url: "https://easyclub.pl",
-                logo: "https://easyclub.pl/brand/logo-horizontal-onDark.svg",
+                url: "https://www.easyclub.pl",
+                logo: "https://www.easyclub.pl/brand/logo-horizontal-onDark.svg",
                 email: "hello@easyclub.pl",
               },
               {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 name: "EasyClub",
-                url: "https://easyclub.pl",
+                url: "https://www.easyclub.pl",
                 inLanguage: "pl-PL",
               },
             ]),

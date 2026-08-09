@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getBlogPost(slug);
   if (!post) return {};
 
-  const url = `https://easyclub.pl/blog/${post.slug}`;
+  const url = `https://www.easyclub.pl/blog/${post.slug}`;
   return {
     title: `${post.title} — EasyClub`,
     description: post.excerpt,
@@ -41,7 +41,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) notFound();
-  const articleUrl = `https://easyclub.pl/blog/${post.slug}`;
+  const articleUrl = `https://www.easyclub.pl/blog/${post.slug}`;
 
   return (
     <main className="blog-page">
@@ -57,14 +57,14 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
               description: post.excerpt,
               url: articleUrl,
               datePublished: toIsoDate(post.date),
-              author: { "@type": "Organization", name: "EasyClub", url: "https://easyclub.pl" },
+              author: { "@type": "Organization", name: "EasyClub", url: "https://www.easyclub.pl" },
               publisher: {
                 "@type": "Organization",
                 name: "EasyClub",
-                url: "https://easyclub.pl",
-                logo: { "@type": "ImageObject", url: "https://easyclub.pl/brand/logo-horizontal-onDark.svg" },
+                url: "https://www.easyclub.pl",
+                logo: { "@type": "ImageObject", url: "https://www.easyclub.pl/brand/logo-horizontal-onDark.svg" },
               },
-              image: "https://easyclub.pl/brand/og-image.png",
+              image: "https://www.easyclub.pl/brand/og-image.png",
               articleSection: post.category,
               inLanguage: "pl-PL",
             }),
