@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Blog — EasyClub",
     description: "Praktyczne wskazówki dla klubów sportowych, trenerów i akademii.",
     type: "website",
-    url: "https://easyclub.pl/blog",
+    url: "https://www.easyclub.pl/blog",
     images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "EasyClub" }],
   },
 };

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog";
 
-const siteUrl = "https://easyclub.pl";
+const siteUrl = "https://www.easyclub.pl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

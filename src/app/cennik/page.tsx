@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: "Wybierz plan dopasowany do skali swojego klubu.",
     type: "website",
     locale: "pl_PL",
-    url: "https://easyclub.pl/cennik",
+    url: "https://www.easyclub.pl/cennik",
     images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "EasyClub" }],
   },
 };
