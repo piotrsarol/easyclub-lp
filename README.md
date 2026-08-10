@@ -91,6 +91,11 @@ The free Gemini API tier has rate limits and Google may use free-tier prompts an
 
 ### Automatic publication
 
-`Generate and publish blog article` runs once a week on Monday or can be started manually. It selects the highest-priority unpublished topic from `content/seo-topics.json`, generates the article, validates the SEO limits and article structure, runs the full quality checks, commits the article to `main`, and lets Vercel deploy it.
+Vercel Cron triggers `GET /api/blog-publish` once a week on Monday. The protected endpoint dispatches `Generate and publish blog article` through GitHub's API; the workflow can still be started manually. Configure these server-only variables in Vercel:
+
+- `CRON_SECRET` — random secret used to authenticate Vercel Cron requests;
+- `GITHUB_ACTIONS_DISPATCH_TOKEN` — fine-grained GitHub token for this repository with **Actions: Read and write** permission.
+
+The endpoint only starts the workflow; article generation, validation, commit and deployment remain inside GitHub Actions. The workflow selects the highest-priority unpublished topic from `content/seo-topics.json`, generates the article, validates the SEO limits and article structure, runs the full quality checks, commits the article to `main`, and lets Vercel deploy it.
 
 The workflow is intentionally limited to one article per run. Topics are selected from the committed backlog until Google Search Console data is supplied. After adding a Search Console export, update the backlog briefs rather than sending private club or member data to Gemini. Automatic publication does not include a human editorial review, so keep only evergreen, non-legal topics in the automatic backlog.

@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/blog-publish",
+      "schedule": "17 9 * * 1"
+    }
+  ]
+}
