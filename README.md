@@ -91,7 +91,7 @@ The free Gemini API tier has rate limits and Google may use free-tier prompts an
 
 ### Automatic publication
 
-Vercel Cron triggers `GET /api/blog-publish` once a week on Monday. The protected endpoint dispatches `Generate and publish blog article` through GitHub's API; the workflow can still be started manually. Configure these server-only variables in Vercel:
+Vercel Cron triggers `GET /api/blog-publish` once a week on Tuesday at 11:00 Polish time (`09:00 UTC`). The protected endpoint dispatches `Generate and publish blog article` through GitHub's API; the workflow can still be started manually. Configure these server-only variables in Vercel:
 
 - `CRON_SECRET` — random secret used to authenticate Vercel Cron requests;
 - `GITHUB_ACTIONS_DISPATCH_TOKEN` — fine-grained GitHub token for this repository with **Actions: Read and write** permission.
