@@ -64,6 +64,64 @@ export const blogPosts: BlogPost[] = [
     }
   ]
 },
+
+  {
+  "slug": "jak-pilnowac-skladek-i-zaleglych-platnosci-w-klubie-sportowym",
+  "category": "Finanse klubu",
+  "date": "10.08.2026",
+  "readTime": "3 min czytania",
+  "title": "Jak pilnować składek i zaległych płatności w klubie sportowym?",
+  "excerpt": "Uporządkuj zaległe składki w klubie sportowym. Poznaj prosty proces: jasne zasady, rejestr wpłat i neutralne przypomnienia bez niepotrzebnego stresu.",
+  "accent": "lime",
+  "sections": [
+    {
+      "heading": "Wskazówka na start: Jak skutecznie opanować zaległe składki w klubie sportowym?",
+      "paragraphs": [
+        "Aby skutecznie opanować zaległe składki w klubie sportowym, wystarczy wdrożyć prosty, powtarzalny proces oparty na czterech filarach: jednoznacznym regulaminie, stałym dniu płatności, czytelnym rejestrze wpłat oraz neutralnych w treści przypomnieniach. Kluczem do sukcesu nie jest agresywne ponaglanie, lecz wyeliminowanie niedomówień i maksymalne ograniczenie ręcznej pracy administratora lub trenera.",
+        "Poniżej przedstawiamy sprawdzony schemat krok po kroku, który pozwala utrzymać płynność finansową szkółki lub akademii bez naruszania dobrych relacji z rodzicami i zawodnikami."
+      ]
+    },
+    {
+      "heading": "Krok 1: Jasne zasady i przejrzyste płatności w klubie sportowym",
+      "paragraphs": [
+        "Wyznaczenie konkretnych ram organizacyjnych to fundament sprawnego zbierania opłat. Zanim zaczniesz wymagać terminowości, upewnij się, że wszyscy członkowie klubu lub ich prawni opiekunowie dokładnie znają obowiązujące zasady.",
+        "Określ jednoznacznie termin płatności – najlepiej sprawdza się stała data, np. do 10. dnia każdego miesiąca. Wyjaśnij również charakter opłat: w przypadku zajęć młodzieżowych składki za treningi dzieci są zazwyczaj stałą opłatą członkowską przeznaczoną na cele statutowe, a nie opłatą za pojedyncze jednostki treningowe.",
+        "Pamiętaj, że wszelkie zapisy w regulaminie, statutach czy umowach warto skonsultować z księgowym lub radcą prawnym, aby upewnić się, że są w pełni zgodne z przepisami prawa i dopasowane do formy prawnej Twojej organizacji (np. stowarzyszenie, fundacja czy działalność gospodarcza)."
+      ]
+    },
+    {
+      "heading": "Krok 2: Rejestr i neutralne wiadomości – jak przypominać o składkach bez psucia relacji?",
+      "paragraphs": [
+        "Ręczne sprawdzanie wyciągów bankowych i pisanie prywatnych wiadomości do każdego rodzica z osobna pochłania mnóstwo czasu i zwiększa ryzyko pomyłki. Płatności w klubie sportowym wymagają uporządkowanego rejestru, w którym od razu widać, kto uregulował należność, a kto potrzebuje krótkiego powiadomienia.",
+        "Gdy pojawiają się opóźnienia, kluczowa jest sprawna i stonowana komunikacja. Zamiast emocjonalnych ponagleń, postaw na rzeczowy ton. Przykładowa wiadomość może brzmieć: 'Dzień dobry, w naszym systemie nie odnotowaliśmy jeszcze wpłaty składki za miesiąc [Nazwa miesiąca] dla [Imię zawodnika]. Prosimy o weryfikację przelewu lub przesłanie potwierdzenia, jeśli płatność została wysłana w ostatnich dniach.'",
+        "Wykorzystanie dedykowanych narzędzi do zarządzania klubem pozwala znacząco odciążyć kadurę trenerską od codziennej biurokracji i zautomatyzować proces przygotowywania zestawień wpłat."
+      ]
+    },
+    {
+      "heading": "Krok 3: Obsługa wyjątków i zaległości – checklista działań w małym klubie",
+      "paragraphs": [
+        "Nawet w najlepiej zorganizowanej akademii zdarzają się trudniejsze sytuacje – problemy losowe rodziny, kontuzje czy zwykłe niedopatrzenia. Niezbędna jest jasna procedura postępowania z zaległościami, która ułatwi sprawiedliwe podejmowanie decyzji:",
+        "1. Po 5 dniach od terminu: Wysyłka pierwszego, łagodnego przypomnienia e-mail lub SMS.\n2. Po 14 dniach od terminu: Drugie przypomnienie wraz z prośbą o kontakt w razie trudności finansowych.\n3. Po 30 dniach od terminu: Bezpośrednia rozmowa telefoniczna lub spotkanie zarządu z rodzicem bądź zawodnikiem.\n4. Indywidualne ustalenia: Możliwość rozłożenia zaległości na raty lub czasowego zwolnienia ze składki w uzasadnionych przypadkach.\n5. Ostateczne kroki: Czasowe zawieszenie w prawach zawodnika do momentu wyjaśnienia sprawy.",
+        "Dzięki wypracowaniu stałych kryteriów unikasz podejmowania decyzji pod wpływem emocji i traktujesz wszystkich członków organizacji według jednakowych reguł."
+      ]
+    },
+    {
+      "heading": "Najczęstsze pytania o zaległe składki (FAQ)",
+      "paragraphs": [
+        "Jak postąpić, gdy opiekun twierdzi, że opłacił składkę, ale wpłaty nie ma na koncie?\nNajlepiej poprosić o przesłanie potwierdzenia przelewu w formacie PDF. Często zdarza się, że pieniądze trafiły na zły numer konta, przelew został wysłany z błędnym tytułem lub wpłata została zaksięgowana z opóźnieniem przez bank.",
+        "Czy można zawiesić udział dziecka w treningach z powodu braku wpłaty?\nJest to dopuszczalne, o ile taki zapis znajduje się w zaakceptowanym wcześniej regulaminie klubu. Przed podjęciem takiej decyzji warto jednak spróbować bezpośredniego kontaktu i wyjaśnienia przyczyn opóźnienia, aby uniknąć nieporozumień.",
+        "Czy składka członkowska podlega zwrotowi za czas choroby zawodnika?\nW większości klubów składka jest stałą opłatą za przynależność do organizacji i gotowość do prowadzenia zajęć, a nie opłatą za obecność. Zasady te powinny być jednoznacznie opisane w dokumentach klubu i skonsultowane z obsługą księgową."
+      ]
+    },
+    {
+      "heading": "Podsumowanie: Uporządkuj finanse swojego klubu",
+      "paragraphs": [
+        "Skuteczne pilnowanie opłat w szkółce lub akademii nie wymaga rygorystycznych działań windykacyjnych, lecz konsekwencji, przejrzystych zasad i stałego schematu postępowania. Jasny regulamin, czytelny rejestr oraz neutralne powiadomienia pozwalają sprawnie ograniczyć problem, jakim są zaległe składki w klubie sportowym.",
+        "Jeśli chcesz ograniczyć rutynową pracę papierkową i zyskać więcej czasu na rozwój sportowy swoich podopiecznych, sprawdź, jak EasyClub pomaga w organizacji bazy członków, śledzeniu wpłat i sprawnym przepływie informacji. Skontaktuj się z nami, aby porozmawiać o potrzebach Twojego klubu."
+      ]
+    }
+  ]
+},
 ];
 
 export function getBlogPost(slug: string) {
