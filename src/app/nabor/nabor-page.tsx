@@ -115,7 +115,7 @@ export function NaborPage() {
       <section className={styles.hero} id="top">
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}><span /> EASYCLUB / NABÓR</p>
-          <h1>Masz wolne miejsca w grupach? <em>Sprawdź, ile pieniędzy Ci uciekają.</em></h1>
+          <h1>Masz wolne miejsca w grupach? <em>Sprawdź, ile Cię kosztują.</em></h1>
           <p className={styles.heroLead}>
             Nabór pomaga zobaczyć koszt pustych miejsc, zebrać wszystkie zgłoszenia w jednym miejscu
             i zamienić zainteresowanych w nowych zawodników.
@@ -130,7 +130,7 @@ export function NaborPage() {
           <div className={styles.capacity}><strong>11</strong><span>/ 16 zawodników</span></div>
           <div className={styles.capacityBar}><i style={{ width: "69%" }} /></div>
           <div className={styles.lossCard}>
-            <span>Nieobsadzona składka</span>
+            <span>Wolne miejsce w grupie</span>
             <strong>− 1 000 zł <small>/ mies.</small></strong>
             <em>5 wolnych miejsc × 200 zł</em>
           </div>
