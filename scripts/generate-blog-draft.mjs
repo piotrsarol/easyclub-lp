@@ -25,6 +25,12 @@ Zasady:
 - nie wymyślaj funkcji, statystyk, klientów ani obietnic EasyClub, których nie podano;
 - nie upychaj słów kluczowych i nie pisz pod robota;
 - przygotuj 700–1000 słów w 4–6 sekcjach;
+- zacznij od krótkiej, bezpośredniej odpowiedzi na główne pytanie czytelnika;
+- używaj jasnych nagłówków opisujących pytania lub zadania, które może wpisać użytkownik w wyszukiwarkę;
+- dodaj praktyczny proces, checklistę albo kryteria decyzji, jeśli pasują do tematu;
+- dodaj sekcję z najczęstszymi pytaniami i odpowiedziami, gdy temat ma więcej niż jedną naturalną intencję; pytania i odpowiedzi muszą być widoczne w tekście;
+- podawaj konkretne przykłady dla małego klubu, ale nie przedstawiaj założeń jako faktów;
+- używaj języka naturalnego, synonimów i krótkich akapitów zamiast sztucznego powtarzania fraz;
 - tytuł ma jasno odpowiadać na intencję wyszukiwania;
 - excerpt ma mieć maksymalnie 160 znaków;
 - metaTitle ma mieć maksymalnie 60 znaków, a metaDescription maksymalnie 155 znaków;

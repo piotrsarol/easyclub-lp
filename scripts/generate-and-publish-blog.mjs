@@ -33,9 +33,15 @@ Brief: ${topic.brief}
 Zasady:
 - artykuł ma odpowiadać na realny problem administratora klubu, trenera lub osoby zakładającej akademię;
 - napisz 700–1000 słów w 4–6 sekcjach;
+- zacznij od krótkiej, bezpośredniej odpowiedzi na główne pytanie czytelnika; nie każ mu czekać na wniosek do końca artykułu;
+- używaj jasnych nagłówków opisujących konkretne pytania lub zadania, które może wpisać użytkownik w wyszukiwarkę;
+- dodaj praktyczny proces, checklistę albo kryteria decyzji, jeśli pasują do tematu; zapisuj je tak, aby dało się je łatwo przeskanować;
+- dodaj sekcję z najczęstszymi pytaniami i odpowiedziami, gdy temat ma więcej niż jedną naturalną intencję; pytania i odpowiedzi muszą być widoczne w zwykłym tekście artykułu;
+- podawaj konkretne przykłady dla małego klubu, ale nie przedstawiaj założeń jako faktów ani nie wymyślaj danych;
 - nie wymyślaj statystyk, klientów, funkcji EasyClub, cen, wymogów prawnych ani wyników;
 - jeśli temat dotyczy prawa, podatków lub finansów, zaznacz potrzebę konsultacji ze specjalistą;
 - nie używaj agresywnej sprzedaży ani nie porównuj EasyClub z konkurencją bez źródeł;
+- nie pisz pod algorytm i nie powtarzaj sztucznie fraz; używaj języka naturalnego oraz synonimów;
 - excerpt: maksymalnie 160 znaków;
 - metaTitle: maksymalnie 60 znaków;
 - metaDescription: maksymalnie 155 znaków;
