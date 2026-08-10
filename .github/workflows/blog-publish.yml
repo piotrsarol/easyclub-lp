@@ -2,7 +2,8 @@ name: Generate and publish blog article
 
 on:
   schedule:
-    - cron: "0 9 * * 1"
+    # Avoid the top of the hour, when GitHub Actions scheduled jobs are more likely to be delayed.
+    - cron: "17 9 * * 1"
   workflow_dispatch:
 
 permissions:
