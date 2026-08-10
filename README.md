@@ -55,6 +55,13 @@ function doPost(event) {
     payload.clubSize,
     payload.message,
     payload.consent,
+    payload.source,
+    payload.athleteCount,
+    payload.utmSource,
+    payload.utmMedium,
+    payload.utmCampaign,
+    payload.utmContent,
+    payload.utmTerm,
   ]);
 
   return ContentService
