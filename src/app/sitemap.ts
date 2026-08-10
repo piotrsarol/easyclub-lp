@@ -20,6 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${siteUrl}/nabor`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     ...blogPosts.map((post) => ({
       url: `${siteUrl}/blog/${post.slug}`,
       changeFrequency: "monthly" as const,
