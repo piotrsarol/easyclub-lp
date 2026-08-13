@@ -106,6 +106,10 @@ export default function Home() {
         }
       }
       if (!response.ok) throw new Error(data.error || "Coś poszło nie tak.");
+      const browserWindow = window as Window & {
+        fbq?: (...args: unknown[]) => void;
+      };
+      browserWindow.fbq?.("track", "Lead");
       setSubmitted(true);
       formElement.reset();
     } catch (submissionError) {
