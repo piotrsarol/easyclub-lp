@@ -142,7 +142,7 @@ export default function Home() {
         <div className="hero-copy">
           <div className="eyebrow"><span className="pulse-dot" /> Program pilotażowy — zgłoszenia otwarte</div>
           <h1>Mniej administracji.<br /><em>Więcej sportu.</em></h1>
-          <p className="hero-lead">EasyClub łączy harmonogram, obecności, składki, zawodników i komunikację z rodzicami w jednym spokojnym systemie.</p>
+          <p className="hero-lead">EasyClub to aplikacja do zarządzania klubem sportowym. Łączy harmonogram, obecności, składki, zawodników i komunikację z rodzicami w jednym spokojnym systemie.</p>
           <div className="hero-actions">
             <a className="button" href="#pilot">Zgłoś klub do pilotażu <span>↗</span></a>
             <a className="text-link" href="#features">Zobacz, jak działa EasyClub <span>↓</span></a>
