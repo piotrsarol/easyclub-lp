@@ -53,3 +53,41 @@
 .eyebrow{font-size:13px}.nav-links{font-size:15px}.hero-benefits{font-size:13px}.dashboard-bar{font-size:11px}.dash-heading small,.dash-stats small{font-size:10px}.dash-stats span{font-size:10px}.schedule-head{font-size:12px}.schedule-head span{font-size:10px}.feature-item p{font-size:15px}.person-card p{font-size:15px}.model-copy p{font-size:15px}.pilot-copy>p{font-size:15px}.site-footer{font-size:14px}.trust-strip{font-size:12px}
 @media (max-width:620px){.hero-benefits{font-size:12px}.feature-item p{font-size:14px}.person-card p{font-size:14px}.model-copy p,.pilot-copy>p{font-size:14px}.trust-strip{font-size:11px}}
 .pilot-section h2 em{color:var(--lime)}
+.pilot-landing-page{min-height:100vh;background:var(--bg);color:var(--ink)}
+.pilot-landing-header{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:auto;padding:24px 32px}
+.pilot-landing-header-link{color:var(--muted);font-size:13px;font-weight:700}
+.pilot-landing-header-link:hover{color:var(--ink)}
+.pilot-landing-header-link span{font-size:16px;margin-left:8px}
+.pilot-landing-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,480px);align-items:center;gap:72px;max-width:1180px;margin:auto;padding:72px 32px 90px}
+.pilot-landing-copy{max-width:650px}
+.pilot-landing-eyebrow{display:flex;align-items:center;gap:9px;color:#a6b19f;font:12px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
+.pilot-landing-copy h1{max-width:650px;margin:26px 0 25px;font-size:clamp(48px,6.2vw,78px)}
+.pilot-landing-copy>p{max-width:560px;color:var(--muted);font-size:17px;line-height:1.7}
+.pilot-landing-benefits{display:grid;gap:14px;padding:0;margin:38px 0 0;list-style:none;color:#dce5d7;font-size:14px;font-weight:700}
+.pilot-landing-benefits li{display:flex;align-items:center;gap:12px}
+.pilot-landing-benefits .brand-mark-image{width:18px;height:18px;border-radius:5px;flex-shrink:0}
+.pilot-landing-card{padding:24px;background:#e5f8b7;color:#182218;border:1px solid rgba(200,241,105,.45);box-shadow:0 28px 70px rgba(0,0,0,.28)}
+.pilot-landing-offer{display:grid;gap:6px;padding-bottom:19px;margin-bottom:21px;border-bottom:1px solid rgba(24,34,24,.18)}
+.pilot-landing-offer span{color:#526248;font:11px "DM Mono",monospace;letter-spacing:.1em}
+.pilot-landing-offer strong{font-size:25px;letter-spacing:-.05em}
+.pilot-landing-offer small{color:#56674b;font-size:12px;line-height:1.5}
+.pilot-landing-form{display:grid;gap:0}
+.pilot-landing-form-heading h2{margin:0 0 7px;font-size:25px;line-height:1.08;letter-spacing:-.05em}
+.pilot-landing-form-heading p{margin:0 0 20px;color:#56674b;font-size:13px;line-height:1.5}
+.pilot-landing-form label{margin-bottom:15px;color:#4b5b45;font-size:11px}
+.pilot-landing-form input{padding:9px 0;font-size:14px}
+.pilot-landing-form .pilot-landing-optional{font-weight:400;color:#72826a;margin-left:4px}
+.pilot-landing-consent{display:flex;align-items:flex-start;gap:8px;margin:4px 0 16px!important;font-size:10px!important;font-weight:500!important;line-height:1.45}
+.pilot-landing-consent input{width:14px;height:14px;margin:0;accent-color:#263c24;flex-shrink:0}
+.pilot-landing-consent a{text-decoration:underline}
+.pilot-landing-submit{width:100%;margin-top:2px;background:#1e3020;color:#e7f8c5;border-color:#1e3020}
+.pilot-landing-fineprint{display:block;margin-top:12px;color:#65745e;font-size:10px;line-height:1.4;text-align:center}
+.pilot-landing-error{margin:0 0 12px;color:#a43e2d;font-size:12px;font-weight:700}
+.pilot-landing-success{display:grid;justify-items:start;gap:12px;padding:30px 4px}
+.pilot-landing-success-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1e3020;color:#e7f8c5;font-size:22px}
+.pilot-landing-success h2{margin:0;font-size:30px;letter-spacing:-.06em}
+.pilot-landing-success p{margin:0;color:#56674b;font-size:14px;line-height:1.6}
+.pilot-landing-proof{display:flex;justify-content:center;gap:30px;padding:18px 32px 35px;color:#8e978e;border-top:1px solid var(--line);font:11px "DM Mono",monospace;letter-spacing:.04em;text-align:center}
+.pilot-landing-proof i{font-style:normal;color:var(--lime);margin:0 5px}
+@media (max-width:900px){.pilot-landing-hero{grid-template-columns:1fr;gap:42px;padding-top:48px}.pilot-landing-copy{max-width:680px}.pilot-landing-card{max-width:560px;width:100%;justify-self:center}}
+@media (max-width:620px){.pilot-landing-header{padding:19px 20px}.pilot-landing-header .brand-logo{width:122px}.pilot-landing-header-link{font-size:11px}.pilot-landing-hero{gap:28px;padding:36px 20px 55px}.pilot-landing-copy h1{margin:21px 0 19px;font-size:48px}.pilot-landing-copy>p{font-size:15px;line-height:1.6}.pilot-landing-benefits{margin-top:27px;font-size:13px;gap:12px}.pilot-landing-card{padding:19px}.pilot-landing-offer strong{font-size:23px}.pilot-landing-form-heading h2{font-size:23px}.pilot-landing-proof{display:grid;gap:11px;padding:18px 20px 28px;font-size:9px}}

@@ -50,6 +50,12 @@ export async function POST(request: Request) {
         organizationType: result.data.organizationType,
         message: result.data.message || "",
         consent: result.data.consent,
+        source: result.data.source || "",
+        utm_source: result.data.utm_source || "",
+        utm_medium: result.data.utm_medium || "",
+        utm_campaign: result.data.utm_campaign || "",
+        utm_content: result.data.utm_content || "",
+        utm_term: result.data.utm_term || "",
       }),
     });
   } catch {
