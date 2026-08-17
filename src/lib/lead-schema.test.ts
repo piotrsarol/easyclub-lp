@@ -16,6 +16,21 @@ describe("leadSchema", () => {
     expect(leadSchema.safeParse(validLead).success).toBe(true);
   });
 
+  it("accepts the shortened campaign form", () => {
+    expect(
+      leadSchema.safeParse({
+        clubName: "Akademia Orlik",
+        contactName: "Jan Kowalski",
+        email: "jan@orlik.pl",
+        phone: "",
+        consent: true,
+        website: "",
+        source: "pilot-landing",
+        utm_source: "meta",
+      }).success,
+    ).toBe(true);
+  });
+
   it("rejects incomplete or invalid contact details", () => {
     expect(leadSchema.safeParse({ ...validLead, email: "nie-email" }).success).toBe(false);
     expect(leadSchema.safeParse({ ...validLead, clubSize: "" }).success).toBe(false);
