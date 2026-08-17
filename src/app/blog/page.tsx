@@ -7,6 +7,7 @@ import { BlogFooter, BlogHeader } from "./blog-chrome";
 export const metadata: Metadata = {
   title: "Blog — EasyClub",
   description: "Praktyczne wskazówki dla klubów sportowych, trenerów i akademii.",
+  robots: { index: true, follow: true },
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Blog — EasyClub",
@@ -20,6 +21,48 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="blog-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: "Blog EasyClub",
+              url: "https://www.easyclub.pl/blog",
+              description: "Praktyczne wskazówki dla klubów sportowych, trenerów i akademii.",
+              inLanguage: "pl-PL",
+              isPartOf: {
+                "@type": "WebSite",
+                name: "EasyClub",
+                url: "https://www.easyclub.pl",
+              },
+              about: {
+                "@type": "Thing",
+                name: "Zarządzanie klubem sportowym",
+              },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "EasyClub",
+                  item: "https://www.easyclub.pl",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blog",
+                  item: "https://www.easyclub.pl/blog",
+                },
+              ],
+            },
+          ]),
+        }}
+      />
       <BlogHeader />
       <section className="blog-hero section-shell">
         <div className="eyebrow"><span className="pulse-dot" /> Wiedza dla klubów sportowych</div>

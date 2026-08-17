@@ -5,6 +5,7 @@ import { BrandLogo } from "../brand-logo";
 export const metadata: Metadata = {
   title: "Cennik — EasyClub",
   description: "Prosty cennik EasyClub dla klubów sportowych, akademii i szkółek.",
+  robots: { index: true, follow: true },
   alternates: { canonical: "/cennik" },
   openGraph: {
     title: "Cennik — EasyClub",
@@ -33,6 +34,60 @@ const limits = [
 export default function PricingPage() {
   return (
     <main className="pricing-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: "Cennik EasyClub",
+              url: "https://www.easyclub.pl/cennik",
+              description: "Prosty cennik EasyClub dla klubów sportowych, akademii i szkółek.",
+              inLanguage: "pl-PL",
+              isPartOf: {
+                "@type": "WebSite",
+                name: "EasyClub",
+                url: "https://www.easyclub.pl",
+              },
+              mainEntity: {
+                "@type": "OfferCatalog",
+                name: "Plany EasyClub",
+                itemListElement: plans.map((plan) => ({
+                  "@type": "Offer",
+                  name: plan.name,
+                  price: plan.price,
+                  priceCurrency: "PLN",
+                  url: "https://www.easyclub.pl/cennik",
+                  seller: {
+                    "@type": "Organization",
+                    name: "EasyClub",
+                    url: "https://www.easyclub.pl",
+                  },
+                })),
+              },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "EasyClub",
+                  item: "https://www.easyclub.pl",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Cennik",
+                  item: "https://www.easyclub.pl/cennik",
+                },
+              ],
+            },
+          ]),
+        }}
+      />
       <header className="site-header pricing-header">
         <BrandLogo href="/" />
         <nav className="nav-links">
