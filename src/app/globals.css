@@ -54,10 +54,10 @@
 @media (max-width:620px){.hero-benefits{font-size:12px}.feature-item p{font-size:14px}.person-card p{font-size:14px}.model-copy p,.pilot-copy>p{font-size:14px}.trust-strip{font-size:11px}}
 .pilot-section h2 em{color:var(--lime)}
 .pilot-landing-page{min-height:100vh;background:var(--bg);color:var(--ink)}
-.pilot-landing-header{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:auto;padding:24px 32px}
-.pilot-landing-header-link{color:var(--muted);font-size:13px;font-weight:700}
-.pilot-landing-header-link:hover{color:var(--ink)}
-.pilot-landing-header-link span{font-size:16px;margin-left:8px}
+.pilot-landing-header{display:flex;align-items:center;gap:32px;max-width:1180px;margin:auto;padding:24px 32px}
+.pilot-landing-nav{display:flex;align-items:center;gap:24px;margin:auto;color:var(--muted);font-size:13px}
+.pilot-landing-nav a:hover,.pilot-landing-nav a[aria-current=page]{color:var(--ink)}
+.pilot-landing-header-cta{padding:11px 15px;gap:15px}
 .pilot-landing-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,480px);align-items:center;gap:72px;max-width:1180px;margin:auto;padding:72px 32px 90px}
 .pilot-landing-copy{max-width:650px}
 .pilot-landing-eyebrow{display:flex;align-items:center;gap:9px;color:#a6b19f;font:12px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
@@ -87,8 +87,6 @@
 .pilot-landing-success-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#1e3020;color:#e7f8c5;font-size:22px}
 .pilot-landing-success h2{margin:0;font-size:30px;letter-spacing:-.06em}
 .pilot-landing-success p{margin:0;color:#56674b;font-size:14px;line-height:1.6}
-.pilot-landing-proof{display:flex;justify-content:center;gap:30px;padding:18px 32px 35px;color:#8e978e;border-top:1px solid var(--line);font:11px "DM Mono",monospace;letter-spacing:.04em;text-align:center}
-.pilot-landing-proof i{font-style:normal;color:var(--lime);margin:0 5px}
 .pilot-landing-copy>p.pilot-landing-hero-claim{max-width:520px;margin:0 0 14px;color:var(--lime);font-size:15px;font-weight:700;line-height:1.5}
 .pilot-landing-recruit,.pilot-landing-preview,.pilot-landing-onboarding{max-width:1180px;margin:auto;padding:88px 32px}
 .pilot-landing-recruit{border-top:1px solid var(--line)}
@@ -125,7 +123,7 @@
 .pilot-landing-footer a:hover{color:var(--ink)}
 .pilot-landing-sticky-cta{display:none}
 @media (max-width:900px){.pilot-landing-hero{grid-template-columns:1fr;gap:42px;padding-top:48px}.pilot-landing-copy{max-width:680px}.pilot-landing-card{max-width:560px;width:100%;justify-self:center}.pilot-landing-recruit-grid,.pilot-landing-preview-grid{grid-template-columns:1fr}.pilot-landing-final-cta{display:grid;gap:20px}.pilot-landing-final-cta .button{justify-self:start}}
-@media (max-width:620px){.pilot-landing-header{padding:19px 20px}.pilot-landing-header .brand-logo{width:122px}.pilot-landing-header-link{font-size:11px}.pilot-landing-hero{gap:28px;padding:36px 20px 55px}.pilot-landing-copy h1{margin:21px 0 19px;font-size:48px}.pilot-landing-copy>p{font-size:15px;line-height:1.6}.pilot-landing-benefits{margin-top:27px;font-size:13px;gap:12px}.pilot-landing-card{padding:19px}.pilot-landing-offer strong{font-size:23px}.pilot-landing-form-heading h2{font-size:23px}.pilot-landing-proof{display:grid;gap:11px;padding:18px 20px 28px;font-size:9px}.pilot-landing-recruit,.pilot-landing-preview,.pilot-landing-onboarding{padding:62px 20px}.pilot-landing-recruit-grid,.pilot-landing-preview-grid{margin-top:32px}.pilot-landing-steps li{grid-template-columns:38px 1fr;gap:12px}.pilot-landing-footer{padding:28px 20px 96px;gap:16px}.pilot-landing-sticky-cta{display:flex;position:fixed;right:16px;bottom:56px;left:16px;z-index:28;align-items:center;justify-content:center;gap:14px;padding:15px;border-radius:6px;background:var(--lime);color:#142016;font-size:13px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.35)}}
+@media (max-width:620px){.pilot-landing-header{padding:19px 20px;gap:14px}.pilot-landing-header .brand-logo{width:122px}.pilot-landing-nav{gap:12px;font-size:11px}.pilot-landing-header-cta{padding:10px 11px;font-size:10px}.pilot-landing-hero{gap:28px;padding:36px 20px 55px}.pilot-landing-copy h1{margin:21px 0 19px;font-size:48px}.pilot-landing-copy>p{font-size:15px;line-height:1.6}.pilot-landing-benefits{margin-top:27px;font-size:13px;gap:12px}.pilot-landing-card{padding:19px}.pilot-landing-offer strong{font-size:23px}.pilot-landing-form-heading h2{font-size:23px}.pilot-landing-recruit,.pilot-landing-preview,.pilot-landing-onboarding{padding:62px 20px}.pilot-landing-recruit-grid,.pilot-landing-preview-grid{margin-top:32px}.pilot-landing-steps li{grid-template-columns:38px 1fr;gap:12px}.pilot-landing-footer{padding:28px 20px 96px;gap:16px}.pilot-landing-sticky-cta{display:flex;position:fixed;right:16px;bottom:56px;left:16px;z-index:28;align-items:center;justify-content:center;gap:14px;padding:15px;border-radius:6px;background:var(--lime);color:#142016;font-size:13px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.35)}}
 .article-related{max-width:940px;margin:105px auto 0;padding-top:30px;border-top:1px solid var(--line)}.article-related>h2{max-width:620px;margin:18px 0 28px;font-size:clamp(32px,4vw,50px);line-height:1.05;letter-spacing:-.07em}.article-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.article-related-card{display:flex;min-height:190px;flex-direction:column;padding:22px;background:#171c18;border:1px solid var(--line);transition:transform .2s,border-color .2s}.article-related-card:hover{transform:translateY(-4px);border-color:rgba(200,241,105,.35)}.article-related-card>span{color:#a6b19f;font:10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.06em}.article-related-card h3{margin:25px 0 18px;font-size:21px;line-height:1.08;letter-spacing:-.05em}.article-related-card b{margin-top:auto;color:var(--lime);font-size:12px}.article-end{display:flex;justify-content:space-between;align-items:center;gap:20px;max-width:650px;margin:90px auto 0;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.article-end .text-link{color:var(--lime)}
 @media (max-width:900px){.article-related-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:620px){.article-related{margin-top:75px}.article-related-grid{grid-template-columns:1fr}.article-end{display:block;margin-top:65px}.article-end .text-link{margin-top:18px}}

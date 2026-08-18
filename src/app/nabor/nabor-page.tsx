@@ -128,14 +128,13 @@ export function NaborPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <BrandLogo href="#top" />
+        <BrandLogo href="/" />
         <nav className={styles.nav} aria-label="Nawigacja landing page">
-          <a href="#kalkulator">Kalkulator</a>
-          <a href="#jak-dziala">Jak działa</a>
-          <a href="#pilot">Pilot 10</a>
-          <a href="#faq">FAQ</a>
+          <Link href="/">EasyClub</Link>
+          <Link href="/pilot">Pilot 10</Link>
+          <Link href="/nabor" aria-current="page">Nabór</Link>
         </nav>
-        <a className={styles.headerButton} href="#formularz" onClick={() => trackFunnelEvent("cta_click", { form: "nabor", source: "nabor" })}>Zgłoś klub <span>↗</span></a>
+        <a className={styles.headerButton} href="#formularz" onClick={() => trackFunnelEvent("cta_click", { form: "nabor", source: "nabor-header" })}>Zgłoś klub <span>↗</span></a>
       </header>
 
       <section className={styles.hero} id="top">

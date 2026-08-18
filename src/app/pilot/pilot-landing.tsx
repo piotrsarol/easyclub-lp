@@ -189,9 +189,14 @@ export function PilotLanding() {
     <main className="pilot-landing-page">
       <header className="pilot-landing-header">
         <BrandLogo href="/" />
-        <Link className="pilot-landing-header-link" href="/" onClick={() => trackFunnelEvent("cta_click", { form: "pilot", source: "pilot-landing" })}>
-          Wróć na stronę główną <span>↗</span>
-        </Link>
+        <nav className="pilot-landing-nav" aria-label="Nawigacja landing page">
+          <Link href="/">EasyClub</Link>
+          <Link href="/pilot" aria-current="page">Pilot 10</Link>
+          <Link href="/nabor">Nabór</Link>
+        </nav>
+        <a className="button button-small pilot-landing-header-cta" href="#formularz" onClick={() => trackFunnelEvent("cta_click", { form: "pilot", source: "pilot-landing-header" })}>
+          Zgłoś klub <span>↗</span>
+        </a>
       </header>
 
       <section className="pilot-landing-hero">
@@ -260,12 +265,6 @@ export function PilotLanding() {
             </>
           )}
         </div>
-      </section>
-
-      <section className="pilot-landing-proof">
-        <span>JEDEN SYSTEM DLA CAŁEGO KLUBU</span>
-        <span>ADMINISTRATOR <i>·</i> TRENER <i>·</i> RODZIC</span>
-        <span>SKŁADKI <i>·</i> TRENINGI <i>·</i> KOMUNIKACJA</span>
       </section>
 
       <section className="pilot-landing-recruit">
