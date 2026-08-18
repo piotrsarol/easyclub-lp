@@ -104,7 +104,7 @@ The first funnel event automatically creates a separate `FunnelEvents` tab. Its 
 
 The lead route sends data server-side, so the webhook URL and secret are not included in browser code.
 
-The CRO funnel uses the same event names on `/`, `/pilot`, and `/nabor`: `page_view`, `cta_click`, `form_view`, `form_start`, `form_submit`, `validation_error`, `submit_success`, `submit_error`, and `lead`. Events contain no contact details or other form values. They are sent only after the visitor accepts optional cookies; rejecting cookies leaves lead collection enabled but does not write funnel events.
+The CRO funnel uses the same event names on `/`, `/pilot`, and `/nabor`: `page_view`, `cta_click`, `form_view`, `form_start`, `form_submit`, `validation_error`, `submit_success`, `submit_error`, and `lead`. Events contain no contact details or other form values. They are first-party funnel analytics and are sent independently of the optional marketing-cookie choice. Meta Pixel and Meta CAPI remain consent-gated.
 
 Group a journey by `sessionId`, then compare the counts of each `eventType` by `path`, `form`, `source`, and UTM columns. `eventId` is unique per event and is not the lead's contact identifier.
 
