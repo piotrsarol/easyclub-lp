@@ -74,7 +74,7 @@ export async function POST(request: Request) {
         clubName: result.data.clubName,
         contactName: result.data.contactName,
         email: result.data.email,
-        phone: result.data.phone,
+        phone: result.data.phone || "",
         clubSize: result.data.athleteCount ? `${result.data.athleteCount} zawodników` : "",
         organizationType: "Klub sportowy",
         message: "Źródło: Nabór",

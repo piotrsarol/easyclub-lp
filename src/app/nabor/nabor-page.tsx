@@ -89,13 +89,10 @@ export function NaborPage() {
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     const eventId = createMarketingEventId();
-    const athleteCountValue = String(form.get("athleteCount") ?? "").trim();
     const payload = {
       clubName: String(form.get("clubName") ?? ""),
       contactName: String(form.get("contactName") ?? ""),
       email: String(form.get("email") ?? ""),
-      phone: String(form.get("phone") ?? ""),
-      athleteCount: athleteCountValue ? Number(athleteCountValue) : undefined,
       consent: form.get("consent") === "on",
       website: String(form.get("website") ?? ""),
       source: "nabor" as const,
@@ -281,14 +278,13 @@ export function NaborPage() {
           ) : (
             <form ref={formRef} onSubmit={handleSubmit} onFocus={handleFormStart} onInvalidCapture={() => trackFunnelEvent("validation_error", { form: "nabor", source: "nabor" })}>
               <h3>Zgłoś klub do Pilot 10</h3>
-              <p>Zostaw kontakt. Wrócimy z kolejnym krokiem, bez zobowiązań.</p>
+              <p>Wystarczą trzy informacje. Wrócimy z kolejnym krokiem, bez zobowiązań.</p>
               <div className={styles.formField}><label htmlFor="clubName">Nazwa klubu</label><input id="clubName" name="clubName" required /></div>
               {fieldErrors.clubName && <small className={styles.error}>{fieldErrors.clubName}</small>}
               <div className={styles.formField}><label htmlFor="contactName">Imię i nazwisko</label><input id="contactName" name="contactName" required /></div>
               {fieldErrors.contactName && <small className={styles.error}>{fieldErrors.contactName}</small>}
-              <div className={styles.formTwo}><div className={styles.formField}><label htmlFor="email">E-mail</label><input id="email" name="email" type="email" required /></div><div className={styles.formField}><label htmlFor="phone">Telefon</label><input id="phone" name="phone" type="tel" required /></div></div>
+              <div className={styles.formField}><label htmlFor="email">E-mail</label><input id="email" name="email" type="email" required /></div>
               {fieldErrors.email && <small className={styles.error}>{fieldErrors.email}</small>}
-              <div className={styles.formField}><label htmlFor="athleteCount">Liczba zawodników <span>(opcjonalnie)</span></label><input id="athleteCount" name="athleteCount" type="number" min="1" /></div>
               <label className={styles.consent}><input name="consent" type="checkbox" required /><span>Wyrażam zgodę na kontakt w sprawie programu pilotażowego i akceptuję <Link href="/polityka-prywatnosci">politykę prywatności</Link>.</span></label>
               <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className={styles.honeypot} />
               {error && <p className={styles.formError} role="alert">{error}</p>}
