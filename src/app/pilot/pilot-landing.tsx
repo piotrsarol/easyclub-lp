@@ -12,6 +12,52 @@ const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_conten
 
 type Attribution = Partial<Record<(typeof attributionKeys)[number], string>>;
 
+const recruitmentPoints: [string, string][] = [
+  ["Każde wolne miejsce to comiesięczna strata", "Grupa, która mogła być pełna, przez cały sezon przynosi mniej niż powinna."],
+  ["Rodzic bez szybkiej odpowiedzi zapisuje dziecko gdzie indziej", "Zgłoszenia z Messengera i telefonów gubią się między treningami."],
+  ["Nie wiesz, ile miejsc realnie masz wolnych", "Listy w arkuszach rozjeżdżają się z tym, kto faktycznie trenuje."],
+];
+
+const systemPreviews: [string, string, string, [string, string][]][] = [
+  [
+    "Treningi i obecności",
+    "Trener zaznacza obecność w kilka sekund, a Ty widzisz frekwencję każdej grupy.",
+    "WTOREK · 17:00 · ORLIK A",
+    [
+      ["Obecni", "14"],
+      ["Nieobecni", "2"],
+      ["Frekwencja", "88%"],
+    ],
+  ],
+  [
+    "Składki i płatności",
+    "Widzisz, kto zapłacił, kto zalega i ile pieniędzy brakuje w tym miesiącu.",
+    "WRZESIEŃ · SKŁADKI",
+    [
+      ["Opłacone", "38"],
+      ["Zaległe", "6"],
+      ["Do odzyskania", "1 080 zł"],
+    ],
+  ],
+  [
+    "Komunikacja z rodzicami",
+    "Rodzic ma płatności i informacje w telefonie, zamiast szukać ich w Messengerze.",
+    "APLIKACJA RODZICA",
+    [
+      ["Płatności", "w telefonie"],
+      ["Odwołane zajęcia", "powiadomienie"],
+      ["Historia obecności", "zawsze pod ręką"],
+    ],
+  ],
+];
+
+const onboardingSteps: [string, string, string][] = [
+  ["01", "Rozmowa o Twoim klubie", "Pytamy o grupy, składki i to, co dziś zabiera najwięcej czasu."],
+  ["02", "Konfigurujemy klub za Ciebie", "Zakładamy grupy, trenerów i plan treningów, żebyś nie zaczynał od pustego systemu."],
+  ["03", "Szkolimy trenerów", "Pokazujemy, jak zaznaczać obecności i prowadzić grupę na telefonie."],
+  ["04", "Klub pracuje w EasyClub", "Obecności, składki i komunikacja są w jednym miejscu od pierwszego tygodnia."],
+];
+
 function trackMetaEvent(eventName: string, custom = false) {
   const browserWindow = window as Window & {
     fbq?: (...args: unknown[]) => void;
@@ -60,6 +106,7 @@ export function PilotLanding() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [started, setStarted] = useState(false);
+  const [formInView, setFormInView] = useState(true);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -70,10 +117,12 @@ export function PilotLanding() {
     const form = formRef.current;
     if (!form) return;
 
+    let reported = false;
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      setFormInView(entry.isIntersecting);
+      if (entry.isIntersecting && !reported) {
+        reported = true;
         trackFunnelEvent("form_view", { form: "pilot", source: "pilot-landing" });
-        observer.disconnect();
       }
     });
     observer.observe(form);
@@ -151,6 +200,7 @@ export function PilotLanding() {
             <span className="pulse-dot" /> Pilot 10 · dla pierwszych klubów
           </div>
           <h1>Składki na czas. <em>Pełniejsze grupy.</em></h1>
+          <p className="pilot-landing-hero-claim">Zobacz swój klub w EasyClub — bez opłat przez 30 dni.</p>
           <p>
             EasyClub porządkuje treningi, obecności i komunikację z rodzicami,
             żeby klub miał mniej chaosu i mniej pustych miejsc.
@@ -217,6 +267,110 @@ export function PilotLanding() {
         <span>ADMINISTRATOR <i>·</i> TRENER <i>·</i> RODZIC</span>
         <span>SKŁADKI <i>·</i> TRENINGI <i>·</i> KOMUNIKACJA</span>
       </section>
+
+      <section className="pilot-landing-recruit">
+        <div className="pilot-landing-section-heading">
+          <div className="pilot-landing-eyebrow">01 / Nabór i wolne miejsca</div>
+          <h2>Pusty trening to koszt, <em>nie tylko wolne miejsce.</em></h2>
+          <p>
+            Zgłoszenia lecą w wiadomościach, listy żyją w arkuszach, a część chętnych
+            po prostu nie wraca. EasyClub porządkuje zapisy i pokazuje, gdzie w klubie
+            zostało jeszcze miejsce.
+          </p>
+        </div>
+        <div className="pilot-landing-recruit-grid">
+          {recruitmentPoints.map(([title, body], index) => (
+            <article key={title}>
+              <span>{`0${index + 1}`}</span>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+        <Link
+          className="pilot-landing-text-link"
+          href="/nabor"
+          onClick={() => trackFunnelEvent("cta_click", { form: "pilot", source: "pilot-landing-recruit" })}
+        >
+          Policz, ile tracisz na wolnych miejscach <span>↗</span>
+        </Link>
+      </section>
+
+      <section className="pilot-landing-preview">
+        <div className="pilot-landing-section-heading">
+          <div className="pilot-landing-eyebrow">02 / Tak to wygląda w praktyce</div>
+          <h2>Cały klub w jednym miejscu, <em>bez arkuszy i notatek.</em></h2>
+        </div>
+        <div className="pilot-landing-preview-grid">
+          {systemPreviews.map(([title, body, label, rows]) => (
+            <article key={title}>
+              <div className="pilot-landing-screen">
+                <span>{label}</span>
+                {rows.map(([rowLabel, value]) => (
+                  <div key={rowLabel}>
+                    <small>{rowLabel}</small>
+                    <b>{value}</b>
+                  </div>
+                ))}
+              </div>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="pilot-landing-onboarding">
+        <div className="pilot-landing-section-heading">
+          <div className="pilot-landing-eyebrow">03 / Wdrożenie po naszej stronie</div>
+          <h2>Nie zostajesz sam <em>z konfiguracją systemu.</em></h2>
+        </div>
+        <ol className="pilot-landing-steps">
+          {onboardingSteps.map(([number, title, body]) => (
+            <li key={number}>
+              <span>{number}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div className="pilot-landing-final-cta">
+          <div>
+            <strong>30 dni bez opłat, potem 99 zł/mies. przez 12 miesięcy.</strong>
+            <span>Bez karty i bez automatycznego obciążenia.</span>
+          </div>
+          <a
+            className="button"
+            href="#formularz"
+            onClick={() => trackFunnelEvent("cta_click", { form: "pilot", source: "pilot-landing-final" })}
+          >
+            Chcę sprawdzić EasyClub <span>↗</span>
+          </a>
+        </div>
+      </section>
+
+      <footer className="pilot-landing-footer">
+        <BrandLogo href="/" />
+        <div>
+          <a href="mailto:hello@easyclub.pl">Kontakt</a>
+          <Link href="/cennik">Cennik</Link>
+          <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
+          <Link href="/regulamin">Regulamin</Link>
+        </div>
+        <small>© 2025 EasyClub</small>
+      </footer>
+
+      {!submitted && !formInView && (
+        <a
+          className="pilot-landing-sticky-cta"
+          href="#formularz"
+          onClick={() => trackFunnelEvent("cta_click", { form: "pilot", source: "pilot-landing-sticky" })}
+        >
+          Chcę sprawdzić EasyClub <span>↗</span>
+        </a>
+      )}
     </main>
   );
 }
