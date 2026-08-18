@@ -122,5 +122,173 @@
     "intent": "informacyjna",
     "priority": 8,
     "brief": "Materiał startowy o modelu działania, obiekcie, trenerach, zapisach i administracji. Nie podawaj konkretnych kosztów ani wymogów prawnych bez aktualnego źródła."
+  },
+  {
+    "id": "pozyskiwanie-zawodnikow",
+    "topic": "Jak pozyskać nowych zawodników do klubu sportowego?",
+    "category": "Nabór i marketing",
+    "primaryKeyword": "jak pozyskać zawodników do klubu sportowego",
+    "secondaryKeywords": [
+      "nabór do klubu sportowego",
+      "rekrutacja zawodników",
+      "jak promować akademię sportową"
+    ],
+    "intent": "informacyjno-komercyjna",
+    "priority": 9,
+    "brief": "Pokaż kompletną ścieżkę od dotarcia do rodzica, przez kontakt i trening próbny, do zapisu. Uwzględnij szybkość odpowiedzi i follow-up, bez obiecywania konkretnej liczby nowych zawodników."
+  },
+  {
+    "id": "reklama-instagram-facebook-klub",
+    "topic": "Jak reklamować klub sportowy na Facebooku i Instagramie?",
+    "category": "Nabór i marketing",
+    "primaryKeyword": "reklama klubu sportowego na Facebooku",
+    "secondaryKeywords": [
+      "reklama akademii sportowej Instagram",
+      "promocja naboru do klubu",
+      "reklamy na nabór zawodników"
+    ],
+    "intent": "praktyczna",
+    "priority": 10,
+    "brief": "Omów cel kampanii, prosty komunikat, kreację, landing page, formularz i pomiar leadów. Nie podawaj gwarantowanych kosztów ani wyników reklam."
+  },
+  {
+    "id": "dzien-otwarty-akademia",
+    "topic": "Jak zorganizować dzień otwarty w akademii sportowej?",
+    "category": "Nabór i marketing",
+    "primaryKeyword": "dzień otwarty w akademii sportowej",
+    "secondaryKeywords": [
+      "nabór przez dzień otwarty",
+      "trening otwarty dla dzieci",
+      "promocja dnia otwartego"
+    ],
+    "intent": "praktyczna",
+    "priority": 11,
+    "brief": "Przygotuj checklistę promocji, zapisów, organizacji zajęć i kontaktu po wydarzeniu. Zwróć uwagę, że wydarzenie powinno kończyć się jasnym kolejnym krokiem dla rodzica."
+  },
+  {
+    "id": "uzupelnianie-grup",
+    "topic": "Jak uzupełnić grupy treningowe i nie tracić wolnych miejsc?",
+    "category": "Nabór i marketing",
+    "primaryKeyword": "jak uzupełnić grupy treningowe",
+    "secondaryKeywords": [
+      "wolne miejsca w grupach sportowych",
+      "zapisy do grupy treningowej",
+      "rekrutacja do szkółki sportowej"
+    ],
+    "intent": "problemowa",
+    "priority": 12,
+    "brief": "Pokaż, jak wykrywać wolne miejsca, dopasowywać komunikat do grupy i prowadzić listę zainteresowanych. Połącz niewykorzystane miejsca z utraconym potencjałem przychodu, bez tworzenia niezweryfikowanych kalkulacji."
+  },
+  {
+    "id": "retencja-zawodnikow",
+    "topic": "Jak zatrzymać zawodników w klubie sportowym na dłużej?",
+    "category": "Growth klubu",
+    "primaryKeyword": "jak zatrzymać zawodników w klubie sportowym",
+    "secondaryKeywords": [
+      "retencja zawodników",
+      "odejścia z akademii sportowej",
+      "utrzymanie zawodników w klubie"
+    ],
+    "intent": "problemowa",
+    "priority": 13,
+    "brief": "Omów sygnały ryzyka odejścia, komunikację z rodzicami, jakość organizacji i regularny feedback. Nie przypisuj retencji wyłącznie technologii ani nie obiecuj konkretnego spadku rezygnacji."
+  },
+  {
+    "id": "reaktywacja-leadow",
+    "topic": "Jak reaktywować osoby zainteresowane, które nie zapisały dziecka?",
+    "category": "Nabór i marketing",
+    "primaryKeyword": "jak reaktywować leady klubu sportowego",
+    "secondaryKeywords": [
+      "follow-up po treningu próbnym",
+      "niezapisane dziecko akademia",
+      "kontakt z rodzicem po naborze"
+    ],
+    "intent": "praktyczna",
+    "priority": 14,
+    "brief": "Zaproponuj etyczny proces follow-up: segmentację, terminy kontaktu, pomocne wiadomości i rezygnację z dalszych prób po braku odpowiedzi. Nie zachęcaj do spamu."
+  },
+  {
+    "id": "program-polecen-klub",
+    "topic": "Program poleceń w klubie sportowym — jak zdobywać zawodników z rekomendacji?",
+    "category": "Growth klubu",
+    "primaryKeyword": "program poleceń w klubie sportowym",
+    "secondaryKeywords": [
+      "polecenia w akademii sportowej",
+      "jak zdobywać zawodników z polecenia",
+      "marketing rekomendacji klub sportowy"
+    ],
+    "intent": "informacyjno-komercyjna",
+    "priority": 15,
+    "brief": "Pokaż, jak zaprojektować prosty program, zakomunikować go rodzicom i mierzyć źródła zapisów. Zaznacz potrzebę jasnych zasad i zgodności z regulaminem klubu."
+  },
+  {
+    "id": "rentownosc-grupy-treningowej",
+    "topic": "Jak policzyć rentowność grupy treningowej?",
+    "category": "Finanse klubu",
+    "primaryKeyword": "rentowność grupy treningowej",
+    "secondaryKeywords": [
+      "opłacalność grupy sportowej",
+      "koszt prowadzenia treningu",
+      "ile osób w grupie treningowej"
+    ],
+    "intent": "informacyjno-komercyjna",
+    "priority": 16,
+    "brief": "Zbuduj prosty model: przychody, koszt trenera, obiektu, sprzętu i administracji oraz próg rentowności. Używaj przykładowych, wyraźnie oznaczonych liczb zamiast twierdzeń o rynku."
+  },
+  {
+    "id": "budzet-marketingowy-klubu",
+    "topic": "Ile przeznaczyć na marketing klubu sportowego?",
+    "category": "Finanse klubu",
+    "primaryKeyword": "budżet marketingowy klubu sportowego",
+    "secondaryKeywords": [
+      "koszt reklamy akademii sportowej",
+      "budżet na nabór zawodników",
+      "marketing małego klubu sportowego"
+    ],
+    "intent": "informacyjna",
+    "priority": 17,
+    "brief": "Wyjaśnij, jak planować budżet od celu i liczby miejsc, przez kanały, do kosztu pozyskania leada i zapisu. Nie podawaj jednej uniwersalnej kwoty dla każdego klubu."
+  },
+  {
+    "id": "skalowanie-akademii",
+    "topic": "Jak skalować akademię sportową bez dokładania chaosu?",
+    "category": "Growth klubu",
+    "primaryKeyword": "jak skalować akademię sportową",
+    "secondaryKeywords": [
+      "rozwój akademii sportowej",
+      "więcej grup treningowych",
+      "zarządzanie rozwijającym się klubem"
+    ],
+    "intent": "informacyjno-komercyjna",
+    "priority": 18,
+    "brief": "Omów momenty, w których trzeba uporządkować procesy: nabór, grafik, komunikację, płatności i odpowiedzialność trenerów. Nie przedstawiaj wzrostu jako gwarantowanego efektu samego wdrożenia systemu."
+  },
+  {
+    "id": "nabory-wrzesniowe",
+    "topic": "Jak przygotować nabór do akademii sportowej przed sezonem?",
+    "category": "Sezonowość i nabór",
+    "primaryKeyword": "nabór do akademii sportowej przed sezonem",
+    "secondaryKeywords": [
+      "zapisy do akademii sportowej wrzesień",
+      "plan naboru do klubu",
+      "rekrutacja dzieci na treningi"
+    ],
+    "intent": "praktyczna",
+    "priority": 19,
+    "brief": "Stwórz harmonogram działań na 6–8 tygodni przed sezonem: oferta, wolne miejsca, kreacje, formularz, treningi próbne i follow-up. Tekst ma być aktualizowalny sezonowo i nie zakładać konkretnej dyscypliny."
+  },
+  {
+    "id": "automatyzacja-administracji-klubu",
+    "topic": "Co warto zautomatyzować w administracji klubu sportowego?",
+    "category": "Organizacja klubu",
+    "primaryKeyword": "automatyzacja administracji klubu sportowego",
+    "secondaryKeywords": [
+      "automatyzacja klubu sportowego",
+      "mniej pracy ręcznej w klubie",
+      "system dla akademii sportowej"
+    ],
+    "intent": "informacyjno-komercyjna",
+    "priority": 20,
+    "brief": "Zidentyfikuj powtarzalne zadania: obecności, płatności, komunikaty, grafiki i obsługę naboru. Porównaj automatyzację z prostymi procedurami i pokaż, gdzie potrzebna jest kontrola człowieka."
   }
 ]
