@@ -148,17 +148,17 @@ export function PilotLanding() {
       <section className="pilot-landing-hero">
         <div className="pilot-landing-copy">
           <div className="pilot-landing-eyebrow">
-            <span className="pulse-dot" /> Pilot 10 · pierwsze kluby
+            <span className="pulse-dot" /> Pilot 10 · dla pierwszych klubów
           </div>
-          <h1>Sprawdź EasyClub przez 30 dni. <em>Bez opłat na start.</em></h1>
+          <h1>Składki na czas. <em>Pełniejsze grupy.</em></h1>
           <p>
-            Jedno miejsce na treningi, zawodników, składki i komunikację z rodzicami.
-            Pokażemy Ci, jak może działać w Twoim klubie.
+            EasyClub porządkuje treningi, obecności i komunikację z rodzicami,
+            żeby klub miał mniej chaosu i mniej pustych miejsc.
           </p>
           <ul className="pilot-landing-benefits">
-            <li><BrandMark dark /> 30 dni bez opłat</li>
-            <li><BrandMark dark /> Pomoc we wdrożeniu i konfiguracji</li>
-            <li><BrandMark dark /> Bez automatycznego obciążenia</li>
+            <li><BrandMark dark /> Składki bez ręcznego pilnowania</li>
+            <li><BrandMark dark /> Treningi, obecności i komunikacja w jednym miejscu</li>
+            <li><BrandMark dark /> Więcej zapisów, mniej wolnych miejsc</li>
           </ul>
         </div>
 
