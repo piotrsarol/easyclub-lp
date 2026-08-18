@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { BlogFooter, BlogHeader } from "../blog-chrome";
-import { blogPosts, getBlogPost } from "@/lib/blog";
+import { blogPosts, getBlogPost, getRelatedPosts } from "@/lib/blog";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -41,6 +41,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) notFound();
+  const relatedPosts = getRelatedPosts(post);
   const articleUrl = `https://www.easyclub.pl/blog/${post.slug}`;
 
   return (
@@ -83,9 +84,22 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
             </section>
           ))}
         </div>
+        <section className="article-related" aria-labelledby="related-posts-heading">
+          <div className="eyebrow">Warto przeczytać dalej</div>
+          <h2 id="related-posts-heading">Powiązane materiały dla Twojego klubu</h2>
+          <div className="article-related-grid">
+            {relatedPosts.map((relatedPost) => (
+              <Link className="article-related-card" href={`/blog/${relatedPost.slug}`} key={relatedPost.slug}>
+                <span>{relatedPost.category}</span>
+                <h3>{relatedPost.title}</h3>
+                <b>Czytaj artykuł ↗</b>
+              </Link>
+            ))}
+          </div>
+        </section>
         <div className="article-end">
           <span>To dopiero początek.</span>
-          <Link className="text-link" href="/#pilot">Porozmawiajmy o Twoim klubie <span>↗</span></Link>
+          <Link className="text-link" href="/pilot">Porozmawiajmy o Twoim klubie <span>↗</span></Link>
         </div>
       </article>
       <BlogFooter />

@@ -239,3 +239,50 @@ export const blogPosts: BlogPost[] = [
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
 }
+
+const relatedPostStopWords = new Set([
+  "aby",
+  "akademia",
+  "akademii",
+  "dla",
+  "jak",
+  "klub",
+  "klubu",
+  "sportowa",
+  "sportowej",
+  "sportowym",
+  "sportowy",
+  "czy",
+  "oraz",
+  "przez",
+  "swoim",
+  "treningów",
+  "treningowy",
+  "treningowej",
+]);
+
+export function getRelatedPosts(post: BlogPost, limit = 3) {
+  const sourceTerms = getRelatedPostTerms(post);
+
+  return blogPosts
+    .filter((candidate) => candidate.slug !== post.slug)
+    .map((candidate) => {
+      const sharedTerms = Array.from(getRelatedPostTerms(candidate)).filter((term) => sourceTerms.has(term)).length;
+      const categoryScore = candidate.category === post.category ? 4 : 0;
+      return { candidate, score: categoryScore + sharedTerms };
+    })
+    .sort((left, right) => right.score - left.score || right.candidate.date.localeCompare(left.candidate.date))
+    .slice(0, limit)
+    .map(({ candidate }) => candidate);
+}
+
+function getRelatedPostTerms(post: BlogPost) {
+  return new Set(
+    `${post.title} ${post.excerpt}`
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((term) => term.length >= 5 && !relatedPostStopWords.has(term)),
+  );
+}
