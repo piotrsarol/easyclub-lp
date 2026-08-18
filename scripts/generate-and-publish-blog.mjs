@@ -61,29 +61,23 @@ Format:
   ]
 }`;
 
-const response = await fetch(
-  `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": apiKey,
-    },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: 0.55,
-        responseMimeType: "application/json",
-      },
-    }),
+const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+const request = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "x-goog-api-key": apiKey,
   },
-);
+  body: JSON.stringify({
+    contents: [{ parts: [{ text: prompt }] }],
+    generationConfig: {
+      temperature: 0.55,
+      responseMimeType: "application/json",
+    },
+  }),
+};
 
-if (!response.ok) {
-  throw new Error(`Gemini API zwróciło ${response.status}: ${await response.text()}`);
-}
-
-const data = await response.json();
+const data = await requestGemini(endpoint, request);
 const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
 if (typeof text !== "string" || !text.trim()) {
   throw new Error("Gemini API nie zwróciło treści artykułu.");
@@ -176,4 +170,26 @@ function escapeForSearch(value) {
 
 function serialize(value, indent = 2) {
   return JSON.stringify(value, null, indent);
+}
+
+async function requestGemini(endpoint, request) {
+  const maxAttempts = 3;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const response = await fetch(endpoint, request);
+    if (response.ok) return response.json();
+
+    const responseBody = await response.text();
+    const canRetry = [429, 500, 502, 503, 504].includes(response.status);
+    if (!canRetry || attempt === maxAttempts) {
+      throw new Error(`Gemini API zwróciło ${response.status}: ${responseBody}`);
+    }
+
+    const retryAfter = Number(response.headers.get("retry-after"));
+    const delaySeconds = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter : 2 ** attempt;
+    console.warn(`Gemini API zwróciło ${response.status}. Ponowienie za ${delaySeconds}s.`);
+    await new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000));
+  }
+
+  throw new Error("Nie udało się uzyskać odpowiedzi z Gemini API.");
 }
