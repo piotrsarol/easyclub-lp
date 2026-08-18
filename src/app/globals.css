@@ -88,6 +88,7 @@
 .pilot-landing-success h2{margin:0;font-size:30px;letter-spacing:-.06em}
 .pilot-landing-success p{margin:0;color:#56674b;font-size:14px;line-height:1.6}
 .pilot-landing-copy>p.pilot-landing-hero-claim{max-width:520px;margin:0 0 14px;color:var(--lime);font-size:15px;font-weight:700;line-height:1.5}
+.pilot-landing-copy>p.pilot-landing-hero-explainer{max-width:530px;margin:0;color:var(--muted);line-height:1.65}
 .pilot-landing-recruit,.pilot-landing-preview,.pilot-landing-onboarding{max-width:1180px;margin:auto;padding:88px 32px}
 .pilot-landing-recruit{border-top:1px solid var(--line)}
 .pilot-landing-preview{background:#151b16;max-width:none}

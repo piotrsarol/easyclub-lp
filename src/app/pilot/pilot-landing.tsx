@@ -206,9 +206,10 @@ export function PilotLanding() {
           </div>
           <h1>Składki na czas. <em>Pełniejsze grupy.</em></h1>
           <p className="pilot-landing-hero-claim">Zobacz swój klub w EasyClub — bez opłat przez 30 dni.</p>
-          <p>
-            EasyClub porządkuje treningi, obecności i komunikację z rodzicami,
-            żeby klub miał mniej chaosu i mniej pustych miejsc.
+          <p className="pilot-landing-hero-explainer">
+            EasyClub to jeden system do prowadzenia klubu — treningi, obecności,
+            składki, nabór i komunikacja z rodzicami. Wszystko w jednym miejscu,
+            żeby łatwiej prowadzić klub i zapełniać grupy.
           </p>
           <ul className="pilot-landing-benefits">
             <li><BrandMark dark /> Składki bez ręcznego pilnowania</li>
