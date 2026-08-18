@@ -25,6 +25,19 @@ describe("naborLeadSchema", () => {
     }
   });
 
+  it("accepts the simplified form without phone or athlete count", () => {
+    expect(naborLeadSchema.safeParse({
+      clubName: validNaborLead.clubName,
+      contactName: validNaborLead.contactName,
+      email: validNaborLead.email,
+      consent: validNaborLead.consent,
+      website: validNaborLead.website,
+      source: validNaborLead.source,
+      utmSource: validNaborLead.utmSource,
+      utmCampaign: validNaborLead.utmCampaign,
+    }).success).toBe(true);
+  });
+
   it("requires the campaign source and consent", () => {
     expect(naborLeadSchema.safeParse({ ...validNaborLead, source: "main" }).success).toBe(false);
     expect(naborLeadSchema.safeParse({ ...validNaborLead, consent: false }).success).toBe(false);
