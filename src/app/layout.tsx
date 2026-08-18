@@ -17,7 +17,10 @@ export const metadata: Metadata = {
     url: "https://www.easyclub.pl/",
     images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "EasyClub" }],
   },
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/feed.xml" },
+  },
   twitter: {
     card: "summary_large_image",
     title: "EasyClub — aplikacja do zarządzania klubem sportowym",

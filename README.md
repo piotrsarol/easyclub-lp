@@ -106,3 +106,14 @@ Vercel Cron triggers `GET /api/blog-publish` three times a week on Tuesday, Thur
 The endpoint only starts the workflow; article generation, validation, commit and deployment remain inside GitHub Actions. The workflow selects the highest-priority unpublished topic from `content/seo-topics.json`, generates the article, validates the SEO limits and article structure, runs the full quality checks, commits the article to `main`, and lets Vercel deploy it.
 
 The workflow is intentionally limited to one article per run. Topics are selected from the committed backlog until Google Search Console data is supplied. After adding a Search Console export, update the backlog briefs rather than sending private club or member data to Gemini. Automatic publication does not include a human editorial review, so keep only evergreen, non-legal topics in the automatic backlog.
+
+### Social distribution
+
+The blog exposes an RSS feed at `https://www.easyclub.pl/feed.xml`. Use it as the trigger in Make:
+
+1. Create an RSS module that watches `https://www.easyclub.pl/feed.xml`.
+2. Add a text module that creates a short Facebook post from the article title and excerpt.
+3. Add the article URL with `utm_source=facebook&utm_medium=social&utm_campaign=blog`.
+4. Connect the Facebook Pages module and publish to the EasyClub page.
+
+Keep the first version text-led: use the article's Open Graph image or a simple branded template with an off-white background, black typography and a lime accent. Add Google Business Profile only after the profile is verified; use the same RSS trigger but review the post before publishing.
