@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { createMarketingEventId } from "@/lib/marketing-events";
 import { BrandLogo } from "../brand-logo";
 import styles from "./nabor-page.module.css";
 
@@ -16,13 +17,13 @@ const faqs = [
 
 const currency = new Intl.NumberFormat("pl-PL");
 
-function trackConversion() {
+function trackConversion(eventId: string) {
   const browserWindow = window as Window & {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
   };
 
-  browserWindow.fbq?.("track", "Lead");
+  browserWindow.fbq?.("track", "Lead", {}, { eventID: eventId });
   browserWindow.gtag?.("event", "generate_lead", { event_category: "nabor" });
 }
 
@@ -65,6 +66,7 @@ export function NaborPage() {
     setFieldErrors({});
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
+    const eventId = createMarketingEventId();
     const athleteCountValue = String(form.get("athleteCount") ?? "").trim();
     const payload = {
       clubName: String(form.get("clubName") ?? ""),
@@ -75,6 +77,8 @@ export function NaborPage() {
       consent: form.get("consent") === "on",
       website: String(form.get("website") ?? ""),
       source: "nabor" as const,
+      eventId,
+      eventSourceUrl: window.location.href,
       ...attribution,
     };
 
@@ -91,7 +95,7 @@ export function NaborPage() {
 
       setSubmitted(true);
       formElement.reset();
-      trackConversion();
+      trackConversion(eventId);
     } catch (submissionError) {
       setError(submissionError instanceof Error ? submissionError.message : "Spróbuj ponownie.");
     } finally {

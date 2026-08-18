@@ -14,6 +14,8 @@ export const naborLeadSchema = z.object({
   utmCampaign: z.string().max(120).optional(),
   utmContent: z.string().max(120).optional(),
   utmTerm: z.string().max(120).optional(),
+  eventId: z.string().max(120).optional(),
+  eventSourceUrl: z.url().max(500).optional(),
 });
 
 export type NaborLeadInput = z.infer<typeof naborLeadSchema>;

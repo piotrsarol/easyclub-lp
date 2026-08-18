@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { leadSchema } from "@/lib/lead-schema";
+import { sendMetaLead } from "@/lib/meta-conversions";
 
 export async function POST(request: Request) {
   const body: unknown = await request.json().catch(() => null);
@@ -56,6 +57,8 @@ export async function POST(request: Request) {
         utm_campaign: result.data.utm_campaign || "",
         utm_content: result.data.utm_content || "",
         utm_term: result.data.utm_term || "",
+        eventId: result.data.eventId || "",
+        eventSourceUrl: result.data.eventSourceUrl || "",
       }),
     });
   } catch {
@@ -73,6 +76,20 @@ export async function POST(request: Request) {
 
   if (!response.ok || webhookResult?.ok === false) {
     return NextResponse.json({ error: "Nie udało się zapisać zgłoszenia. Spróbuj ponownie." }, { status: 502 });
+  }
+
+  if (result.data.eventId && result.data.eventSourceUrl) {
+    try {
+      await sendMetaLead({
+        email: result.data.email,
+        eventId: result.data.eventId,
+        eventSourceUrl: result.data.eventSourceUrl,
+        phone: result.data.phone,
+        request,
+      });
+    } catch {
+      console.error("Meta Conversions API request failed");
+    }
   }
 
   return NextResponse.json({ ok: true });

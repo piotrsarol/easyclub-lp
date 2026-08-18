@@ -5,6 +5,7 @@ import Link from "next/link";
 import Script from "next/script";
 
 const consentStorageKey = "easyclub-cookie-consent";
+const consentCookieName = "easyclub-cookie-consent";
 const metaPixelId = "1944773832878693";
 
 type ConsentChoice = "accepted" | "declined";
@@ -17,6 +18,7 @@ export function CookieConsent() {
     const storedChoice = window.localStorage.getItem(consentStorageKey);
     if (storedChoice === "accepted" || storedChoice === "declined") {
       setChoice(storedChoice);
+      document.cookie = `${consentCookieName}=${storedChoice}; Max-Age=31536000; Path=/; SameSite=Lax`;
     }
     setIsReady(true);
   }, []);
@@ -24,6 +26,7 @@ export function CookieConsent() {
   function saveChoice(nextChoice: ConsentChoice) {
     const hadAcceptedPixel = choice === "accepted";
     window.localStorage.setItem(consentStorageKey, nextChoice);
+    document.cookie = `${consentCookieName}=${nextChoice}; Max-Age=31536000; Path=/; SameSite=Lax`;
     setChoice(nextChoice);
 
     if (hadAcceptedPixel && nextChoice === "declined") {
