@@ -98,7 +98,7 @@ export default function BlogPage() {
           <div className="eyebrow">EasyClub dla Twojego klubu</div>
           <h2>Mniej szukania.<br /><em>Więcej działania.</em></h2>
         </div>
-        <Link className="button" href="/#pilot">Zgłoś klub do pilotażu <span>↗</span></Link>
+        <Link className="button" href="/pilot">Zgłoś klub do pilotażu <span>↗</span></Link>
       </section>
       <BlogFooter />
     </main>

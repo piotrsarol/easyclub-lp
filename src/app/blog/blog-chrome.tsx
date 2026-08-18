@@ -11,7 +11,7 @@ export function BlogHeader() {
           <Link href="/cennik">Cennik</Link>
           <Link href="/blog" aria-current="page">Blog</Link>
       </nav>
-      <Link className="button button-small header-cta" href="/#pilot">Zgłoś klub <span>↗</span></Link>
+      <Link className="button button-small header-cta" href="/pilot">Zgłoś klub <span>↗</span></Link>
     </header>
   );
 }
@@ -21,7 +21,7 @@ export function BlogFooter() {
     <footer className="site-footer blog-footer section-shell">
       <BrandLogo href="/" />
       <p>Jedno miejsce do zarządzania klubem sportowym.</p>
-      <div className="footer-links"><Link href="mailto:hello@easyclub.pl">Kontakt</Link><Link href="/#pilot">Pilotaż</Link><Link href="/cennik">Cennik</Link><Link href="/blog">Blog</Link></div>
+      <div className="footer-links"><Link href="mailto:hello@easyclub.pl">Kontakt</Link><Link href="/pilot">Pilotaż</Link><Link href="/cennik">Cennik</Link><Link href="/blog">Blog</Link></div>
       <small>© 2025 EasyClub</small>
     </footer>
   );
