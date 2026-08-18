@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { createMarketingEventId } from "@/lib/marketing-events";
+import { trackFunnelEvent } from "@/lib/funnel-events";
 import { BrandLogo, BrandMark } from "../brand-logo";
 
 const attributionStorageKey = "easyclub-campaign-attribution";
@@ -64,13 +65,26 @@ export function PilotLanding() {
   useEffect(() => {
     setAttribution(readAttribution());
     track("pilot_landing_view");
+    trackFunnelEvent("page_view", { form: "pilot", source: "pilot-landing" });
     trackMetaEvent("ViewContent");
+    const form = formRef.current;
+    if (!form) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        trackFunnelEvent("form_view", { form: "pilot", source: "pilot-landing" });
+        observer.disconnect();
+      }
+    });
+    observer.observe(form);
+    return () => observer.disconnect();
   }, []);
 
   function handleFormStart() {
     if (started) return;
     setStarted(true);
     track("pilot_form_start");
+    trackFunnelEvent("form_start", { form: "pilot", source: "pilot-landing" });
     trackMetaEvent("PilotFormStart", true);
   }
 
@@ -79,6 +93,7 @@ export function PilotLanding() {
     setLoading(true);
     setError("");
     track("pilot_form_submit");
+    trackFunnelEvent("form_submit", { form: "pilot", source: "pilot-landing" });
     trackMetaEvent("PilotFormSubmit", true);
 
     const form = new FormData(event.currentTarget);
@@ -108,11 +123,14 @@ export function PilotLanding() {
 
       track("pilot_form_success");
       trackMetaLead(eventId);
+      trackFunnelEvent("submit_success", { form: "pilot", source: "pilot-landing" });
+      trackFunnelEvent("lead", { form: "pilot", source: "pilot-landing" });
       setSubmitted(true);
       formRef.current?.reset();
     } catch (submissionError) {
       setError(submissionError instanceof Error ? submissionError.message : "Spróbuj ponownie.");
       track("pilot_form_error");
+      trackFunnelEvent("submit_error", { form: "pilot", source: "pilot-landing" });
     } finally {
       setLoading(false);
     }
@@ -122,7 +140,7 @@ export function PilotLanding() {
     <main className="pilot-landing-page">
       <header className="pilot-landing-header">
         <BrandLogo href="/" />
-        <Link className="pilot-landing-header-link" href="/">
+        <Link className="pilot-landing-header-link" href="/" onClick={() => trackFunnelEvent("cta_click", { form: "pilot", source: "pilot-landing" })}>
           Wróć na stronę główną <span>↗</span>
         </Link>
       </header>
@@ -158,7 +176,7 @@ export function PilotLanding() {
                 <strong>30 dni bez opłat</strong>
                 <small>Bez automatycznego obciążenia po okresie próbnym.</small>
               </div>
-              <form ref={formRef} className="pilot-landing-form" onSubmit={handleSubmit}>
+              <form ref={formRef} className="pilot-landing-form" onSubmit={handleSubmit} onInvalidCapture={() => trackFunnelEvent("validation_error", { form: "pilot", source: "pilot-landing" })}>
                 <div className="pilot-landing-form-heading">
                   <h2>Sprawdź EasyClub w swoim klubie.</h2>
                   <p>Zostaw kontakt. Wrócimy z konkretnym kolejnym krokiem.</p>

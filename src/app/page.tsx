@@ -1,7 +1,8 @@
 "use client";
 
-import { FormEvent, MouseEvent, useEffect, useState } from "react";
+import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { trackFunnelEvent } from "@/lib/funnel-events";
 import { clubSizeOptions, leadSchema } from "@/lib/lead-schema";
 import { createMarketingEventId } from "@/lib/marketing-events";
 import { BrandLogo, BrandMark } from "./brand-logo";
@@ -46,12 +47,36 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [formStarted, setFormStarted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    trackFunnelEvent("page_view", { form: "main", source: "main" });
+    const form = formRef.current;
+    if (!form) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        trackFunnelEvent("form_view", { form: "main", source: "main" });
+        observer.disconnect();
+      }
+    });
+    observer.observe(form);
+    return () => observer.disconnect();
+  }, []);
+
+  function handleFormStart() {
+    if (formStarted) return;
+    setFormStarted(true);
+    trackFunnelEvent("form_start", { form: "main", source: "main" });
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
     setError("");
     setFieldErrors({});
+    trackFunnelEvent("form_submit", { form: "main", source: "main" });
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     const value = (name: string) => String(form.get(name) ?? "");
@@ -88,6 +113,7 @@ export default function Home() {
 
       setFieldErrors(nextErrors);
       setError("Sprawdź zaznaczone pola i popraw wskazane wartości.");
+      trackFunnelEvent("validation_error", { form: "main", source: "main" });
       setLoading(false);
 
       const firstInvalidField = Object.keys(nextErrors).find((field) => field !== "form");
@@ -116,15 +142,21 @@ export default function Home() {
           });
         }
       }
-      if (!response.ok) throw new Error(data.error || "Coś poszło nie tak.");
+      if (!response.ok) {
+        trackFunnelEvent("submit_error", { form: "main", source: "main" });
+        throw new Error(data.error || "Coś poszło nie tak.");
+      }
       const browserWindow = window as Window & {
         fbq?: (...args: unknown[]) => void;
       };
       browserWindow.fbq?.("track", "Lead", {}, { eventID: eventId });
+      trackFunnelEvent("submit_success", { form: "main", source: "main" });
+      trackFunnelEvent("lead", { form: "main", source: "main" });
       setSubmitted(true);
       formElement.reset();
     } catch (submissionError) {
       setError(submissionError instanceof Error ? submissionError.message : "Spróbuj ponownie.");
+      trackFunnelEvent("submit_error", { form: "main", source: "main" });
     } finally {
       setLoading(false);
     }
@@ -146,7 +178,7 @@ export default function Home() {
           <Link href="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
           <a href="#pilot" onClick={() => setMenuOpen(false)}>Pilotaż</a>
         </nav>
-        <a className="button button-small header-cta" href="#pilot">Zgłoś klub <span>↗</span></a>
+        <a className="button button-small header-cta" href="#pilot" onClick={() => trackFunnelEvent("cta_click", { form: "main", source: "main" })}>Zgłoś klub <span>↗</span></a>
       </header>
 
       <section className="hero section-shell" id="top">
@@ -155,7 +187,7 @@ export default function Home() {
           <h1>Mniej administracji.<br /><em>Więcej sportu.</em></h1>
           <p className="hero-lead">EasyClub to aplikacja do zarządzania klubem sportowym. Łączy harmonogram, obecności, składki, zawodników i komunikację z rodzicami w jednym spokojnym systemie.</p>
           <div className="hero-actions">
-            <a className="button" href="#pilot">Zgłoś klub do pilotażu <span>↗</span></a>
+            <a className="button" href="#pilot" onClick={() => trackFunnelEvent("cta_click", { form: "main", source: "main" })}>Zgłoś klub do pilotażu <span>↗</span></a>
             <a className="text-link" href="#features">Zobacz, jak działa EasyClub <span>↓</span></a>
           </div>
           <div className="hero-benefits">
@@ -220,7 +252,7 @@ export default function Home() {
 
       <section className="pilot-section section-shell" id="pilot">
         <div className="pilot-copy"><div className="eyebrow"><span className="pulse-dot" /> Program pilotażowy</div><h2>Zobacz EasyClub<br /><em>w swoim klubie.</em></h2><p>Dołącz do klubów, które pomagają nam zbudować najlepsze narzędzie do codziennej pracy.</p><div className="pilot-note"><span>→</span><div><strong>Bez zobowiązań na start.</strong><br />Porozmawiamy, pokażemy produkt i wspólnie ocenimy, czy to dobry moment.</div></div></div>
-        <form className="lead-form" onSubmit={handleSubmit} noValidate>
+        <form ref={formRef} className="lead-form" onSubmit={handleSubmit} onFocus={handleFormStart} noValidate>
           <div className="form-row">
             <Field label="Nazwa klubu" name="clubName" error={fieldErrors.clubName}>
               <input name="clubName" placeholder="np. Akademia Orlik" aria-invalid={Boolean(fieldErrors.clubName)} aria-describedby={fieldErrors.clubName ? "clubName-error" : undefined} />

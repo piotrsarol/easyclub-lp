@@ -1,7 +1,8 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { trackFunnelEvent } from "@/lib/funnel-events";
 import { createMarketingEventId } from "@/lib/marketing-events";
 import { BrandLogo } from "../brand-logo";
 import styles from "./nabor-page.module.css";
@@ -35,6 +36,8 @@ export function NaborPage() {
   const [error, setError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [attribution, setAttribution] = useState<Record<string, string>>({});
+  const [formStarted, setFormStarted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -48,7 +51,25 @@ export function NaborPage() {
     }
 
     setAttribution(nextAttribution);
+    trackFunnelEvent("page_view", { form: "nabor", source: "nabor" });
+    const form = formRef.current;
+    if (!form) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        trackFunnelEvent("form_view", { form: "nabor", source: "nabor" });
+        observer.disconnect();
+      }
+    });
+    observer.observe(form);
+    return () => observer.disconnect();
   }, []);
+
+  function handleFormStart() {
+    if (formStarted) return;
+    setFormStarted(true);
+    trackFunnelEvent("form_start", { form: "nabor", source: "nabor" });
+  }
 
   const monthlyLoss = emptyPlaces * fee;
   const annualLoss = monthlyLoss * 12;
@@ -64,6 +85,7 @@ export function NaborPage() {
     setLoading(true);
     setError("");
     setFieldErrors({});
+    trackFunnelEvent("form_submit", { form: "nabor", source: "nabor" });
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     const eventId = createMarketingEventId();
@@ -96,8 +118,11 @@ export function NaborPage() {
       setSubmitted(true);
       formElement.reset();
       trackConversion(eventId);
+      trackFunnelEvent("submit_success", { form: "nabor", source: "nabor" });
+      trackFunnelEvent("lead", { form: "nabor", source: "nabor" });
     } catch (submissionError) {
       setError(submissionError instanceof Error ? submissionError.message : "Spróbuj ponownie.");
+      trackFunnelEvent("submit_error", { form: "nabor", source: "nabor" });
     } finally {
       setLoading(false);
     }
@@ -113,7 +138,7 @@ export function NaborPage() {
           <a href="#pilot">Pilot 10</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <a className={styles.headerButton} href="#formularz">Zgłoś klub <span>↗</span></a>
+        <a className={styles.headerButton} href="#formularz" onClick={() => trackFunnelEvent("cta_click", { form: "nabor", source: "nabor" })}>Zgłoś klub <span>↗</span></a>
       </header>
 
       <section className={styles.hero} id="top">
@@ -125,7 +150,7 @@ export function NaborPage() {
             i zamienić zainteresowanych w nowych zawodników.
           </p>
           <div className={styles.heroActions}>
-            <a className={styles.primaryButton} href="#formularz">Zgłoś klub do programu pilotażowego <span>↗</span></a>
+            <a className={styles.primaryButton} href="#formularz" onClick={() => trackFunnelEvent("cta_click", { form: "nabor", source: "nabor" })}>Zgłoś klub do programu pilotażowego <span>↗</span></a>
             <span className={styles.heroNote}>Pilot 10 · 30 dni bez opłat</span>
           </div>
         </div>
@@ -166,7 +191,7 @@ export function NaborPage() {
               <strong>{formattedMonthlyLoss} <small>/ mies.</small></strong>
               <b>{formattedAnnualLoss} rocznie</b>
             </div>
-            <a className={styles.primaryButton} href="#formularz">Chcę zapełnić te miejsca <span>↗</span></a>
+            <a className={styles.primaryButton} href="#formularz" onClick={() => trackFunnelEvent("cta_click", { form: "nabor", source: "nabor" })}>Chcę zapełnić te miejsca <span>↗</span></a>
           </div>
         </div>
       </section>
@@ -254,7 +279,7 @@ export function NaborPage() {
               <button className={styles.secondaryButton} onClick={() => setSubmitted(false)}>Wyślij kolejne zgłoszenie</button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form ref={formRef} onSubmit={handleSubmit} onFocus={handleFormStart} onInvalidCapture={() => trackFunnelEvent("validation_error", { form: "nabor", source: "nabor" })}>
               <h3>Zgłoś klub do Pilot 10</h3>
               <p>Zostaw kontakt. Wrócimy z kolejnym krokiem, bez zobowiązań.</p>
               <div className={styles.formField}><label htmlFor="clubName">Nazwa klubu</label><input id="clubName" name="clubName" required /></div>

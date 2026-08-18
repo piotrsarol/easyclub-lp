@@ -45,6 +45,33 @@ function doPost(event) {
       .setMimeType(ContentService.MimeType.JSON);
   }
 
+  if (payload.eventType) {
+    const eventsSheet = SpreadsheetApp
+      .getActiveSpreadsheet()
+      .getSheetByName("FunnelEvents")
+      || SpreadsheetApp.getActiveSpreadsheet().insertSheet("FunnelEvents");
+
+    eventsSheet.appendRow([
+      payload.occurredAt,
+      payload.eventType,
+      payload.eventId,
+      payload.sessionId,
+      payload.path,
+      payload.referrer,
+      payload.form,
+      payload.source,
+      payload.utmSource,
+      payload.utmMedium,
+      payload.utmCampaign,
+      payload.utmContent,
+      payload.utmTerm,
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: true }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   SpreadsheetApp.getActiveSpreadsheet().getActiveSheet().appendRow([
     payload.submittedAt,
     payload.clubName,
@@ -73,7 +100,13 @@ function doPost(event) {
 3. Deploy it as a **Web app**, execute as yourself, and allow access to anyone with the link.
 4. Add the deployment URL and the same secret to Vercel under **Settings → Environment Variables**.
 
+The first funnel event automatically creates a separate `FunnelEvents` tab. Its columns are: `occurredAt`, `eventType`, `eventId`, `sessionId`, `path`, `referrer`, `form`, `source`, `utmSource`, `utmMedium`, `utmCampaign`, `utmContent`, `utmTerm`.
+
 The lead route sends data server-side, so the webhook URL and secret are not included in browser code.
+
+The CRO funnel uses the same event names on `/`, `/pilot`, and `/nabor`: `page_view`, `cta_click`, `form_view`, `form_start`, `form_submit`, `validation_error`, `submit_success`, `submit_error`, and `lead`. Events contain no contact details or other form values. They are sent only after the visitor accepts optional cookies; rejecting cookies leaves lead collection enabled but does not write funnel events.
+
+Group a journey by `sessionId`, then compare the counts of each `eventType` by `path`, `form`, `source`, and UTM columns. `eventId` is unique per event and is not the lead's contact identifier.
 
 ### Meta Conversions API
 
