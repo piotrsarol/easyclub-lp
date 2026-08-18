@@ -2,10 +2,6 @@ import { NextResponse } from "next/server";
 import { funnelEventSchema } from "@/lib/funnel-event-schema";
 
 export async function POST(request: Request) {
-  if (getCookie(request, "easyclub-cookie-consent") !== "accepted") {
-    return new NextResponse(null, { status: 204 });
-  }
-
   const body: unknown = await request.json().catch(() => null);
   const result = funnelEventSchema.safeParse(body);
 
@@ -47,10 +43,4 @@ export async function POST(request: Request) {
   }
 
   return new NextResponse(null, { status: 204 });
-}
-
-function getCookie(request: Request, name: string) {
-  const cookies = request.headers.get("cookie")?.split(";") || [];
-  const cookie = cookies.find((value) => value.trim().startsWith(`${name}=`));
-  return cookie?.split("=")[1];
 }

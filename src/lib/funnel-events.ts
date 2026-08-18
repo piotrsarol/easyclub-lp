@@ -25,8 +25,6 @@ type FunnelEventOptions = {
 };
 
 export function trackFunnelEvent(event: FunnelEventName, options: FunnelEventOptions = {}) {
-  if (!hasMarketingConsent()) return;
-
   const payload = {
     event,
     eventId: createMarketingEventId(),
@@ -48,15 +46,6 @@ export function trackFunnelEvent(event: FunnelEventName, options: FunnelEventOpt
     body: JSON.stringify(payload),
     keepalive: true,
   }).catch(() => undefined);
-}
-
-function hasMarketingConsent() {
-  const storedChoice = window.localStorage.getItem("easyclub-cookie-consent");
-  if (storedChoice === "accepted" && !document.cookie.includes("easyclub-cookie-consent=accepted")) {
-    document.cookie = "easyclub-cookie-consent=accepted; Max-Age=31536000; Path=/; SameSite=Lax";
-  }
-
-  return storedChoice === "accepted";
 }
 
 function getSessionId() {
