@@ -75,6 +75,18 @@ function doPost(event) {
 
 The lead route sends data server-side, so the webhook URL and secret are not included in browser code.
 
+### Meta Conversions API
+
+The lead endpoints can send a server-side `Lead` event to Meta after a lead is saved successfully. The event uses the same `eventId` as the browser Pixel event so Meta can deduplicate the two signals. The server sends the event only when the optional marketing consent cookie is set to `accepted`; rejecting cookies does not disable the lead form or Google Sheets storage.
+
+Configure these server-only Vercel variables to enable it:
+
+- `META_PIXEL_ID` — the Meta Pixel ID;
+- `META_CONVERSIONS_API_ACCESS_TOKEN` — a Meta Conversions API access token with permission to send events;
+- `META_CAPI_API_VERSION` — optional Graph API version, defaulting to `v20.0`.
+
+Without these variables, lead collection continues to work and the existing browser Pixel behavior is unchanged.
+
 ## Vercel Web Analytics
 
 The landing includes `@vercel/analytics`. After a production deployment, enable Web Analytics in the Vercel project dashboard to see privacy-focused visitor, page-view, and bounce-rate metrics. It does not add Google Analytics, Meta Pixel, or advertising trackers.

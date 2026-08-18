@@ -24,6 +24,8 @@ export const leadSchema = z.object({
   utm_campaign: z.string().trim().max(120).optional(),
   utm_content: z.string().trim().max(120).optional(),
   utm_term: z.string().trim().max(120).optional(),
+  eventId: z.string().trim().max(120).optional(),
+  eventSourceUrl: z.url().max(500).optional(),
 });
 
 export type LeadInput = z.infer<typeof leadSchema>;

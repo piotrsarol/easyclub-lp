@@ -3,6 +3,7 @@
 import { FormEvent, MouseEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import { clubSizeOptions, leadSchema } from "@/lib/lead-schema";
+import { createMarketingEventId } from "@/lib/marketing-events";
 import { BrandLogo, BrandMark } from "./brand-logo";
 
 const features = [
@@ -54,6 +55,8 @@ export default function Home() {
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     const value = (name: string) => String(form.get(name) ?? "");
+    const eventId = createMarketingEventId();
+    const query = new URLSearchParams(window.location.search);
     const payload = {
       clubName: value("clubName"),
       contactName: value("contactName"),
@@ -64,6 +67,14 @@ export default function Home() {
       message: value("message"),
       consent: form.get("consent") === "on",
       website: value("website"),
+      source: "main",
+      utm_source: query.get("utm_source") || undefined,
+      utm_medium: query.get("utm_medium") || undefined,
+      utm_campaign: query.get("utm_campaign") || undefined,
+      utm_content: query.get("utm_content") || undefined,
+      utm_term: query.get("utm_term") || undefined,
+      eventId,
+      eventSourceUrl: window.location.href,
     };
     const validation = leadSchema.safeParse(payload);
 
@@ -109,7 +120,7 @@ export default function Home() {
       const browserWindow = window as Window & {
         fbq?: (...args: unknown[]) => void;
       };
-      browserWindow.fbq?.("track", "Lead");
+      browserWindow.fbq?.("track", "Lead", {}, { eventID: eventId });
       setSubmitted(true);
       formElement.reset();
     } catch (submissionError) {

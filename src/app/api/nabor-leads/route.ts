@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { naborLeadSchema } from "@/lib/nabor-schema";
+import { sendMetaLead } from "@/lib/meta-conversions";
 
 const attempts = new Map<string, { count: number; resetAt: number }>();
 const rateLimitWindow = 10 * 60 * 1000;
@@ -85,6 +86,8 @@ export async function POST(request: Request) {
         utmCampaign: result.data.utmCampaign || "",
         utmContent: result.data.utmContent || "",
         utmTerm: result.data.utmTerm || "",
+        eventId: result.data.eventId || "",
+        eventSourceUrl: result.data.eventSourceUrl || "",
       }),
     });
 
@@ -102,6 +105,20 @@ export async function POST(request: Request) {
     }
   } catch {
     return NextResponse.json({ error: "Nie udało się zapisać zgłoszenia. Spróbuj ponownie." }, { status: 502 });
+  }
+
+  if (result.data.eventId && result.data.eventSourceUrl) {
+    try {
+      await sendMetaLead({
+        email: result.data.email,
+        eventId: result.data.eventId,
+        eventSourceUrl: result.data.eventSourceUrl,
+        phone: result.data.phone,
+        request,
+      });
+    } catch {
+      console.error("Meta Conversions API request failed");
+    }
   }
 
   return NextResponse.json({ ok: true });

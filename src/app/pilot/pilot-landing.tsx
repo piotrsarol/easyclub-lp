@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
+import { createMarketingEventId } from "@/lib/marketing-events";
 import { BrandLogo, BrandMark } from "../brand-logo";
 
 const attributionStorageKey = "easyclub-campaign-attribution";
@@ -20,6 +21,14 @@ function trackMetaEvent(eventName: string, custom = false) {
   } else {
     browserWindow.fbq?.("track", eventName);
   }
+}
+
+function trackMetaLead(eventId: string) {
+  const browserWindow = window as Window & {
+    fbq?: (...args: unknown[]) => void;
+  };
+
+  browserWindow.fbq?.("track", "Lead", {}, { eventID: eventId });
 }
 
 function readAttribution(): Attribution {
@@ -73,6 +82,7 @@ export function PilotLanding() {
     trackMetaEvent("PilotFormSubmit", true);
 
     const form = new FormData(event.currentTarget);
+    const eventId = createMarketingEventId();
     const payload = {
       clubName: String(form.get("clubName") ?? ""),
       contactName: String(form.get("contactName") ?? ""),
@@ -81,6 +91,8 @@ export function PilotLanding() {
       consent: form.get("consent") === "on",
       website: String(form.get("website") ?? ""),
       source: "pilot-landing",
+      eventId,
+      eventSourceUrl: window.location.href,
       ...attribution,
     };
 
@@ -95,7 +107,7 @@ export function PilotLanding() {
       if (!response.ok) throw new Error(data.error || "Nie udało się wysłać zgłoszenia.");
 
       track("pilot_form_success");
-      trackMetaEvent("Lead");
+      trackMetaLead(eventId);
       setSubmitted(true);
       formRef.current?.reset();
     } catch (submissionError) {
