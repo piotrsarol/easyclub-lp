@@ -148,17 +148,17 @@ export function PilotLanding() {
       <section className="pilot-landing-hero">
         <div className="pilot-landing-copy">
           <div className="pilot-landing-eyebrow">
-            <span className="pulse-dot" /> Program pilotażowy EasyClub
+            <span className="pulse-dot" /> Pilot 10 · pierwsze kluby
           </div>
-          <h1>Więcej porządku w klubie. <em>Więcej kontroli nad przychodem.</em></h1>
+          <h1>Sprawdź EasyClub przez 30 dni. <em>Bez opłat na start.</em></h1>
           <p>
-            Wypróbuj system, który pilnuje składek, porządkuje treningi, zawodników i komunikację
-            oraz pomaga nie gubić osób zainteresowanych dołączeniem do klubu.
+            Jedno miejsce na treningi, zawodników, składki i komunikację z rodzicami.
+            Pokażemy Ci, jak może działać w Twoim klubie.
           </p>
           <ul className="pilot-landing-benefits">
-            <li><BrandMark dark /> Składki i płatności pod kontrolą</li>
-            <li><BrandMark dark /> Treningi, zawodnicy i komunikacja w jednym miejscu</li>
-            <li><BrandMark dark /> Mniej ręcznej pracy i mniej utraconego przychodu</li>
+            <li><BrandMark dark /> 30 dni bez opłat</li>
+            <li><BrandMark dark /> Pomoc we wdrożeniu i konfiguracji</li>
+            <li><BrandMark dark /> Bez automatycznego obciążenia</li>
           </ul>
         </div>
 
@@ -172,30 +172,26 @@ export function PilotLanding() {
           ) : (
             <>
               <div className="pilot-landing-offer">
-                <span>PILOT 10</span>
+                <span>PILOT 10 · DLA 10 KLUBÓW</span>
                 <strong>30 dni bez opłat</strong>
-                <small>Bez automatycznego obciążenia po okresie próbnym.</small>
+                <small>Potem 99 zł/mies. przez 12 miesięcy. Bez automatycznego obciążenia.</small>
               </div>
               <form ref={formRef} className="pilot-landing-form" onSubmit={handleSubmit} onInvalidCapture={() => trackFunnelEvent("validation_error", { form: "pilot", source: "pilot-landing" })}>
                 <div className="pilot-landing-form-heading">
-                  <h2>Sprawdź EasyClub w swoim klubie.</h2>
-                  <p>Zostaw kontakt. Wrócimy z konkretnym kolejnym krokiem.</p>
+                  <h2>Zacznij bez zobowiązań.</h2>
+                  <p>Wystarczą trzy informacje. Odezwiemy się i pokażemy kolejny krok.</p>
                 </div>
                 <label>
                   Nazwa klubu
                   <input name="clubName" placeholder="np. Akademia Orlik" required onFocus={handleFormStart} />
                 </label>
                 <label>
-                  Imię i nazwisko
-                  <input name="contactName" placeholder="Jan Kowalski" required onFocus={handleFormStart} />
+                  Imię
+                  <input name="contactName" placeholder="Jan" required onFocus={handleFormStart} />
                 </label>
                 <label>
                   E-mail
                   <input name="email" type="email" placeholder="jan@klub.pl" required onFocus={handleFormStart} />
-                </label>
-                <label>
-                  Telefon <span className="pilot-landing-optional">opcjonalnie</span>
-                  <input name="phone" type="tel" placeholder="+48 000 000 000" onFocus={handleFormStart} />
                 </label>
                 <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" />
                 <label className="pilot-landing-consent">
@@ -207,9 +203,9 @@ export function PilotLanding() {
                 </label>
                 {error && <p className="pilot-landing-error" role="alert">{error}</p>}
                 <button className="button pilot-landing-submit" type="submit" disabled={loading}>
-                  {loading ? "Wysyłamy…" : "Dołącz do programu pilotażowego"} <span>↗</span>
+                  {loading ? "Wysyłamy…" : "Chcę sprawdzić EasyClub"} <span>↗</span>
                 </button>
-                <small className="pilot-landing-fineprint">Bez zobowiązań. Odpowiemy, nie zasypiemy Cię wiadomościami.</small>
+                <small className="pilot-landing-fineprint">Bez karty i bez automatycznej opłaty. Odpowiemy konkretnie.</small>
               </form>
             </>
           )}

@@ -3,7 +3,7 @@
 import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { trackFunnelEvent } from "@/lib/funnel-events";
-import { clubSizeOptions, leadSchema } from "@/lib/lead-schema";
+import { leadSchema } from "@/lib/lead-schema";
 import { createMarketingEventId } from "@/lib/marketing-events";
 import { BrandLogo, BrandMark } from "./brand-logo";
 
@@ -183,17 +183,17 @@ export default function Home() {
 
       <section className="hero section-shell" id="top">
         <div className="hero-copy">
-          <div className="eyebrow"><span className="pulse-dot" /> Program pilotażowy — zgłoszenia otwarte</div>
+          <div className="eyebrow"><span className="pulse-dot" /> Pilot 10 — 30 dni bez opłat</div>
           <h1>Mniej administracji.<br /><em>Więcej sportu.</em></h1>
           <p className="hero-lead">EasyClub to aplikacja do zarządzania klubem sportowym. Łączy harmonogram, obecności, składki, zawodników i komunikację z rodzicami w jednym spokojnym systemie.</p>
           <div className="hero-actions">
-            <a className="button" href="#pilot" onClick={() => trackFunnelEvent("cta_click", { form: "main", source: "main" })}>Zgłoś klub do pilotażu <span>↗</span></a>
+            <a className="button" href="#pilot" onClick={() => trackFunnelEvent("cta_click", { form: "main", source: "main" })}>Sprawdź EasyClub bez opłat <span>↗</span></a>
             <a className="text-link" href="#features">Zobacz, jak działa EasyClub <span>↓</span></a>
           </div>
           <div className="hero-benefits">
-            <span><b>01</b> Dostęp przed premierą</span>
+            <span><b>01</b> 30 dni bez opłat</span>
             <span><b>02</b> Pomoc we wdrożeniu</span>
-            <span><b>03</b> Wpływ na rozwój produktu</span>
+            <span><b>03</b> Bez automatycznej opłaty</span>
           </div>
         </div>
         <DashboardMockup />
@@ -251,43 +251,21 @@ export default function Home() {
       <section className="models-section section-shell"><div className="model-copy"><div className="eyebrow">04 / Elastyczność bez komplikowania</div><h2>Jeden system,<br /><em>różne modele pracy.</em></h2><p>EasyClub pasuje zarówno do tradycyjnych klubów z grupami i stałymi składami, jak i szkółek z zapisami na konkretne zajęcia.</p><a className="text-link" href="#pilot">Porozmawiajmy o Twoim klubie <span>↗</span></a></div><div className="model-graphic"><div className="orbit orbit-one" /><div className="orbit orbit-two" /><div className="model-center"><BrandMark dark /><strong>easyclub</strong></div><div className="orbit-label label-one">STAŁE GRUPY</div><div className="orbit-label label-two">ZAPISY NA ZAJĘCIA</div><div className="orbit-label label-three">OBÓZ / TURNIEJ</div></div></section>
 
       <section className="pilot-section section-shell" id="pilot">
-        <div className="pilot-copy"><div className="eyebrow"><span className="pulse-dot" /> Program pilotażowy</div><h2>Zobacz EasyClub<br /><em>w swoim klubie.</em></h2><p>Dołącz do klubów, które pomagają nam zbudować najlepsze narzędzie do codziennej pracy.</p><div className="pilot-note"><span>→</span><div><strong>Bez zobowiązań na start.</strong><br />Porozmawiamy, pokażemy produkt i wspólnie ocenimy, czy to dobry moment.</div></div></div>
+        <div className="pilot-copy"><div className="eyebrow"><span className="pulse-dot" /> Pilot 10 · pierwsze kluby</div><h2>Sprawdź EasyClub<br /><em>przez 30 dni bez opłat.</em></h2><p>Jedno miejsce na treningi, zawodników, składki i komunikację z rodzicami. Zaczynasz bez karty i bez automatycznego obciążenia.</p><div className="pilot-note"><span>→</span><div><strong>Potem 99 zł/mies. przez 12 miesięcy.</strong><br />Pokażemy Ci produkt i pomożemy przejść przez pierwszy krok.</div></div></div>
         <form ref={formRef} className="lead-form" onSubmit={handleSubmit} onFocus={handleFormStart} noValidate>
           <div className="form-row">
             <Field label="Nazwa klubu" name="clubName" error={fieldErrors.clubName}>
               <input name="clubName" placeholder="np. Akademia Orlik" aria-invalid={Boolean(fieldErrors.clubName)} aria-describedby={fieldErrors.clubName ? "clubName-error" : undefined} />
             </Field>
-            <Field label="Imię i nazwisko" name="contactName" error={fieldErrors.contactName}>
-              <input name="contactName" placeholder="Jan Kowalski" aria-invalid={Boolean(fieldErrors.contactName)} aria-describedby={fieldErrors.contactName ? "contactName-error" : undefined} />
+            <Field label="Imię" name="contactName" error={fieldErrors.contactName}>
+              <input name="contactName" placeholder="Jan" aria-invalid={Boolean(fieldErrors.contactName)} aria-describedby={fieldErrors.contactName ? "contactName-error" : undefined} />
             </Field>
           </div>
           <div className="form-row">
             <Field label="E-mail" name="email" error={fieldErrors.email}>
               <input type="email" name="email" placeholder="jan@klub.pl" aria-invalid={Boolean(fieldErrors.email)} aria-describedby={fieldErrors.email ? "email-error" : undefined} />
             </Field>
-            <Field label={<>Telefon <span className="optional">opcjonalnie</span></>} name="phone" error={fieldErrors.phone}>
-              <input name="phone" placeholder="+48 000 000 000" aria-invalid={Boolean(fieldErrors.phone)} aria-describedby={fieldErrors.phone ? "phone-error" : undefined} />
-            </Field>
           </div>
-          <div className="form-row">
-            <Field label="Typ organizacji" name="organizationType" error={fieldErrors.organizationType}>
-              <select name="organizationType" defaultValue="Klub sportowy" aria-invalid={Boolean(fieldErrors.organizationType)} aria-describedby={fieldErrors.organizationType ? "organizationType-error" : undefined}>
-                <option>Klub sportowy</option>
-                <option>Akademia</option>
-                <option>Szkółka</option>
-                <option>Inny</option>
-              </select>
-            </Field>
-            <Field label="Rozmiar klubu" name="clubSize" error={fieldErrors.clubSize}>
-              <select name="clubSize" defaultValue="" aria-invalid={Boolean(fieldErrors.clubSize)} aria-describedby={fieldErrors.clubSize ? "clubSize-error" : undefined}>
-                <option value="" disabled>Wybierz rozmiar klubu…</option>
-                {clubSizeOptions.map((option) => <option key={option}>{option}</option>)}
-              </select>
-            </Field>
-          </div>
-          <Field label={<>Wiadomość <span className="optional">opcjonalnie</span></>} name="message" error={fieldErrors.message}>
-            <textarea name="message" rows={3} placeholder="Napisz kilka słów o swoim klubie..." aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? "message-error" : undefined} />
-          </Field>
           <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" />
           <label className="consent">
             <input type="checkbox" name="consent" aria-invalid={Boolean(fieldErrors.consent)} aria-describedby={fieldErrors.consent ? "consent-error" : undefined} />
@@ -295,7 +273,7 @@ export default function Home() {
           </label>
           {fieldErrors.consent && <span id="consent-error" className="field-error">{fieldErrors.consent}</span>}
           {error && <p className="form-message error" role="alert">{error}</p>}
-          {submitted ? <p className="form-message success">Dziękujemy — zgłoszenie dotarło. Odezwiemy się wkrótce.</p> : <button className="button form-button" disabled={loading}>{loading ? "Wysyłamy..." : "Zgłoś klub do pilotażu"} <span>↗</span></button>}
+          {submitted ? <p className="form-message success">Dziękujemy — zgłoszenie dotarło. Odezwiemy się z konkretnym kolejnym krokiem.</p> : <button className="button form-button" disabled={loading}>{loading ? "Wysyłamy..." : "Chcę sprawdzić EasyClub"} <span>↗</span></button>}
         </form>
       </section>
 
