@@ -5,7 +5,7 @@ import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { createMarketingEventId } from "@/lib/marketing-events";
 import { trackFunnelEvent } from "@/lib/funnel-events";
-import { BrandLogo, BrandMark } from "../brand-logo";
+import { BrandLogo } from "../brand-logo";
 
 const attributionStorageKey = "easyclub-campaign-attribution";
 const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
@@ -204,18 +204,22 @@ export function PilotLanding() {
           <div className="pilot-landing-eyebrow">
             <span className="pulse-dot" /> Pilot 10 · dla pierwszych klubów
           </div>
-          <h1>Składki na czas. <em>Pełniejsze grupy.</em></h1>
-          <p className="pilot-landing-hero-claim">Zobacz swój klub w EasyClub — bez opłat przez 30 dni.</p>
+          <h1>Porządek w klubie. <em>Więcej nowych zawodników. Mniej odejść.</em></h1>
           <p className="pilot-landing-hero-explainer">
-            EasyClub to jeden system do prowadzenia klubu — treningi, obecności,
-            składki, nabór i komunikacja z rodzicami. Wszystko w jednym miejscu,
-            żeby łatwiej prowadzić klub i zapełniać grupy.
+            EasyClub to jeden system do prowadzenia i rozwijania klubu —
+            treningi, obecności, składki, nabór i komunikacja z rodzicami
+            w jednym miejscu.
           </p>
-          <ul className="pilot-landing-benefits">
-            <li><BrandMark dark /> Składki bez ręcznego pilnowania</li>
-            <li><BrandMark dark /> Treningi, obecności i komunikacja w jednym miejscu</li>
-            <li><BrandMark dark /> Więcej zapisów, mniej wolnych miejsc</li>
-          </ul>
+          <div className="pilot-landing-pillars">
+            <div>
+              <strong>Porządek</strong>
+              <span>Treningi, obecności, składki i komunikacja bez chaosu</span>
+            </div>
+            <div>
+              <strong>Rozwój</strong>
+              <span>Skuteczniejszy nabór, więcej nowych zawodników i mniej odejść</span>
+            </div>
+          </div>
         </div>
 
         <div className="pilot-landing-card" id="formularz">
