@@ -202,9 +202,9 @@ export function PilotLanding() {
       <section className="pilot-landing-hero">
         <div className="pilot-landing-copy">
           <div className="pilot-landing-eyebrow">
-            <span className="pulse-dot" /> Pilot 10 · dla pierwszych klubów
+            <span className="pulse-dot" /> Pilot 10 · zostało 5 miejsc
           </div>
-          <h1>Porządek w klubie. <em>Więcej nowych zawodników. Mniej odejść.</em></h1>
+          <h1>Porządek w klubie. <em>Więcej nowych zawodników.</em></h1>
           <p className="pilot-landing-hero-explainer">
             EasyClub to jeden system do prowadzenia i rozwijania klubu —
             treningi, obecności, składki, nabór i komunikacja z rodzicami
@@ -217,7 +217,7 @@ export function PilotLanding() {
             </div>
             <div>
               <strong>Rozwój</strong>
-              <span>Skuteczniejszy nabór, więcej nowych zawodników i mniej odejść</span>
+              <span>Skuteczniejszy nabór i więcej zawodników, którzy zostają na dłużej</span>
             </div>
           </div>
         </div>
@@ -232,9 +232,9 @@ export function PilotLanding() {
           ) : (
             <>
               <div className="pilot-landing-offer">
-                <span>PILOT 10 · DLA 10 KLUBÓW</span>
-                <strong>30 dni bez opłat</strong>
-                <small>Potem 99 zł/mies. przez 12 miesięcy. Bez automatycznego obciążenia.</small>
+                <span>PILOT 10 · ZOSTAŁO 5 MIEJSC</span>
+                <strong>6 tygodni za darmo</strong>
+                <small>Potem 99 zł/mies. do końca roku. Bez automatycznego obciążenia.</small>
               </div>
               <form ref={formRef} className="pilot-landing-form" onSubmit={handleSubmit} onInvalidCapture={() => trackFunnelEvent("validation_error", { form: "pilot", source: "pilot-landing" })}>
                 <div className="pilot-landing-form-heading">
@@ -342,7 +342,7 @@ export function PilotLanding() {
         </ol>
         <div className="pilot-landing-final-cta">
           <div>
-            <strong>30 dni bez opłat, potem 99 zł/mies. przez 12 miesięcy.</strong>
+            <strong>6 tygodni za darmo, potem 99 zł/mies. do końca roku.</strong>
             <span>Bez karty i bez automatycznego obciążenia.</span>
           </div>
           <a
