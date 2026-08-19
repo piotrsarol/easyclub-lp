@@ -233,7 +233,7 @@ export function PilotLanding() {
             <>
               <div className="pilot-landing-offer">
                 <span>PILOT 10 · ZOSTAŁO 5 MIEJSC</span>
-                <strong>6 tygodni za darmo</strong>
+                <strong>30 dni bez opłat</strong>
                 <small>Potem 99 zł/mies. do końca roku. Bez automatycznego obciążenia.</small>
               </div>
               <form ref={formRef} className="pilot-landing-form" onSubmit={handleSubmit} onInvalidCapture={() => trackFunnelEvent("validation_error", { form: "pilot", source: "pilot-landing" })}>
@@ -342,7 +342,7 @@ export function PilotLanding() {
         </ol>
         <div className="pilot-landing-final-cta">
           <div>
-            <strong>6 tygodni za darmo, potem 99 zł/mies. do końca roku.</strong>
+            <strong>30 dni bez opłat, potem 99 zł/mies. do końca roku.</strong>
             <span>Bez karty i bez automatycznego obciążenia.</span>
           </div>
           <a
