@@ -234,6 +234,62 @@ export const blogPosts: BlogPost[] = [
     }
   ]
 },
+
+  {
+  "slug": "lista-obecnosci-na-treningach-jak-mierzyc-frekwencje-w-klubie-sportowym",
+  "category": "Praca trenera",
+  "date": "20.08.2026",
+  "readTime": "4 min czytania",
+  "title": "Lista obecności na treningach — jak mierzyć frekwencję w klubie sportowym?",
+  "excerpt": "Jak skutecznie kontrolować frekwencję w klubie sportowym? Poznaj sprawdzone statusy obecności i dowiedz się, jak wykorzystać dane w organizacji pracy.",
+  "accent": "lime",
+  "sections": [
+    {
+      "heading": "Jak skutecznie prowadzić listę obecności na treningach i mierzyć frekwencję?",
+      "paragraphs": [
+        "Aby skutecznie mierzyć frekwencję w klubie sportowym, lista obecności na treningach powinna opierać się na jasnym podziale statusów (takich jak obecny, nieobecny usprawiedliwiony czy spóźniony) oraz być uzupełniana na bieżąco – najlepiej tuż przed lub bezpośrednio po zajęciach. Najlepszym rozwiązaniem organizacyjnym jest wyznaczenie jednej osoby odpowiedzialnej za dany trening (zazwyczaj trenera prowadzącego) oraz rezygnacja z luźnych, papierowych kartkówek na rzecz prostych narzędzi cyfrowych. Regularnie zbierane dane pozwalają lepiej planować grafik, sprawniej rozliczać składki i skutecznie kontrolować pojemność poszczególnych grup.",
+        "Prowadzenie rzetelnej ewidencji to częste wyzwanie dla administratorów i trenerów w akademiach sportowych. Gdy obecności na treningach są rejestrowane nieregularnie lub w nieczytelny sposób, utrudnia to nie tylko komunikację z rodzicami czy zawodnikami, ale również paraliżuje organizację pracy całego klubu. W tym artykule wyjaśniamy, jak krok po kroku wdrożyć sprawny system mierzenia frekwencji zawodników, który nie przytłoczy sztabu szkoleniowego nadmiarem biurokracji."
+      ]
+    },
+    {
+      "heading": "Jakie statusy powinna zawierać czytelna lista obecności w klubie sportowym?",
+      "paragraphs": [
+        "Tradycyjny podział na „obecny” i „nieobecny” to często za mało, by rzetelnie przeanalizować frekwencję zawodników. Z drugiej strony wprowadzenie zbyt wielu skomplikowanych kategorii sprawi, że trenerzy stracą mnóstwo czasu na zaznaczanie odpowiednich pól. W codziennej pracy małego i średniego klubu najlepiej sprawdza się zwięzły zestaw 4-5 jednoznacznych statusów.",
+        "Oto rekomendowane kryteria, które warto wdrożyć w ewidencji zajęć: 1. Obecny – zawodnik brał udział w pełnej jednostce treningowej. 2. Nieobecny (niezgłoszony) – zawodnik nie pojawił się na treningu i nie przekazał wcześniejszej informacji. 3. Nieobecny (usprawiedliwiony) – absencja została zgłoszona z odpowiednim wyprzedzeniem (np. choroba, wyjazd rodzinny). 4. Spóźniony – zawodnik dotarł na zajęcia po czasie, ale wziął w nich udział. 5. Kontuzjowany / Trening indywidualny – zawodnik był obecny na obiekcie, ale realizował inny plan lub obserwował zajęcia z ławki.",
+        "Stosowanie sprecyzowanych statusów pozwala szybko wyłapać powtarzające się wzorce – na przykład zawodników, którzy regularnie spóźniają się w konkretne dni tygodnia lub informują o braku możliwości przybycia w ostatniej chwili. Dzięki temu lista obecności klub sportowy zamienia w dobrze naoliwioną machinę organizacyjną."
+      ]
+    },
+    {
+      "heading": "Kto i kiedy powinien uzupełniać obecności na treningach?",
+      "paragraphs": [
+        "Jednym z najczęstszych błędów organizacyjnych jest rozproszenie odpowiedzialności. Jeśli każdy może wpisać obecność, a nikt nie ma przypisanego tego zadania na stałe, baza danych szybko staje się nieaktualna. Żelazną zasadą powinno być wyznaczenie jednej odpowiedzialnej osoby dla każdej grupy – najczęściej jest to trener główny rocznika lub sekcji.",
+        "Równie ważny jest moment wprowadzania danych. Najlepszym czasem na weryfikację listy jest pierwsze 5 minut treningu lub pierwsze chwile po jego zakończeniu. Wypełnianie listy pod koniec tygodnia z pamięci z góry skazane jest na pomyłki. Warto także wdrożyć prostą procedurę dla rodziców lub dorosłych zawodników: jasny zapis w regulaminie, do której godziny należy zgłosić planowaną nieobecność, znacząco ułatwia trenerowi odpowiednie przygotowanie konspektu zajęć pod kątem liczby ćwiczących."
+      ]
+    },
+    {
+      "heading": "Jak wykorzystać dane o frekwencji do poprawy organizacji klubu?",
+      "paragraphs": [
+        "Zbieranie informacji o obecnościach ma sens tylko wtedy, gdy wyciągamy z nich praktyczne wnioski. Warto wyraźnie zaznaczyć: frekwencja zawodników nie służy do oceny ich formy sportowej ani potencjału motorycznego – od tego są testy sprawnościowe i bezpośrednia obserwacja trenerska. Zbierane dane są jednak bezcennym źródłem wiedzy operacyjnej.",
+        "Oto jak można wykorzystać zgromadzone informacje w praktyce: Po pierwsze, do optymalizacji liczebności grup. Jeśli w danej sekcji średnia frekwencja wynosi 50-60%, warto rozważyć połączenie roczników lub korektę godzin zajęć. Po drugie, do usprawnienia rozliczeń. Posiadanie dokładnej historii obecności ułatwia wyjaśnianie wątpliwości dotyczących opłat czy odrabiania zajęć. Po trzecie, do wczesnego reagowania na spadek zaangażowania. Nagły spadek frekwencji u danego zawodnika to sygnał dla sztabu, by porozmawiać z rodzicami i sprawdzić, czy przyczyną nie są trudności szkolne, logistyczne lub spadek motywacji."
+      ]
+    },
+    {
+      "heading": "Najczęstsze pytania o prowadzenie listy obecności (FAQ)",
+      "paragraphs": [
+        "Czy papierowa lista obecności na treningach nadal ma sens? Papierowe arkusze są proste w użyciu bezpośrednio na boisku, ale niosą ryzyko zgubienia oraz znacznie utrudniają analizę danych w skali miesiąca czy sezonu. Rozwiązania cyfrowe pozwalają na błyskawiczny wgląd w statystyki zarówno trenerom, jak i zarządowi klubu.",
+        "Co zrobić, gdy rodzice zapominają o zgłaszaniu absencji dzieci? Najlepszym rozwiązaniem jest wprowadzenie jasnych zasad w regulaminie akademii oraz regularne przypominanie o nich na zebraniach. Gdy rodzice zrozumieją, że wcześniejsza informacja pozwala trenerowi lepiej zaplanować ćwiczenia dla reszty grupy, chętniej przekazują zgłoszenia.",
+        "Jak często zarząd powinien analizować statystyki frekwencji? Zbudowane raporty warto przeglądać raz w miesiącu. Pozwala to szybko zauważyć trendy sezonowe, takie jak okresy zachorowań lub wyjazdów feryjnych, i dostosować do nich plan wynajmu obiektów."
+      ]
+    },
+    {
+      "heading": "Podsumowanie – uporządkowana frekwencja to sprawniej działający klub",
+      "paragraphs": [
+        "Prawidłowo prowadzona lista obecności na treningach to podstawa sprawnej organizacji w każdym klubie sportowym. Precyzyjne statusy, wyznaczenie odpowiedzialnych osób oraz regularne wyciąganie wniosków z danych pomagają uniknąć chaosu organizacyjnego i podnoszą standard obsługi członków akademii.",
+        "Szukasz prostej metody na uporządkowanie ewidencji obecności i oszczędność czasu w Twoim klubie? Skontaktuj się z zespołem EasyClub – chętnie pokażemy Ci, jak nasze rozwiązania wspierają codzienne zarządzanie grafikami i frekwencją w szkółkach sportowych."
+      ]
+    }
+  ]
+},
 ];
 
 export function getBlogPost(slug: string) {
