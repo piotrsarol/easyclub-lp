@@ -202,7 +202,7 @@ export function PilotLanding() {
       <section className="pilot-landing-hero">
         <div className="pilot-landing-copy">
           <div className="pilot-landing-eyebrow">
-            <span className="pulse-dot" /> Pilot 10 · zostało 5 miejsc
+            <span className="pulse-dot" /> Pilot 10 · dla pierwszych klubów
           </div>
           <h1>Porządek w klubie. <em>Więcej nowych zawodników.</em></h1>
           <p className="pilot-landing-hero-explainer">
@@ -232,7 +232,7 @@ export function PilotLanding() {
           ) : (
             <>
               <div className="pilot-landing-offer">
-                <span>PILOT 10 · ZOSTAŁO 5 MIEJSC</span>
+                <span>PILOT 10 · DLA 10 KLUBÓW</span>
                 <strong>30 dni bez opłat</strong>
                 <small>Potem 99 zł/mies. do końca roku. Bez automatycznego obciążenia.</small>
               </div>
