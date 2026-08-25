@@ -345,6 +345,63 @@ export const blogPosts: BlogPost[] = [
     }
   ]
 },
+
+  {
+  "slug": "jak-rozliczac-wynagrodzenie-trenera-w-klubie-sportowym",
+  "category": "Finanse klubu",
+  "date": "25.08.2026",
+  "readTime": "3 min czytania",
+  "title": "Jak rozliczać wynagrodzenie trenera w klubie sportowym?",
+  "excerpt": "Rozliczanie trenerów wymaga jasnych zasad, precyzyjnej ewidencji zajęć i odpowiedniej umowy. Sprawdź, jak uniknąć błędów w finansach klubu sportowego.",
+  "accent": "lime",
+  "sections": [
+    {
+      "heading": "Jak sprawnie rozliczać wynagrodzenie trenera w klubie sportowym?",
+      "paragraphs": [
+        "Aby prawidłowo i bezbłędnie wypłacać wynagrodzenie trenera w klubie sportowym, kluczowe jest stworzenie jednolitego systemu ewidencji zajęć, ustalenie jasnego modelu stawki (np. za godzinę, za pojedynczy trening lub w formie stałego ryczałtu) oraz precyzyjne określenie zasad rozliczania zastępstw i wydarzeń dodatkowych. Zastosowanie stałych reguł na początku każdego miesiąca pozwala uniknąć nieporozumień i znacząco odciąża osoby odpowiedzialne za finanse klubu.",
+        "W małych i średnich akademiach największym wyzwaniem jest zazwyczaj brak spójnej weryfikacji, czy dany trening faktycznie się odbył, kto prowadził zastępstwo oraz jak wycenić wyjazd na weekendowy turniej. Wdrożenie przejrzystego procesu raportowania oraz wybór odpowiednich dokumentów formalnych to podstawa stabilności finansowej organizacji."
+      ]
+    },
+    {
+      "heading": "Umowa z trenerem sportowym – jakie modele rozliczeń warto wziąć pod uwagę?",
+      "paragraphs": [
+        "Wybór formy prawnej, na jakiej opiera się umowa z trenerem sportowym, bezpośrednio wpływa na sposób naliczania podatków oraz składek ZUS. W polskich klubach najczęściej spotyka się trzy rozwiązania: umowę zlecenie, umowę B2B (kontakt z trenerem prowadzącym własną działalność gospodarczą) oraz klasyczną umowę o pracę. Każda z tych opcji wiąże się z innymi obowiązkami sprawozdawczymi i finansowymi.",
+        "Pamiętaj, że kwestie prawne i podatkowe wymagają indywidualnej konsultacji z księgowym lub doradcą podatkowym. Specjalista pomoże dopasować formę zatrudnienia do specyfiki klubu i aktualnych przepisów prawa.",
+        "Niezależnie od rodzaju umowy, w praktyce stosuje się dwa główne modele rozliczeniowe: stawkę godzinową/treningową oraz stałe wynagrodzenie miesięczne. Stawka trenera za trening sprawdza się przy zmiennym grafiku i grupach rekreacyjnych, natomiast ryczałt miesięczny często wybierany jest przy stałych zespołach reprezentacyjnych, gdzie zakres obowiązków obejmuje także analizę meczową czy kontakt z rodzicami."
+      ]
+    },
+    {
+      "heading": "Ewidencja zajęć, zastępstw i wydarzeń dodatkowych – proces krok po kroku",
+      "paragraphs": [
+        "Skuteczne rozliczanie trenerów w ciągu miesiąca wymaga ustrukturyzowanego podejścia. Aby uniknąć chaosu na koniec miesiąca, warto wdrożyć prostą checklistę weryfikacyjną:",
+        "1. Rejestracja odbytych zajęć: Trener odznacza obecność zawodników i potwierdza przeprowadzenie jednostki treningowej bezpośrednio po jej zakończeniu.\n2. Zgłaszanie zastępstw: Każda zmiana trenera na zajęciach musi być odnotowana w systemie lub zgłoszona koordynatorowi przed rozpoczęciem treningu, ze wskazaniem osoby zastępującej.\n3. Rejestr wydarzeń dodatkowych: Wyjazdy na mecze, turnieje, obozy czy zebrania z rodzicami są ewidencjonowane osobnym formularzem lub osobną kategorią w grafiku.\n4. Zamknięcie miesiąca: Do wyznaczonego dnia (np. 3. dnia nowego miesiąca) trener weryfikuje swój podsumowany grafik, a zarząd lub księgowość zatwierdza zestawienie do wypłaty.",
+        "Taki proces sprawia, że osoba odpowiedzialna za finanse w klubie nie musi ręcznie analizować wiadomości SMS czy papierowych list obecności, a rozliczenie staje się w pełni transparentne dla obu stron."
+      ]
+    },
+    {
+      "heading": "Stawka trenera za trening i organizacja wypłat – przydatne dobre praktyki",
+      "paragraphs": [
+        "Ustalając stawki dla kadry szkoleniowej, warto uwzględnić nie tylko sam czas spędzony na boisku lub hali, ale również poziom kwalifikacji (licencja trenerska), doświadczenie oraz dodatkowe obowiązki (np. przygotowanie planów treningowych, wyjazdy weekendowe). Czasem stosuje się stałą stawkę bazową za trening oraz dodatki uzależnione od liczby dzieci w grupie lub wyników sportowych.",
+        "Kluczem do sprawnego funkcjonowania klubu jest ustalenie sztywnych terminów na składanie rachunków, faktur lub raportów godzinowych. Jeśli trenerzy wiedzą, do kiedy mają czas na podsumowanie miesiąca i kiedy otrzymają przelew, buduje to wzajemne zaufanie i zapobiega opóźnieniom w płatnościach."
+      ]
+    },
+    {
+      "heading": "Najczęściej zadawane pytania o rozliczanie trenerów (FAQ)",
+      "paragraphs": [
+        "Jak rozliczać zastępstwo za trening w klubie?\nZastępstwo powinno być przypisane do profilu trenera, który faktycznie przeprowadził zajęcia. Wynagrodzenie za ten trening przechodzi na konto trenera zastępującego, chyba że szkoleniowcy rozliczają się między sobą w ramach stałego ryczałtu (co musi jasno wynikać z umowy).",
+        "Czy stawka trenera za trening obejmuje przygotowanie do zajęć?\nTo zależy od ustaleń w umowie. Zazwyczaj stawka za godzinę lub jednostkę treningową uwzględnia czas potrzebny na przygotowanie sprzętu i planu zajęć. Jeśli klub wymaga rozbudowanych analiz wideo lub pisania szczegółowych raportów, warto ustalić za te czynności osobną stawkę.",
+        "Jak rozliczyć udział trenera w weekendowym turnieju?\nNajczęściej stosuje się stawkę ryczałtową za cały dzień wydarzenia, stawkę godzinową za czas trwania turnieju lub zwrot kosztów dojazdu i wyżywienia. Sposób rozliczenia wyjazdów powinien być doprecyzowany w aneksie do umowy lub regulaminie klubu."
+      ]
+    },
+    {
+      "heading": "Podsumowanie: Uporządkuj finanse i rozliczenia w swoim klubie",
+      "paragraphs": [
+        "Prawidłowe rozliczanie trenerów opiera się na przejrzystych umowach, precyzyjnej ewidencji obecności oraz stałym harmonogramie weryfikacji danych. Dzięki jasnym regułom zyskujesz pewność, że finanse klubu są pod kontrolą, a Twoja kadra szkoleniowa może skupić się na rozwoju zawodników.",
+        "Jeśli chcesz zautomatyzować prowadzenie grafików, ewidencję zajęć i przygotowywanie raportów do rozliczeń w Twoim klubie, sprawdź możliwości EasyClub. Skontaktuj się z nami, aby dowiedzieć się, jak ułatwić codzienną pracę administracyjną."
+      ]
+    }
+  ]
+},
 ];
 
 export function getBlogPost(slug: string) {
