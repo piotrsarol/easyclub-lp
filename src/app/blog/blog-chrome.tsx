@@ -2,6 +2,8 @@ import Link from "next/link";
 import Script from "next/script";
 import { BrandLogo } from "../brand-logo";
 
+export const preferredSourcesUrl = "https://www.google.com/preferences/source?q=www.easyclub.pl";
+
 export function BlogHeader() {
   return (
     <header className="site-header blog-header">
@@ -22,6 +24,14 @@ export function BlogHeader() {
       </div>
       <Link className="button button-small header-cta" href="/pilot">Zgłoś klub <span>↗</span></Link>
     </header>
+  );
+}
+
+export function PreferredSourcesLink() {
+  return (
+    <a className="preferred-source-link" href={preferredSourcesUrl} target="_blank" rel="noreferrer">
+      Dodaj EasyClub do preferowanych źródeł Google <span>↗</span>
+    </a>
   );
 }
 

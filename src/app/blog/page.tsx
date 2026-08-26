@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { blogPosts } from "@/lib/blog";
-import { BlogFooter, BlogHeader } from "./blog-chrome";
+import { BlogFooter, BlogHeader, PreferredSourcesLink } from "./blog-chrome";
 
 export const metadata: Metadata = {
   title: "Blog — EasyClub",
@@ -68,6 +68,7 @@ export default function BlogPage() {
         <div className="eyebrow"><span className="pulse-dot" /> Wiedza dla klubów sportowych</div>
         <h1>Spokojniejszy klub<br /><em>zaczyna się tutaj.</em></h1>
         <p>Praktyczne spojrzenie na organizację klubu, pracę trenerów i komunikację z rodzicami.</p>
+        <PreferredSourcesLink />
       </section>
       <section className="blog-list section-shell">
         <div className="blog-list-heading">
