@@ -1,9 +1,15 @@
 import Link from "next/link";
+import Script from "next/script";
 import { BrandLogo } from "../brand-logo";
 
 export function BlogHeader() {
   return (
     <header className="site-header blog-header">
+      <Script
+        id="google-preferred-sources"
+        src="https://news.google.com/swg/js/v1/publisher.js"
+        strategy="afterInteractive"
+      />
       <BrandLogo href="/" />
       <nav className="nav-links">
           <Link href="/#why">Dlaczego EasyClub</Link>
@@ -11,6 +17,9 @@ export function BlogHeader() {
           <Link href="/cennik">Cennik</Link>
           <Link href="/blog" aria-current="page">Blog</Link>
       </nav>
+      <div className="preferred-source-badge" aria-label="Dodaj EasyClub do preferowanych źródeł Google">
+        <div google-add-preferred-source-btn data-theme="dark" />
+      </div>
       <Link className="button button-small header-cta" href="/pilot">Zgłoś klub <span>↗</span></Link>
     </header>
   );
