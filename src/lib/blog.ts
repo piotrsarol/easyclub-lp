@@ -402,6 +402,61 @@ export const blogPosts: BlogPost[] = [
     }
   ]
 },
+
+  {
+  "slug": "jak-zalozyc-akademie-sportowa-koszty-i-organizacja-krok-po-kroku",
+  "category": "Rozwój klubu",
+  "date": "27.08.2026",
+  "readTime": "3 min czytania",
+  "title": "Jak założyć akademię sportową? Koszty i organizacja krok po kroku",
+  "excerpt": "Marzysz o własnej szkółce? Dowiedz się, jak założyć akademię sportową, zorganizować formalności, zaplanować koszty i sprawnie prowadzić zapisy.",
+  "accent": "lime",
+  "sections": [
+    {
+      "heading": "Jak założyć akademię sportową – od czego zacząć?",
+      "paragraphs": [
+        "Aby założyć akademię sportową, musisz przejść przez cztery kluczowe etapy: wybrać formę prawną, wynająć odpowiedni obiekt sportowy, zatrudnić wykwalifikowanych trenerów oraz wdrożyć prosty system do organizacji zapisów i płatności. Sukces nowej szkółki zależy od sprawnego połączenia pasji do sportu z poukładanym zarządzaniem administracyjnym.",
+        "Na samym początku warto zdefiniować model działania. Do wyboru masz kilka rozwiązań, takich jak stowarzyszenie rejestrowe, fundacja czy prywatna działalność gospodarcza. Każda z tych form wiąże się z innymi obowiązkami księgowymi i prawnymi. Ze względu na zmieniające się przepisy oraz indywidualne cele finansowe, przed podjęciem ostatecznej decyzji warto skonsultować się z radcą prawnym lub biurem rachunkowym specjalizującym się w branży sportowej."
+      ]
+    },
+    {
+      "heading": "Akademia piłkarska i koszty – jak zaplanować budżet startowy?",
+      "paragraphs": [
+        "Temat pod hasłem akademia piłkarska koszty budzi najwięcej pytań u osób planujących start. Ostateczna kwota zależy od wielkości miasta, dyscypliny, skali przedsięwzięcia oraz posiadanych zasobów. Zamiast szukać sztywnych kwot, warto podzielić budżet na kategorie i oszacować je w oparciu o lokalne stawki rynkowe.",
+        "Do najważniejszych stałych i zmiennych pozycji w budżecie należą: wynajem obiektów (boisk, sal gimnastycznych, hal), wynagrodzenia kadry szkoleniowej, zakup sprzętu treningowego (piłki, znaczniki, pachołki, bramki), a także koszty marketingu i reklamy lokalnej. Dodatkowo należy uwzględnić ubezpieczenie, opłaty księgowe oraz oprogramowanie do zarządzania klubem. Dobrą praktyką jest przygotowanie poduszki finansowej na pierwsze 3–6 miesięcy działalności, zanim wpłaty ze składek członkowskich zaczną w pełni pokrywać bieżące wydatki."
+      ]
+    },
+    {
+      "heading": "Formalności i proces: jak założyć szkółkę sportową w praktyce?",
+      "paragraphs": [
+        "Proces uruchomienia akademii staje się znacznie prostszy, gdy podzielisz go na konkretne zadania do wykonania. Oto wykaz najważniejszych kroków, które warto zrealizować przed pierwszym treningiem:",
+        "1. Określenie profilu akademii: wybór dyscypliny, grup wiekowych oraz docelowej liczby uczestników.\n2. Wybór formy prawnej i rejestracja: dopełnienie formalności w urzędzie lub sądzie (konsultacja z prawnikiem).\n3. Wynajem infrastruktury: zabezpieczenie rezerwacji boiska lub hali w dogodnych dla dzieci godzinach popołudniowych.\n4. Rekrutacja trenerów: weryfikacja kwalifikacji, uprawnień trenerskich oraz wymaganych prawem zaświadczeń (np. z Rejestru Sprawców na Tle Seksualnym).\n5. Przygotowanie dokumentacji: regulamin akademii, zgody rodzicielskie, polityka ochrony dzieci oraz kwestie RODO.\n6. Wdrożenie narzędzi organizacyjnych: uruchomienie zapisów online oraz kanałów komunikacji z rodzicami.\n7. Działania promocyjne: uruchomienie strony WWW, profilu w mediach społecznościowych i organizacji treningów pokazowych."
+      ]
+    },
+    {
+      "heading": "Organizacja zapisów, płatności i codziennej administracji",
+      "paragraphs": [
+        "Gdy załatwisz podstawowe formalności związane z klubem sportowym, wyzwaniem staje się codzienna organizacja pracy. Wielu założycieli skupia się na aspektach sportowych, zapominając o czasie, jaki pochłania obsługa wiadomości od rodziców, pilnowanie list obecności czy weryfikacja wpłat za składki.",
+        "Sprawny przepływ informacji to klucz do budowania zaufania rodziców. Warto od pierwszego dnia wdrożyć jasny system zapisów oraz automatyczne przypomnienia o płatnościach. Zamiast ręcznie spisywać dane w arkuszach i weryfikować przelewy na koncie bankowym, opłaca się skorzystać z dedykowanych narzędzi dla klubów, które automatyzują procesy rejestracji i rozliczeń."
+      ]
+    },
+    {
+      "heading": "Najczęściej zadawane pytania (FAQ)",
+      "paragraphs": [
+        "Czy do założenia akademii sportowej muszę mieć wykształcenie trenerskie?\nNie, właściciel lub założyciel akademii nie musi posiadać uprawnień trenerskich, jeśli zajmuje się wyłącznie zarządzaniem i administracją. Jednak osoby bezpośrednio prowadzące zajęcia z dziećmi i młodzieżą muszą spełniać wymogi formalne określone w przepisach prawa i regulacjach danego związku sportowego.",
+        "Jakie formalności są najważniejsze przy tworzeniu klubu dla dzieci?\nKluczowe jest zadbanie o legalną formę działalności, posiadanie odpowiednich regulaminów, dokumentacji RODO oraz dopełnienie wymogów weryfikacji niekaralności kadr pracujących z małoletnimi. Ze względu na stopień skomplikowania przepisów zaleca się konsultację prawną przed otwarciem zapisów.",
+        "Jak pozyskać pierwszych zawodników do nowej szkółki?\nNajskuteczniejszą metodą są otwarte, darmowe treningi pokazowe połączone z lokalną promocją w mediach społecznościowych oraz współpracą z pobliskimi szkołami i przedszkolami. Kluczowy jest też prosty i szybki proces zapisów online."
+      ]
+    },
+    {
+      "heading": "Podsumowanie – jak sprawnie rozwinąć nową akademię?",
+      "paragraphs": [
+        "Wiedza o tym, jak założyć akademię sportową, to dopiero pierwszy krok. Trwały sukces nowej szkółki zależy od połączenia wysokiej jakości szkolenia z profesjonalną i uporządkowaną organizacją. Im mniej czasu spędzisz na biurokracji i ręcznym pilnowaniu płatności, tym więcej uwagi będziesz mógł poświęcić na rozwój sportowy zawodników i budowanie społeczności wokół klubu.",
+        "Jeśli chcesz od samego początku ułatwić sobie zarządzanie zapisami, rozliczeniami oraz komunikacją z rodzicami, skontaktuj się z zespołem EasyClub. Chętnie pokażemy Ci, jak nasze narzędzie wspiera menedżerów i trenerów w codziennej pracy akademii."
+      ]
+    }
+  ]
+},
 ];
 
 export function getBlogPost(slug: string) {
