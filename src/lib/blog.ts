@@ -457,6 +457,62 @@ export const blogPosts: BlogPost[] = [
     }
   ]
 },
+
+  {
+  "slug": "jak-pozyskac-nowych-zawodnikow-do-klubu-sportowego-skuteczny-przewodnik-krok-po-kroku",
+  "category": "Nabór i marketing",
+  "date": "29.08.2026",
+  "readTime": "3 min czytania",
+  "title": "Jak pozyskać nowych zawodników do klubu sportowego? Skuteczny przewodnik krok po kroku",
+  "excerpt": "Dowiedz się, jak przeprowadzić skuteczny nabór do klubu sportowego – od dotarcia do rodziców po sprawny zapis na pierwsze treningi.",
+  "accent": "lime",
+  "sections": [
+    {
+      "heading": "Skuteczny nabór do klubu sportowego – zacznij od przemyślanego procesu",
+      "paragraphs": [
+        "Zastanawiasz się, jak pozyskać zawodników do klubu sportowego bez marnowania budżetu na nieskuteczne reklamy? Kluczem nie jest samo publikowanie ogłoszeń, ale stworzenie prostego i przewidywalnego procesu, który przeprowadzi rodzica od pierwszego kontaktu do oficjalnego zapisu dziecka na zajęcia.",
+        "Skuteczny nabór składa się z czterech spójnych etapów: budowania lokalnej widoczności, błyskawicznego kontaktu po zgłoszeniu, profesjonalnego treningu próbnego oraz prostego zapisu. Jeśli usuniesz bariery na którymkolwiek z tych kroków, rekrutacja zawodników stanie się o wiele bardziej płynna i efektywna."
+      ]
+    },
+    {
+      "heading": "Jak promować akademię sportową i dotrzeć do rodziców w Twojej okolicy?",
+      "paragraphs": [
+        "Zanim rodzic zapisze dziecko na zajęcia, musi dowiedzieć się o istnieniu Twojej akademii. W przypadku sportu dziecięcego i młodzieżowego największe znaczenie ma marketing lokalny. Rodzice szukają zajęć blisko domu lub szkoły, dlatego działania promocyjne warto skoncentrować na najbliższym otoczeniu.",
+        "Dobrym rozwiązaniem jest łączenie działań w internecie z obecnością offline. W mediach społecznościowych pokazuj realne życie klubu: krótkie nagrania z treningów, uśmiechnięte dzieci oraz wypowiedzi trenerów tłumaczących metodologię pracy. Warto również nawiązać współpracę z lokalnymi szkołami i przedszkolami, organizując bezpłatne lekcje pokazowe lub przekazując plakaty informacyjne na tablice ogłoszeń."
+      ]
+    },
+    {
+      "heading": "Dlaczego szybkość kontaktu decyduje o sukcesie rekrutacji zawodników?",
+      "paragraphs": [
+        "Wielu administratorów i trenerów skupia się na promocji, zapominając o tym, co dzieje się po wysłaniu formularza przez rodzica. Gdy opiekun szuka zajęć dla dziecka, często wysyła zapytania do dwóch lub trzech miejsc jednocześnie. O tym, gdzie trafi młody sportowiec, w dużej mierze decyduje czas i jakość pierwszej odpowiedzi.",
+        "Jeśli odpowiedź na zgłoszenie zajmie klubowi kilka dni, rodzic zdąży już umówić się na trening w innej akademii. Dobre praktyki obsługi zgłoszeń obejmują: odpowiedź w ciągu maksymalnie 24 godzin (a najlepiej tego samego dnia), przesłanie jasnych informacji organizacyjnych (godzina, miejsce, wymagany strój) oraz wysłanie przypomnienia SMS lub e-mail na dzień przed pierwszymi zajęciami."
+      ]
+    },
+    {
+      "heading": "Trening próbny i proces zapisu – checklista dla trenera i menedżera",
+      "paragraphs": [
+        "Trening próbny to najważniejszy moment całej ścieżki rekrutacyjnej. To właśnie wtedy rodzic ocenia podejście do dzieci, bezpieczeństwo i atmosferę, a dziecko podejmuje decyzję, czy chce wracać na kolejne zajęcia. Aby ten etap zakończył się sukcesem, warto wdrożyć stałą procedurę obsługi nowych osób.",
+        "Oto praktyczna lista działań do wdrożenia przed i po treningu próbnym:",
+        "1. Powitanie i opieka: Przywitaj dziecko po imieniu, przedstaw je grupie i wyznacz opiekuna spośród starszych lub bardziej doświadczonych zawodników.\n2. Rozmowa z rodzicem: Po treningu poświęć 3–5 minut na krótką informację zwrotną dla rodzica – wskaż, co dziecku poszło dobrze i jak wygląda plan dalszych zajęć.\n3. Prosty proces zapisu: Przekaż rodzicowi bezpośredni link do formularza rejestracyjnego online lub gotowy pakiet startowy bez konieczności wypełniania papierowych dokumentów na kolanie.\n4. Szybki follow-up: Jeśli rodzic nie podjął decyzji od razu, skontaktuj się z nim w ciągu 48 godzin od treningu, aby zapytać o wrażenia i odpowiedzieć na ewentualne pytania."
+      ]
+    },
+    {
+      "heading": "Często zadawane pytania o nabór do klubu sportowego (FAQ)",
+      "paragraphs": [
+        "Kiedy najlepiej prowadzić nabór do klubu sportowego?\nNajwiększe zainteresowanie zajęciami przypada na wrzesień i październik (początek roku szkolnego) oraz styczeń i luty (postanowienia noworoczne i początek drugiego semestru). Warto jednak prowadzić rekrutację ciągłą przez cały rok, uzupełniając wolne miejsca w grupach na bieżąco.",
+        "Co zrobić, gdy rodzic po treningu próbnym nie odpowiada?\nBrak odpowiedzi nie zawsze oznacza rezygnację – rodzice często po prostu zapominają o formalnościach z powodu natłoku codziennych obowiązków. Wyślij krótką, uprzejmą wiadomość przypominającą z pytaniem, czy dziecko planuje dołączyć do drużyny i czy potrzebują dodatkowych informacji.",
+        "Czy warto organizować otwarte dni sportowe?\nTak, wydarzenia otwarte to doskonały sposób na promocję akademii sportowej. Pozwalają dzieciom przetestować różne dyscypliny bez zobowiązań, a rodzicom dają okazję do poznania kadry trenerskiej w nieoficjalnej atmosferze."
+      ]
+    },
+    {
+      "heading": "Podsumowanie: Uporządkuj proces naboru w swoim klubie",
+      "paragraphs": [
+        "Pozyskiwanie nowych zawodników nie musi być chaosem opartym na przypadkowych działaniach. Gdy połączysz przemyślaną promocję z błyskawicznym kontaktem i profesjonalnie przeprowadzonym treningiem próbnym, wzrost liczby członków klubu stanie się naturalnym efektem Twojej pracy.",
+        "Sprawna obsługa zgłoszeń i rejestracja zawodników wymagają jednak odpowiednich narzędzi, które odciążą trenerów od spraw papierkowych. Jeśli chcesz zautomatyzować zapisy, uporządkować bazę kontaktów i ułatwić komunikację z rodzicami, sprawdź rozwiązania oferowane przez EasyClub i zobacz, jak możemy wspierać rozwój Twojej akademii."
+      ]
+    }
+  ]
+},
 ];
 
 export function getBlogPost(slug: string) {
