@@ -513,6 +513,77 @@ export const blogPosts: BlogPost[] = [
     }
   ]
 },
+
+  {
+  "slug": "jak-reklamowac-klub-sportowy-na-facebooku-i-instagramie-poradnik-naboru",
+  "category": "Nabór i marketing",
+  "date": "1.09.2026",
+  "readTime": "4 min czytania",
+  "title": "Jak reklamować klub sportowy na Facebooku i Instagramie? Poradnik naboru",
+  "excerpt": "Skuteczna reklama klubu sportowego na Facebooku wymaga jasnego celu, prostego komunikatu oraz przemyślanego formularza do zbierania zgłoszeń naborowych.",
+  "accent": "lime",
+  "sections": [
+    {
+      "heading": "Od czego zacząć reklamę klubu sportowego na Facebooku i Instagramie?",
+      "paragraphs": [
+        "Skuteczna reklama klubu sportowego na Facebooku i Instagramie opiera się na trzech elementach: precyzyjnym kierowaniu lokalnym (np. promień 5–15 km od obiektu), prostym komunikacie skierowanym do rodziców lub dorosłych uczestników oraz czytelnym sposobie na pobranie danych kontaktowych. Zamiast publikować ogólne posty z hasłem „Zapraszamy na treningi”, wyznacz jasny cel biznesowy i marketingowy – pozyskanie kontaktu (leada) do osoby zainteresowanej zajęciami próbnymi.",
+        "System reklamowy Meta umożliwia dotarcie z przekazem dokładnie do tych osób, które mieszkają w Twoim mieście i szukają aktywności dla dzieci lub dla siebie. Najważniejsze jest uniknięcie skomplikowanego języka branżowego i natychmiastowe przedstawienie kluczowych faktów: dyscypliny, grupy wiekowej, dokładnej lokalizacji oraz daty lub formuły pierwszego bezpłatnego lub próbnego treningu."
+      ]
+    },
+    {
+      "heading": "Do kogo kierować reklamy na nabór zawodników i jak sformułować komunikat?",
+      "paragraphs": [
+        "Najczęstszym błędem w promocji szkółek dziecięcych jest kierowanie przekazu do najmłodszych. W rzeczywistości odbiorcami Twoich działań reklamowych są rodzice – zazwyczaj w wieku 25–45 lat. W przypadku sekcji dorosłych (np. amatorskie ligi piłkarskie, sekcje biegowe, studia treningowe) targetujesz bezpośrednio potencjalnych uczestników z okolicy.",
+        "Komunikat w reklamie powinien dawać natychmiastowe odpowiedzi na pytania, które nurtują osobę zapisującą się na zajęcia:",
+        "• Czy poziom jest dostosowany dla osób początkujących?",
+        "• W jakie dni i godziny odbywają się treningi?",
+        "• Gdzie dokładnie mieści się hala, boisko lub sala?",
+        "• Jak przygotować się na pierwsze zajęcia?",
+        "Stosuj jasne i bezposrednie wezwania do działania (CTA), takie jak: „Zapisz dziecko na trening próbny”, „Wypełnij krótki formularz” czy „Rezerwuj miejsce w grupie naborowej”."
+      ]
+    },
+    {
+      "heading": "Grafiki i wideo: Jak powinna wyglądać reklama akademii sportowej na Instagramie i FB?",
+      "paragraphs": [
+        "Zarówno Facebook, jak i Instagram to platformy wizualne, na których użytkownicy przeglądają treści bardzo szybko. Skuteczna reklama akademii sportowej na Instagramie bazuje na dynamicznych i autentycznych materiałach wideo (formaty Reels oraz Stories). Krótkie nagrania pokazujące zaangażowanie trenerów, radość uczestników oraz realne warunki treningowe budują znacznie większe zaufanie niż stockowe zdjęcia z bazy grafik.",
+        "Jeśli przygotowujesz grafikę statyczną, dbaj o jej czytelność na ekranie smartfona. Umieść na niej prosty napis określający wiek (np. „Nabór 2015–2018”), dyscyplinę, herb lub logo klubu oraz nazwę dzielnicy bądź miejscowości. Przeładowanie grafiki tekstem obniża jej czytelność i może ograniczyć zasięg kampanii."
+      ]
+    },
+    {
+      "heading": "Gdzie kierować ruch z reklam? Landing page, formularz i mierzenie leadów",
+      "paragraphs": [
+        "Sam klik w reklamę nie oznacza jeszcze nowego zawodnika w klubie. Kluczowe jest to, co dzieje się po kliknięciu. Promocja naboru do klubu przynosi najlepsze rezultaty, gdy ruch kierowany jest w jedno z dwóch miejsc:",
+        "1. Formularz błyskawiczny Meta (Instant Form) – pozwala użytkownikowi zostawić imię, numer telefonu i e-mail bez opuszczania aplikacji Facebooka czy Instagrama, co zmniejsza barierę wykonania akcji.",
+        "2. Dedykowana strona lądowania (landing page) – krótka strona z pełnym grafikiem, sylwetkami kadry trenerskiej, odpowiedziami na najczęstsze pytania oraz prosto skonfigurowanym formularzem zgłoszeniowym.",
+        "Pamiętaj o mierzeniu wyników. Śledź liczbę pozyskanych zgłoszeń kontaktowych, a nie tylko „polubienia” czy udostępnienia posta. Jeśli kierujesz ruch na własną stronę internetową, upewnij się, że masz poprawnie zaimplementowany Piksel Meta, który pozwala systemowi uczyć się, które osoby najchętniej wypełniają formularz."
+      ]
+    },
+    {
+      "heading": "Checklista: Jak krok po kroku przygotować reklamy na nabór zawodników?",
+      "paragraphs": [
+        "Przed uruchomieniem promocji przejdź przez poniższą listę kontrolną, aby upewnić się, że Twoja kampania jest gotowa do pozyskiwania zgłoszeń:",
+        "• [ ] Wyznaczenie grupy docelowej: Wybrane konkretne miasto/promień km oraz wiek odbiorców (np. rodzice 28–45 lat).",
+        "• [ ] Przygotowanie formatów: Materiały pionowe 9:16 do Relacji/Reels oraz kwadratowe 1:1 do Aktualności.",
+        "• [ ] Autentyczna kreacja: Realne zdjęcia lub krótkie wideo z treningów pokazujące pozytywną atmosferę.",
+        "• [ ] Prosty formularz: Zbieranie tylko niezbędnych danych (imię, numer telefonu, e-mail, wiek dziecka).",
+        "• [ ] Process obsługi zgłoszeń: Wyznaczona osoba w klubie odpowiedzialna za kontakt telefoniczny lub e-mailowy w ciągu 24–48 godzin.",
+        "• [ ] Analityka: Ustawione mierzenie zdarzeń przesyłania formularza w panelu reklamowym."
+      ]
+    },
+    {
+      "heading": "Najczęściej zadawane pytania i podsumowanie",
+      "paragraphs": [
+        "Czy reklama klubu sportowego na Facebooku wymaga dużego budżetu?",
+        "Nie musisz dysponować ogromnym budżetem, aby dotrzeć do lokalnej społeczności. Kampanie ukierunkowane na konkretne miasto lub dzielnicę można uruchomić z niewielkimi stawkami dziennymi. Najważniejsze jest testowanie różnych nagłówków i grafik oraz natychmiastowe reagowanie na spływające zgłoszenia.",
+        "Co jest lepsze na nabór: Facebook czy Instagram?",
+        "Obie platformy dobrze się uzupełniają. Facebook świetnie sprawdza się w docieraniu do rodziców i na grupach lokalnych, z kolei Instagram przyciąga młodszą grupę oraz osoby poszukujące atrakcyjnych materiałów wideo. Rekomendowanym podejściem jest emisja reklam w obu miejscach jednocześnie z poziomu jednego panelu Meta.",
+        "Jak szybko należy kontaktować się ze zgłoszeniami z reklamy?",
+        "Kluczem do wysokiej frekwencji na pierwszym treningu jest kontakt w ciągu 24–48 godzin od wypełnienia formularza przez rodzica lub zawodnika. Zbytnie odleczenie kontaktu sprawia, że odbiorca traci zainteresowanie lub wybiera inną ofertę.",
+        "Pozyskanie zgłoszenia z reklamy to dopiero początek drogi. Równie istotne jest sprawne zarządzanie bazą zapisanych osób, komunikacja z rodzicami oraz organizacja harmonogramu zajęć. Jeśli chcesz uporządkować codzienne zarządzanie klubem i automatyzować procesy organizacyjne, skontaktuj się z zespołem EasyClub. Pokażemy Ci, jak nasze narzędzie wspiera rozwój szkółek i sekcji sportowych."
+      ]
+    }
+  ]
+},
 ];
 
 export function getBlogPost(slug: string) {
