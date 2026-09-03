@@ -5,13 +5,13 @@ import { blogPosts } from "@/lib/blog";
 import { BlogFooter, BlogHeader } from "./blog-chrome";
 
 export const metadata: Metadata = {
-  title: "Blog — EasyClub",
-  description: "Praktyczne wskazówki dla klubów sportowych, trenerów i akademii.",
+  title: "Zarządzanie klubem sportowym — poradniki | EasyClub",
+  description: "Praktyczne poradniki o zarządzaniu klubem sportowym: treningi, obecności, składki, komunikacja i nabór zawodników.",
   robots: { index: true, follow: true },
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — EasyClub",
-    description: "Praktyczne wskazówki dla klubów sportowych, trenerów i akademii.",
+    title: "Zarządzanie klubem sportowym — poradniki | EasyClub",
+    description: "Praktyczne poradniki o zarządzaniu klubem sportowym: treningi, obecności, składki, komunikacja i nabór zawodników.",
     type: "website",
     url: "https://www.easyclub.pl/blog",
     images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "EasyClub" }],
@@ -30,7 +30,7 @@ export default function BlogPage() {
               "@type": "CollectionPage",
               name: "Blog EasyClub",
               url: "https://www.easyclub.pl/blog",
-              description: "Praktyczne wskazówki dla klubów sportowych, trenerów i akademii.",
+              description: "Praktyczne poradniki o zarządzaniu klubem sportowym: treningi, obecności, składki, komunikacja i nabór zawodników.",
               inLanguage: "pl-PL",
               isPartOf: {
                 "@type": "WebSite",
