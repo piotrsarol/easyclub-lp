@@ -584,6 +584,67 @@ export const blogPosts: BlogPost[] = [
     }
   ]
 },
+
+  {
+  "slug": "jak-zorganizowac-dzien-otwarty-w-akademii-sportowej-poradnik-krok-po-kroku",
+  "category": "Nabór i marketing",
+  "date": "3.09.2026",
+  "readTime": "3 min czytania",
+  "title": "Jak zorganizować dzień otwarty w akademii sportowej? Poradnik krok po kroku",
+  "excerpt": "Przepis na udany dzień otwarty w akademii sportowej: sprawdź checklistę promocji, organizacji zajęć i skutecznego domykania zapisów po wydarzeniu.",
+  "accent": "lime",
+  "sections": [
+    {
+      "heading": "Jak sprawnie zorganizować dzień otwarty w akademii sportowej?",
+      "paragraphs": [
+        "Skuteczny dzień otwarty w akademii sportowej wymaga połączenia trzech elementów: wczesnej promocji w lokalnej społeczności, prostego systemu zapisów online oraz dobrze zaplanowanego treningu, po którym rodzic dokładnie wie, jaki jest kolejny krok. Organizacja wydarzenia bez wcześniejszej rezerwacji miejsc często kończy się brakiem kontroli nad frekwencją lub brakiem danych kontaktowych do uczestników.",
+        "Przemyślany nabór przez dzień otwarty pozwala pokazać atmosferę klubu, profesjonalizm kadry trenerskiej oraz infrastrukturę. Zamiast liczyć na przypadek, warto ustrukturyzować cały proces od pierwszego ogłoszenia aż do wysłania wiadomości z propozycją dołączenia do grupy po zakończonych zajęciach."
+      ]
+    },
+    {
+      "heading": "Krok 1: Promocja dnia otwartego i przemyślane zapisy",
+      "paragraphs": [
+        "Skuteczna promocja dnia otwartego powinna wystartować na 2–3 tygodnie przed planowaną datą wydarzenia. Najlepiej sprawdzają się kanały lokalne, w których naturalnie przebywają rodzice: lokalne grupy w mediach społecznościowych, współpraca z okolicznymi szkołami i przedszkolami oraz plakaty na osiedlowych tablicach ogłoszeniowych.",
+        "Aby uniknąć chaosu na hali lub boisku, wprowadź obowiązkowe zapisy na konkretne godziny. Dzięki temu dopasujesz liczbę trenerów do grupy dzieci, a także pozyskasz bezcenne dane kontaktowe (imię dziecka, wiek, numer telefonu oraz adres e-mail rodzica).",
+        "Oto checklista przygotowania promocji i zapisów:",
+        "1. Ustalenie harmonogramu z podziałem na grupy wiekowe (np. 4–6 lat, 7–9 lat, 10–12 lat).",
+        "2. Przygotowanie formularza zapisów online z limitem miejsc na każdą grupę.",
+        "3. Publikacja wydarzenia w mediach społecznościowych oraz dystrybucja ulotek w zaprzyjaźnionych miejscach.",
+        "4. Wysyłka przypomnienia SMS/e-mail na 24 godziny przed wydarzeniem z dokładnym adresem i informacją, co zabrać (strój, woda, obowie na zmianę)."
+      ]
+    },
+    {
+      "heading": "Krok 2: Jak przeprowadzić atrakcyjny trening otwarty dla dzieci?",
+      "paragraphs": [
+        "Organizując trening otwarty dla dzieci, pamiętaj, że Twoim celem jest wywołanie uśmiechu u młodych sportowców oraz budowanie zaufania u ich rodziców. Zajęcia powinny trwać od 45 do 60 minut i opierać się na grach i zabawach ruchowych dostosowanych do poziomu rozwoju danej grupy.",
+        "Zadbaj o jasny podział ról w sztabie. Jeden trener prowadzi zajęcia główne, drugi asystuje i dba o bezpieczeństwo, a koordynator akademii lub menedżer w tym samym czasie rozmawia z rodzicami na brzegu boiska. To idealny moment na przedstawienie filozofii klubu, grafiku treningów oraz odpowiedzenie na pierwsze pytania.",
+        "Kluczowym elementem końcowym jest wręczenie każdemu dziecku małego upominku (np. pamiątkowego dyplomu lub naklejki) oraz bezpośrednie zaproszenie rodziców do wykonania kolejnego kroku – zarezerwowania miejsca na bezpłatny tydzień próbny lub podpisania umowy rekrutacyjnej."
+      ]
+    },
+    {
+      "heading": "Krok 3: Kontakt po wydarzeniu i domknięcie rekrutacji",
+      "paragraphs": [
+        "Sam trening to dopiero połowa sukcesu. Najczęstszym błędem jest brak szybkiej komunikacji po zakończonym evencie. Wiadomość podsumowująca powinna trafić do rodziców w ciągu maksymalnie 24 godzin od zakończenia dnia otwartego.",
+        "W wyślij podziękowanie za obecność, dołącz krótką fotorelację lub link do zamkniętej galerii oraz podaj jasną instrukcję, jak oficjalnie dołączyć do akademii. Określ jednoznaczny termin ważności oferty promocyjnej (np. 'Zapisz dziecko do wtorku, aby otrzymać darmowy koszyk klubowy'). Jasny kolejny krok zdejmuje z rodzica wątpliwości i przyspiesza decyzję o zapisie."
+      ]
+    },
+    {
+      "heading": "Najczęściej zadawane pytania (FAQ)",
+      "paragraphs": [
+        "Pytanie: Czy dzień otwarty w akademii sportowej powinien być całkowicie darmowy?\nOdpowiedź: Tak, bezpłatny wstęp obniża barierę wejścia i zachęca niezdecydowanych rodziców do przybycia. Zyskujesz okazję na zaprezentowanie korzyści akademii na żywo.",
+        "Pytanie: Co zrobić, jeśli na dzień otwarty zapisze się mniej osób niż zakładano?\nOdpowiedź: Nie odwołuj wydarzenia. Przeprowadź kameralne zajęcia z pełnym zaangażowaniem. Rodzice obecnych dzieci docenią indywidualne podejście, co często przekłada się na rekomendacje pocztą pantoflową.",
+        "Pytanie: Jak poradzić sobie z dużą liczbą chętnych w jednym czasie?\nOdpowiedź: Wprowadź ścisłe limity w formularzu rejestracyjnym. Jeśli grupy szybko się zapełnią, utwórz listę rezerwową lub od razu zaplanuj drugi termin wydarzenia."
+      ]
+    },
+    {
+      "heading": "Podsumowanie: Zorganizuj dzień otwarty bez chaosu organizacyjnego",
+      "paragraphs": [
+        "Przemyślany dzień otwarty w akademii sportowej to sprawdzona dźwignia do budowania frekwencji w nowych grupach treningowych. Przeprowadzenie sprawnej promocji, zebranie formularzy zgłoszeniowych i zadbanie o kontakt po wydarzeniu decydują o tym, ile dzieci zostanie w Twoim klubie na stałe.",
+        "Chcesz usprawnić zbieranie zapisów, automatyczną komunikację SMS z rodzicami oraz zarządzanie nowymi grupami? Sprawdź rozwiązania EasyClub i przekonaj się, jak ułatwić codzienną obsługę organizacji Twojej akademii."
+      ]
+    }
+  ]
+},
 ];
 
 export function getBlogPost(slug: string) {
