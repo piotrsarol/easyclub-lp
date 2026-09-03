@@ -100,7 +100,10 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
         </section>
         <div className="article-end">
           <span>To dopiero początek.</span>
-          <Link className="text-link" href="/pilot">Porozmawiajmy o Twoim klubie <span>↗</span></Link>
+          <div className="article-end-links">
+            <Link className="text-link" href="/nabor">Pokaż wolne miejsca <span>↗</span></Link>
+            <Link className="text-link" href="/pilot">Zobacz EasyClub w swoim klubie <span>↗</span></Link>
+          </div>
         </div>
       </article>
       <BlogFooter />

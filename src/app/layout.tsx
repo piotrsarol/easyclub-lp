@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.easyclub.pl"),
   title: "EasyClub — aplikacja do zarządzania klubem sportowym",
   description:
-    "EasyClub to aplikacja do zarządzania klubem sportowym: harmonogram, obecności, zawodnicy, składki, płatności i komunikacja z rodzicami w jednym miejscu.",
+    "EasyClub to aplikacja do zarządzania klubem sportowym: harmonogram, obecności, zawodnicy, składki, nabór i komunikacja z rodzicami w jednym miejscu.",
   openGraph: {
     title: "EasyClub — aplikacja do zarządzania klubem sportowym",
-    description: "System dla klubów sportowych, akademii i szkółek: organizacja zajęć, zawodników, płatności i komunikacji.",
+    description: "System dla klubów sportowych, akademii i szkółek: organizacja zajęć, zawodników, płatności, naboru i komunikacji.",
     type: "website",
     locale: "pl_PL",
     url: "https://www.easyclub.pl/",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "EasyClub — aplikacja do zarządzania klubem sportowym",
-    description: "System dla klubów sportowych, akademii i szkółek: organizacja zajęć, zawodników, płatności i komunikacji.",
+    description: "System dla klubów sportowych, akademii i szkółek: organizacja zajęć, zawodników, płatności, naboru i komunikacji.",
     images: ["/brand/og-image.png"],
   },
   icons: {
@@ -82,12 +82,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 url: "https://www.easyclub.pl",
                 image: "https://www.easyclub.pl/brand/icon-192.svg",
                 description:
-                  "Aplikacja do zarządzania klubem sportowym, akademią i szkółką. Łączy harmonogram, obecności, zawodników, składki, płatności i komunikację z rodzicami.",
+                  "Aplikacja do zarządzania klubem sportowym, akademią i szkółką. Łączy harmonogram, obecności, zawodników, składki, nabór, płatności i komunikację z rodzicami.",
                 featureList: [
                   "Harmonogram treningów",
                   "Obecności zawodników",
                   "Baza zawodników i grup",
                   "Składki i płatności",
+                  "Nabór nowych zawodników",
                   "Komunikacja z rodzicami",
                   "Aplikacja webowa na telefon",
                 ],
