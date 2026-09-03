@@ -1,5 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { requestGemini } from "./request-gemini.mjs";
 
 const apiKey = process.env.GEMINI_API_KEY;
 const model = process.env.GEMINI_MODEL || "gemini-3.6-flash";
@@ -170,26 +171,4 @@ function escapeForSearch(value) {
 
 function serialize(value, indent = 2) {
   return JSON.stringify(value, null, indent);
-}
-
-async function requestGemini(endpoint, request) {
-  const maxAttempts = 3;
-
-  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    const response = await fetch(endpoint, request);
-    if (response.ok) return response.json();
-
-    const responseBody = await response.text();
-    const canRetry = [429, 500, 502, 503, 504].includes(response.status);
-    if (!canRetry || attempt === maxAttempts) {
-      throw new Error(`Gemini API zwróciło ${response.status}: ${responseBody}`);
-    }
-
-    const retryAfter = Number(response.headers.get("retry-after"));
-    const delaySeconds = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter : 2 ** attempt;
-    console.warn(`Gemini API zwróciło ${response.status}. Ponowienie za ${delaySeconds}s.`);
-    await new Promise((resolve) => setTimeout(resolve, delaySeconds * 1000));
-  }
-
-  throw new Error("Nie udało się uzyskać odpowiedzi z Gemini API.");
 }

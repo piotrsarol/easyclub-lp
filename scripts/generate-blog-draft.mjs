@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { requestGemini } from "./request-gemini.mjs";
 
 const topic = process.env.TOPIC || process.argv[2];
 const category = process.env.CATEGORY || process.argv[3] || "Organizacja klubu";
@@ -49,7 +50,7 @@ Zwróć wyłącznie poprawny JSON w tym kształcie:
   ]
 }`;
 
-const response = await fetch(
+const data = await requestGemini(
   `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
   {
     method: "POST",
@@ -66,13 +67,6 @@ const response = await fetch(
     }),
   },
 );
-
-if (!response.ok) {
-  const details = await response.text();
-  throw new Error(`Gemini API zwróciło ${response.status}: ${details}`);
-}
-
-const data = await response.json();
 const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
 if (typeof text !== "string" || !text.trim()) {
   throw new Error("Gemini API nie zwróciło treści artykułu.");
